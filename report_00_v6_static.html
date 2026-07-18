@@ -251,14 +251,14 @@ console.log('P17 script loaded');
 </div>
 </div>
 
-<style>
-/* 终极覆盖 - 移除所有固定高度 */
-div.chart-container > canvas {
-    height: auto !important;
-    min-height: 100px !important;
-    display: block !important;
-}
-</style>
-
+<script>
+// 强制移除所有 canvas 的固定高度
+setTimeout(function() {
+    document.querySelectorAll('.chart-container canvas').forEach(function(c) {
+        c.style.height = 'auto';
+        c.style.minHeight = '100px';
+    });
+}, 100);
+</script>
 </body>
 </html>
