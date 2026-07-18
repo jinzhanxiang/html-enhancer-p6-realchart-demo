@@ -199,6 +199,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 console.log('P17 script loaded');
         
+        // 删除 ascii-matrix 容器内的 canvas
+        document.querySelectorAll('.chart-container[data-chart-type="ascii-matrix"] canvas').forEach(function(c) {
+            c.remove();
+        });
+        
         // Chart.js 渲染后，强制删除 height
         setTimeout(function() {
             document.querySelectorAll('.chart-container canvas').forEach(function(c) {
