@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>P6 LLM 增强版 V6 · 汇天IDC真实样本</title>
+<style>
+body { font-family: "PingFang SC", "Microsoft YaHei", serif; max-width: 920px; margin: 40px auto; padding: 24px; color: #1a365d; background: #f0f6ff; }
+h1 { font-size: 26px; }
+.tag { display: inline-block; padding: 4px 12px; background: #1a365d; color: white; border-radius: 4px; font-size: 13px; margin-right: 8px; margin-bottom: 4px; }
+.card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+th, td { padding: 8px 12px; border: 1px solid #cbd5e0; text-align: left; font-size: 13px; }
+th { background: #e2e8f0; }
+a { color: #1a365d; font-weight: bold; }
+.banner { background: linear-gradient(135deg, #1a365d, #3182ce); color: white; padding: 16px; border-radius: 8px; margin-bottom: 16px; }
+.banner h1, .banner p { color: white; margin: 0; }
+</style>
+</head>
+<body>
+<div class="banner">
+<h1>📊 P6 · LLM 增强版 V6 · 真实样本（汇天IDC 97KB）</h1>
+<p style="margin-top: 8px;">决策树形态 · mermaid 自动生成 · 表格折叠 · deep TOC</p>
+</div>
+
+<div>
+<span class="tag">LLM V6</span>
+<span class="tag">229 章节</span>
+<span class="tag">119 表格折叠</span>
+<span class="tag">210 TOC 条目</span>
+<span class="tag">2 Mermaid 流程图</span>
+<span class="tag">148 KB</span>
+</div>
+
+<div class="card">
+<h2>主线报告</h2>
+<p>汇天IDC v5.3 · 三网节点 + REITs + 34% 并表 · 市场化决策报告 · LLM 增强</p>
+<p><a href="report_00.html">→ 打开报告（含 mermaid + 折叠表格）</a></p>
+</div>
+
+<div class="card">
+<h2>LLM 增强决策依据（完全透明）</h2>
+<table>
+<tr><th>输入特征</th><th>决策</th><th>依据</th></tr>
+<tr><td>H2 = 53 (> 50)</td><td>toc_depth = 3 + toc_position = floating</td><td>章节 > 50 触发</td></tr>
+<tr><td>表格 ≈ 119 (> 20)</td><td>table_collapse = true</td><td>表格 > 20 强制折叠</td></tr>
+<tr><td>报告类型 = financial+commercial+legal</td><td>color_scheme = blue</td><td>公文规范</td></tr>
+<tr><td>含财务数据 + 多种类型</td><td>priority_sections = 4 项</td><td>财务+商业+法律各取代表章节</td></tr>
+<tr><td>含"时间/进度/阶段"</td><td>add_timeline = true</td><td>适合横向时间线</td></tr>
+<tr><td>财务/法律研报</td><td>conclusion_style = callout</td><td>风险提示醒目</td></tr>
+<tr><td>多类型混合</td><td>add_mermaid = true</td><td>自动生成决策流程图</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>📊 三套版本对比（V14.0 / V5 小样本 / V6 大样本）</h2>
+<table>
+<tr><th>维度</th><th>P3 旧版 (V14.0)</th><th>P5 中版 (LLM · 启源芯)</th><th>P6 新版 (LLM · 汇天IDC)</th></tr>
+<tr><td>样本大小</td><td>约 8 KB</td><td>约 8 KB</td><td><b>97 KB</b></td></tr>
+<tr><td>输出 HTML 大小</td><td>35.1 KB</td><td>17.3 KB</td><td><b>148 KB</b></td></tr>
+<tr><td>TOC 深度</td><td>无配置</td><td>toc_depth=3</td><td><b>toc_depth=3</b></td></tr>
+<tr><td>TOC 条目数</td><td>0</td><td>~20</td><td><b>210</b></td></tr>
+<tr><td>折叠表格</td><td>0</td><td>含</td><td><b>119</b></td></tr>
+<tr><td>Mermaid 流程图</td><td>0</td><td>0</td><td><b>2</b>（决策路径 + 司法风险）</td></tr>
+<tr><td>LLM 配置应用</td><td>0/6</td><td>6/7</td><td><b>9/9</b></td></tr>
+<tr><td>决策依据可见</td><td>❌ 隐藏</td><td>✅ 表格</td><td><b>✅ 表格</b></td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>三份 URL 对比（双仓库不污染）</h2>
+<table>
+<tr><th>版本</th><th>仓库</th><th>URL</th></tr>
+<tr><td>P3 旧版</td><td>html-enhancer-p3-demo</td><td><a href="https://jinzhanxiang.github.io/html-enhancer-p3-demo/" target="_blank">📊 V14.0 时代</a></td></tr>
+<tr><td>P5 中版</td><td>html-enhancer-p4-llm-demo</td><td><a href="https://jinzhanxiang.github.io/html-enhancer-p4-llm-demo/" target="_blank">🧠 LLM · 小样本 8KB</a></td></tr>
+<tr><td>P6 新版</td><td>html-enhancer-p6-realchart-demo</td><td><a href="https://jinzhanxiang.github.io/html-enhancer-p6-realchart-demo/" target="_blank">📊 LLM · 大样本 97KB</a></td></tr>
+</table>
+<p style="background: #fef3c7; padding: 12px; border-radius: 4px; border-left: 4px solid #f59e0b;">
+<b>⚠️ P3 troubleshooting</b>: 主公反馈旧链接打不开？详见 <a href="P3_TROUBLESHOOTING.md">P3_TROUBLESHOOTING.md</a>（缓存清理 + DNS 刷新 4 步）
+</p>
+</div>
+
+</body>
+</html>
