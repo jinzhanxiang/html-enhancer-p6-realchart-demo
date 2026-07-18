@@ -12,10 +12,9 @@
         .sidebar-links a { display: block; padding: 8px 12px; color: #4a5568; text-decoration: none; border-radius: 4px; margin-bottom: 4px; }
         .sidebar-links a:hover { background: #edf2f7; }
         .main { margin-left: 240px; padding: 24px; max-width: 900px; }
-        .chart-container { margin: 24px 0; padding: 16px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
+        .chart-container { margin: 16px 0; padding: 16px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; min-height: 320px; }
         .chart-title { font-size: 16px; font-weight: bold; color: #1a365d; margin-bottom: 12px; }
-        .chart-figure { margin: 16px 0; }
-        .ascii-matrix { font-family: monospace; font-size: 12px; line-height: 1.2; white-space: pre; background: #f7fafc; padding: 12px; border-radius: 4px; overflow-x: auto; }
+        .ascii-matrix { font-family: monospace; font-size: 11px; line-height: 1.1; white-space: pre; background: #f7fafc; padding: 12px; border-radius: 4px; overflow-x: auto; }
     </style>
 </head>
 <body>
@@ -38,273 +37,216 @@
         <p>本报告为P17测试版本，包含多种可视化图表渲染测试。</p>
         
         <h2 id="第1章">第1章 项目概述</h2>
-        <p>汇天IDC项目是一个大型数据中心投资标的，项目总投资约50亿元。</p>
-        
-        <h2 id="第2章">第2章 市场分析</h2>
-        <p>国内IDC市场年增长率约15%，市场空间广阔。</p>
+        <p>汇天IDC项目是一个大型数据中心投资标的。</p>
         
         <!-- Chart 1: 柱状图 -->
-        <div class="chart-container" id="chart-1">
+        <div class="chart-container">
             <div class="chart-title">📊 市场规模预测（亿元）</div>
-            <canvas id="canvas-1" width="800" height="300"></canvas>
+            <canvas id="canvas-bar" width="800" height="300"></canvas>
+        </div>
+        
+        <h2 id="第2章">第2章 市场分析</h2>
+        <p>国内IDC市场年增长率约15%。</p>
+        
+        <!-- Chart 2: 饼图 -->
+        <div class="chart-container">
+            <div class="chart-title">📊 市场份额分布</div>
+            <canvas id="canvas-pie" width="600" height="300"></canvas>
         </div>
         
         <h2 id="第3章">第3章 竞争格局</h2>
-        <p>主要竞争对手包括阿里云、腾讯云、华为云等头部厂商。</p>
+        <p>主要竞争对手包括阿里云、腾讯云等。</p>
         
-        <!-- Chart 2: 饼图 -->
-        <div class="chart-container" id="chart-2">
-            <div class="chart-title">📊 市场份额分布</div>
-            <canvas id="canvas-2" width="600" height="300"></canvas>
+        <!-- Chart 3: 折线图 -->
+        <div class="chart-container">
+            <div class="chart-title">📊 营收预测（亿元）</div>
+            <canvas id="canvas-line" width="800" height="300"></canvas>
         </div>
         
         <h2 id="第4章">第4章 财务数据</h2>
-        <p>项目预计年营收可达8亿元，净利润约2亿元。</p>
+        <p>项目预计年营收可达8亿元。</p>
         
-        <!-- Chart 3: 折线图 -->
-        <div class="chart-container" id="chart-3">
-            <div class="chart-title">📊 营收预测（亿元）</div>
-            <canvas id="canvas-3" width="800" height="300"></canvas>
+        <!-- Chart 4: 雷达图 -->
+        <div class="chart-container">
+            <div class="chart-title">📊 投资评分</div>
+            <canvas id="canvas-radar" width="500" height="400"></canvas>
         </div>
         
         <h2 id="第5章">第5章 投资方案</h2>
-        <p>建议投资金额10亿元，占股20%。</p>
+        <p>建议投资金额10亿元。</p>
         
-        <!-- Chart 4: 雷达图 -->
-        <div class="chart-container" id="chart-4">
-            <div class="chart-title">📊 投资评分</div>
-            <canvas id="canvas-4" width="500" height="400"></canvas>
+        <!-- Chart 5: 堆叠图 -->
+        <div class="chart-container">
+            <div class="chart-title">📊 风险评估矩阵</div>
+            <canvas id="canvas-stack" width="800" height="300"></canvas>
         </div>
         
         <h2 id="第6章">第6章 风险分析</h2>
-        <p>主要风险包括政策风险、市场风险、技术风险等。</p>
+        <p>主要风险包括政策风险、市场风险。</p>
         
-        <!-- Chart 5: 堆叠柱状图 -->
-        <div class="chart-container" id="chart-5">
-            <div class="chart-title">📊 风险评估矩阵</div>
-            <canvas id="canvas-5" width="800" height="300"></canvas>
+        <!-- Chart 6: 条形图 -->
+        <div class="chart-container">
+            <div class="chart-title">📊 退出收益预测</div>
+            <canvas id="canvas-hbar" width="600" height="300"></canvas>
         </div>
         
         <h2 id="第7章">第7章 退出方案</h2>
         <p>预计5年内可通过IPO或并购退出。</p>
         
-        <!-- Chart 6: 条形图 -->
-        <div class="chart-container" id="chart-6">
-            <div class="chart-title">📊 退出收益预测</div>
-            <canvas id="canvas-6" width="600" height="300"></canvas>
+        <!-- ASCII Matrix -->
+        <div class="chart-container" data-chart-type="ascii-matrix">
+            <div class="chart-title">📊 司法风险对标矩阵</div>
+            <pre class="ascii-matrix">┌─────────┬──────┬──────┬──────┬──────┐
+│  公司   │民事案│行政案│刑事案│执行案│
+├─────────┼──────┼──────┼──────┼──────┤
+│ 汇天IDC │  3   │  1   │  0   │  2   │
+│  对标A  │  5   │  2   │  1   │  3   │
+│  对标B  │  2   │  0   │  0   │  1   │
+└─────────┴──────┴──────┴──────┴──────┘</pre>
         </div>
         
         <h2 id="第8章">第8章 司法风险市场化对标</h2>
+        <p></p>
         
-        <!-- ASCII Matrix (P0目标) -->
-        <div class="chart-container" id="chart-7" data-chart-type="ascii-matrix">
-            <div class="chart-title">📊 司法风险对标矩阵</div>
-            <pre class="ascii-matrix" style="font-family:monospace;font-size:11px;line-height:1.1;">
-┌─────────┬──────────┬──────────┬──────────┬──────────┐
-│  公司   │  民事案  │  行政案  │  刑事案  │  执行案  │
-├─────────┼──────────┼──────────┼──────────┼──────────┤
-│ 汇天IDC │    3     │    1     │    0     │    2     │
-│  对标A  │    5     │    2     │    1     │    3     │
-│  对标B  │    2     │    0     │    0     │    1     │
-│  对标C  │    8     │    3     │    1     │    5     │
-└─────────┴──────────┴──────────┴──────────┴──────────┘
-            </pre>
-        </div>
-        
-        <!-- Mermaid 流程图 (P1目标) -->
-        <div class="chart-container" id="chart-8">
+        <!-- Mermaid 1 -->
+        <div class="chart-container">
             <div class="chart-title">🔄 投资决策流程</div>
             <div class="mermaid">
             graph LR
                 A[项目筛选] --> B{尽调}
                 B -->|通过| C[投资决策]
                 B -->|拒绝| D[终止]
-                C --> E[签署协议]
-                E --> F[投后管理]
             </div>
         </div>
         
-        <div class="chart-container" id="chart-9">
+        <!-- Mermaid 2 -->
+        <div class="chart-container">
             <div class="chart-title">🔄 退出流程</div>
             <div class="mermaid">
             graph TD
                 A[持有监控] --> B{退出时机}
                 B -->|IPO| C[上市退出]
                 B -->|并购| D[并购退出]
-                B -->|回购| E[回购退出]
             </div>
         </div>
     </div>
     
-    <!-- 引入 Chart.js -->
+    <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     
-    <!-- 引入 Mermaid -->
+    <!-- Mermaid CDN -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
     
-    <!-- P16Charts 核心渲染逻辑 (P0: 必须暴露到 window) -->
+    <!-- P16Charts - 关键: 显式暴露到 window -->
     <script>
-    // P0 核心：必须把 P16Charts 显式暴露到 window
-    window.P16Charts = (function() {
-        var charts = [];
-        
-        function renderAll() {
-            console.log('P16Charts.renderAll() 被调用');
+    // P0 核心: 显式赋值到 window.P16Charts
+    window.P16Charts = {
+        renderAll: function() {
+            console.log('P16Charts.renderAll called');
             
             // Chart 1: 柱状图
-            var ctx1 = document.getElementById('canvas-1');
-            if (ctx1) {
+            var ctx1 = document.getElementById('canvas-bar');
+            if (ctx1 && typeof Chart !== 'undefined') {
                 new Chart(ctx1, {
                     type: 'bar',
                     data: {
                         labels: ['2024', '2025', '2026', '2027', '2028'],
-                        datasets: [{
-                            label: '市场规模',
-                            data: [800, 920, 1058, 1217, 1400],
-                            backgroundColor: 'rgba(54, 162, 235, 0.7)'
-                        }]
+                        datasets: [{ label: '市场规模', data: [800, 920, 1058, 1217, 1400], backgroundColor: 'rgba(54, 162, 235, 0.7)' }]
                     },
-                    options: { responsive: true, plugins: { legend: { display: false } } }
+                    options: { responsive: true, maintainAspectRatio: false }
                 });
             }
             
             // Chart 2: 饼图
-            var ctx2 = document.getElementById('canvas-2');
-            if (ctx2) {
+            var ctx2 = document.getElementById('canvas-pie');
+            if (ctx2 && typeof Chart !== 'undefined') {
                 new Chart(ctx2, {
                     type: 'pie',
                     data: {
                         labels: ['阿里云', '腾讯云', '华为云', '其他'],
-                        datasets: [{
-                            data: [40, 25, 20, 15],
-                            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#C9CBCF']
-                        }]
+                        datasets: [{ data: [40, 25, 20, 15], backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#C9CBCF'] }]
                     },
-                    options: { responsive: true }
+                    options: { responsive: true, maintainAspectRatio: false }
                 });
             }
             
             // Chart 3: 折线图
-            var ctx3 = document.getElementById('canvas-3');
-            if (ctx3) {
+            var ctx3 = document.getElementById('canvas-line');
+            if (ctx3 && typeof Chart !== 'undefined') {
                 new Chart(ctx3, {
                     type: 'line',
                     data: {
                         labels: ['2024', '2025', '2026', '2027', '2028'],
-                        datasets: [{
-                            label: '营收',
-                            data: [5, 6.5, 8, 10, 12],
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            fill: false,
-                            tension: 0.4
-                        }]
+                        datasets: [{ label: '营收', data: [5, 6.5, 8, 10, 12], borderColor: 'rgba(75, 192, 192, 1)', fill: false, tension: 0.4 }]
                     },
-                    options: { responsive: true }
+                    options: { responsive: true, maintainAspectRatio: false }
                 });
             }
             
             // Chart 4: 雷达图
-            var ctx4 = document.getElementById('canvas-4');
-            if (ctx4) {
+            var ctx4 = document.getElementById('canvas-radar');
+            if (ctx4 && typeof Chart !== 'undefined') {
                 new Chart(ctx4, {
                     type: 'radar',
                     data: {
                         labels: ['市场', '技术', '团队', '财务', '风险'],
-                        datasets: [{
-                            label: '评分',
-                            data: [85, 90, 80, 75, 70],
-                            backgroundColor: 'rgba(153, 102, 255, 0.3)'
-                        }]
+                        datasets: [{ label: '评分', data: [85, 90, 80, 75, 70], backgroundColor: 'rgba(153, 102, 255, 0.3)' }]
                     },
-                    options: { responsive: true }
+                    options: { responsive: true, maintainAspectRatio: false }
                 });
             }
             
             // Chart 5: 堆叠柱状图
-            var ctx5 = document.getElementById('canvas-5');
-            if (ctx5) {
+            var ctx5 = document.getElementById('canvas-stack');
+            if (ctx5 && typeof Chart !== 'undefined') {
                 new Chart(ctx5, {
                     type: 'bar',
                     data: {
                         labels: ['低风险', '中风险', '高风险'],
-                        datasets: [{
-                            label: '政策风险',
-                            data: [30, 20, 10],
-                            backgroundColor: 'rgba(255, 99, 132, 0.7)'
-                        }, {
-                            label: '市场风险',
-                            data: [20, 30, 20],
-                            backgroundColor: 'rgba(54, 162, 235, 0.7)'
-                        }]
+                        datasets: [
+                            { label: '政策风险', data: [30, 20, 10], backgroundColor: 'rgba(255, 99, 132, 0.7)' },
+                            { label: '市场风险', data: [20, 30, 20], backgroundColor: 'rgba(54, 162, 235, 0.7)' }
+                        ]
                     },
-                    options: { 
-                        responsive: true,
-                        plugins: { legend: { position: 'top' } },
-                        scales: { x: { stacked: true }, y: { stacked: true } }
-                    }
+                    options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } }
                 });
             }
             
             // Chart 6: 条形图
-            var ctx6 = document.getElementById('canvas-6');
-            if (ctx6) {
+            var ctx6 = document.getElementById('canvas-hbar');
+            if (ctx6 && typeof Chart !== 'undefined') {
                 new Chart(ctx6, {
                     type: 'bar',
                     data: {
                         labels: ['IPO退出', '并购退出', '回购退出'],
-                        datasets: [{
-                            label: '预期收益倍数',
-                            data: [3.5, 2.8, 1.5],
-                            backgroundColor: 'rgba(255, 206, 86, 0.7)'
-                        }]
+                        datasets: [{ label: '预期收益倍数', data: [3.5, 2.8, 1.5], backgroundColor: 'rgba(255, 206, 86, 0.7)' }]
                     },
-                    options: { 
-                        indexAxis: 'y',
-                        responsive: true
-                    }
+                    options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y' }
                 });
             }
             
-            // 收集所有 canvas
-            var cans = document.querySelectorAll('canvas');
-            console.log('canvas 元素数量:', cans.length);
-            
-            return cans.length;
+            console.log('Charts rendered, canvas count:', document.querySelectorAll('canvas').length);
         }
-        
-        return {
-            renderAll: renderAll,
-            getChartCount: function() { return charts.length; }
-        };
-    })();
+    };
     
-    // 初始化 Mermaid
+    // DOMContentLoaded 初始化
     document.addEventListener('DOMContentLoaded', function() {
-        console.log('DOMContentLoaded triggered');
+        console.log('DOMContentLoaded');
         
         // 初始化 Mermaid
         if (typeof mermaid !== 'undefined') {
             mermaid.initialize({ startOnLoad: false });
-            mermaid.run({
-                querySelector: '.mermaid'
-            }).then(function() {
-                console.log('Mermaid rendered');
-            }).catch(function(err) {
-                console.error('Mermaid error:', err);
-            });
+            mermaid.run({ querySelector: '.mermaid' }).then(function() { console.log('Mermaid done'); });
         }
         
-        // 渲染 Chart.js 图表
-        if (typeof window.P16Charts !== 'undefined') {
-            var count = window.P16Charts.renderAll();
-            console.log('Charts rendered:', count);
-        } else {
-            console.error('window.P16Charts is not defined!');
-        }
-        
-        // 验证 ascii-matrix 存在
-        var ascii = document.querySelectorAll('.ascii-matrix');
-        console.log('ASCII matrix elements:', ascii.length);
+        // 调用 P16Charts 渲染
+        setTimeout(function() {
+            if (typeof window.P16Charts !== 'undefined') {
+                window.P16Charts.renderAll();
+            } else {
+                console.error('window.P16Charts 未定义');
+            }
+        }, 500);
     });
     </script>
 </body>
