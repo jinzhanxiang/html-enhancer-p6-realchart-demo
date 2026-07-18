@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>汇天IDC_v6 · P17测试版</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+<style>
+body{font-family:"FangSong","仿宋",serif;font-size:18px;line-height:1.9;margin:0 40px;padding:0;background:#fff;color:#1e40af}
+body.scheme-blue{background:#f0f6ff;color:#1a365d}
+h1{border-bottom:3px solid #D4AF37;padding-bottom:8px;margin-top:32px;font-size:28px}
+h2{color:#1a365d;font-size:22px;margin-top:32px;border-left:4px solid #1e40af;padding-left:12px}
+h3{color:#2c5282;font-size:18px;margin-top:24px}
+.toc-list{list-style:none;padding-left:0}
+.toc-item{margin:8px 0}
+.toc-item a{color:#4a5568;text-decoration:none}
+.toc-item a:hover{color:#1e40af}
+.sidebar{position:fixed;left:0;top:0;width:220px;height:100vh;background:#f8f9fa;border-right:1px solid #e9ecef;z-index:999;overflow-y:auto;padding:16px 0}
+.sidebar-title{font-size:16px;font-weight:bold;padding:0 16px 12px;border-bottom:1px solid #e9ecef;margin-bottom:12px}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{display:block;padding:8px 16px;color:#495057;text-decoration:none;font-size:14px}
+.sidebar a:hover{background:#e9ecef;color:#1e40af}
+.chart-container{margin:24px 0;padding:20px;background:#fff;border-radius:8px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+.chart-title{font-size:16px;font-weight:bold;color:#1a365d;margin-bottom:12px}
+.chart-container canvas{width:100%!important;height:300px!important;max-width:600px}
+.ascii-matrix{font-family:SF Mono,Consolas,monospace;background:#f8f9fa;padding:16px;border-radius:8px;overflow-x:auto;font-size:13px;white-space:pre}
+pre{margin:0;padding:0}
+.callout{padding:16px;background:#ebf8ff;border-left:4px solid #4299e1;margin:16px 0;border-radius:0 8px 8px 0}
+.callout-title{font-weight:bold;color:#2b6cb0;margin-bottom:8px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
+th,td{border:1px solid #e2e8f0;padding:10px;text-align:left}
+th{background:#f7fafc;font-weight:bold}
+body{margin-left:220px}
+</style>
+
+<style>
+/* P17 修复: chart-container 高度自适应 */
+.chart-container {
+    margin: 24px 0;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    min-height: auto !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+}
+.chart-container .chart-title {
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+.chart-container canvas,
+.chart-container pre,
+.chart-container .ascii-matrix {
+    width: 100% !important;
+    max-width: 600px !important;
+    height: auto !important;
+    flex-shrink: 0;
+}
+</style>
+
+</head>
+<body class="scheme-blue">
+<!-- 左侧目录 -->
+<aside class="sidebar">
+<div class="sidebar-title">📚 目录</div>
+<ul>
+<li><a href="#主体122章核心论证结论">主体(1-22章)</a></li>
+<li><a href="#第1章汇天网络基本盘双源验证三源实测">§1 汇天基本盘</a></li>
+<li><a href="#第3章REITs估值锚定">§3 REITs估值</a></li>
+<li><a href="#第8章司法风险市场化对标">§8 司法风险</a></li>
+<li><a href="#第12章三锚估值自主裁决">§12 三锚估值</a></li>
+<li><a href="#第20章5模块决策摘要">§20 决策摘要</a></li>
+</ul>
+</aside>
+
+<h1 id="主体122章核心论证结论">主体1-22章核心论证结论</h1>
+
+<!-- Chart 1: 报告结构 -->
+<div class="chart-container" data-chart-type="chartjs-bar" data-chart-data='{"labels":["核心论证1-22章","附录A-J","附录K-T","扩展论证"],"values":[22,10,16,10],"note":"各部分章节数"}'>
+<div class="chart-title">📊 报告结构总览</div>
+<canvas></canvas>
+</div>
+
+<h2 id="第1章汇天网络基本盘双源验证三源实测">第1章 汇天网络基本盘（双源验证，三源实测）</h2>
+<div class="callout">
+<div class="callout-title">💡 核心结论</div>
+<div>汇天网络IDC业务已形成规模化布局，客户结构稳定，核心资产估值合理。</div>
+</div>
+
+<!-- Chart 2: 客户结构 -->
+<div class="chart-container" data-chart-type="chartjs-pie" data-chart-data='{"labels":["京东","华为","中信银行","运营商","其他"],"values":[42.59,25.9,10.94,8,12.57],"note":"客户占比%"}'>
+<div class="chart-title">📊 客户结构</div>
+<canvas></canvas>
+</div>
+
+<h2 id="第3章REITs估值锚定">第3章 REITs估值锚定</h2>
+<div class="callout">
+<div class="callout-title">💡 估值结论</div>
+<div>采用EV/EBITDA法、分派率法、可比公司法三锚估值，目标估值区间42-46亿元。</div>
+</div>
+
+<!-- Chart 3: 估值雷达 -->
+<div class="chart-container" data-chart-type="chartjs-radar" data-chart-data='{"labels":["EV/EBITDA","分派率","资产规模","客户集中度","上架率"],"values":[16,4.5,42,79,63],"note":"估值指标"}'>
+<div class="chart-title">📊 REITs估值锚定</div>
+<canvas></canvas>
+</div>
+
+<h2 id="第8章司法风险市场化对标">第8章 司法风险市场化对标</h2>
+
+<!-- Chart 4: ASCII Matrix 司法风险 -->
+<div class="chart-container" data-chart-type="ascii-matrix" data-chart-data='{"matrix":[["风险类型","汇天","润泽","万国"],["诉讼案件","959件","120件","45件"],["行政处罚","4条","2条","1条"],["限消令","待核","0条","0条"],["被执行人","3例","1例","0例"]]}'>
+<div class="chart-title">📊 司法风险对标矩阵</div>
+<canvas></canvas>
+</div>
+
+<h2 id="第12章三锚估值自主裁决">第12章 三锚估值（自主裁决）</h2>
+
+<!-- Chart 5: 三锚估值 -->
+<div class="chart-container" data-chart-type="chartjs-bar" data-chart-data='{"labels":["EV/EBITDA锚","分派率锚","可比对标","最终推荐"],"values":[45,46,44,42],"note":"估值 亿元"}'>
+<div class="chart-title">📊 三锚估值对比(亿元)</div>
+<canvas></canvas>
+</div>
+
+<h2 id="第20章5模块决策摘要">第20章 5模块决策摘要</h2>
+
+<!-- Chart 6: 综合评分雷达 -->
+<div class="chart-container" data-chart-type="chartjs-radar" data-chart-data='{"labels":["资源稀缺度","估值合理性","并表可行性","司法风险","客户质量","退出路径"],"values":[78,85,80,70,90,75],"note":"综合评分"}'>
+<div class="chart-title">📊 综合评分 75/100</div>
+<canvas></canvas>
+</div>
+
+<!-- Mermaid 流程图示例 -->
+<h2 id="第15章投资路径">第15章 投资路径</h2>
+<div class="mermaid">
+flowchart LR
+    A[初筛] --> B[尽调]
+    B --> C[上会]
+    C --> D[投决]
+    D --> E[交割]
+</div>
+
+<!-- 简洁的渲染脚本 - 放在最后确保执行 -->
+<script>
+// P17 最简渲染脚本 - 绝对简单，没有 IIFE，直接执行
+function renderCharts() {
+    console.log('P17 renderCharts start');
+    document.querySelectorAll('.chart-container').forEach(function(div) {
+        var type = div.getAttribute('data-chart-type');
+        var dataStr = div.getAttribute('data-chart-data');
+        if (!type || !dataStr) return;
+        
+        var canvas = div.querySelector('canvas');
+        if (!canvas) return;
+        if (canvas.rendered) return;
+        canvas.rendered = true;
+        
+        try {
+            var data = JSON.parse(dataStr);
+            
+            // ascii-matrix 处理
+            if (type === 'ascii-matrix') {
+                var m = data.matrix || [];
+                var pre = document.createElement('pre');
+                pre.className = 'ascii-matrix';
+                var maxLens = [];
+                m.forEach(function(r){r.forEach(function(c,i){maxLens[i]=Math.max(maxLens[i]||0,String(c).length);});});
+                var lines = [];
+                if(m.length>0){
+                    lines.push('┌'+maxLens.map(function(l){return'─'.repeat(l+2);}).join('┬')+'┐');
+                    lines.push('│'+m[0].map(function(c,i){return' '+String(c).padEnd(maxLens[i])+' ';}).join('│')+'│');
+                    lines.push('├'+maxLens.map(function(l){return'─'.repeat(l+2);}).join('┼')+'┤');
+                    for(var j=1;j<m.length;j++) lines.push('│'+m[j].map(function(c,i){return' '+String(c).padEnd(maxLens[i])+' ';}).join('│')+'│');
+                    lines.push('└'+maxLens.map(function(l){return'─'.repeat(l+2);}).join('┴')+'┘');
+                }
+                pre.textContent = lines.join('\n');
+                div.appendChild(pre);
+                console.log('ascii-matrix OK');
+                return;
+            }
+            
+            // Chart.js 处理
+            if (type.startsWith('chartjs-') && typeof Chart !== 'undefined') {
+                var chartType = type.replace('chartjs-', '');
+                canvas.chart = new Chart(canvas, {
+                    type: chartType,
+                    data: {
+                        labels: data.labels || [],
+                        datasets: [{label: data.note||'', data: data.values||[], backgroundColor: 'rgba(30,64,175,0.7)', borderColor: '#1e40af', borderWidth: 1}]
+                    },
+                    options: {responsive: true, maintainAspectRatio: false}
+                });
+                console.log('Chart OK:', chartType);
+            }
+        } catch(e) { console.error('Error:', e); }
+    });
+}
+
+// 显式暴露到 window
+window.P17Render = renderCharts;
+
+// 延迟执行
+setTimeout(renderCharts, 1000);
+
+// 如果页面已加载完成，也执行一次
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(renderCharts, 1000);
+}
+// 监听加载完成
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(renderCharts, 1000);
+});
+
+console.log('P17 script loaded');
+</script>
+
+<h2 id="附录A财务分析">附录A 财务分析</h2>
+<div class="callout">
+<div class="callout-title">💡 财务结论</div>
+<div>公司近三年营收复合增长率达到23.5%，毛利率稳定在42%左右，现金流充裕。</div>
+</div>
+
+<h2 id="附录B市场分析">附录B 市场分析</h2>
+<div class="callout">
+<div class="callout-title">💡 市场结论</div>
+<div>IDC市场规模年增长率约18%，公司市场份额约为3.2%，位居华北地区前五。</div>
+</div>
+
+<h2 id="附录C团队分析">附录C 团队分析</h2>
+<div class="callout">
+<div class="callout-title">💡 团队结论</div>
+<div>核心管理团队平均从业经验超过15年，技术团队稳定性高。</div>
+</div>
+
+<h2 id="附录D风险提示">附录D 风险提示</h2>
+<div class="callout">
+<div class="callout-title">⚠️ 风险提示</div>
+<div>1. 政策风险：数据中心能耗政策趋严<br>
+2. 市场风险：竞争加剧导致价格下降<br>
+3. 技术风险：技术迭代快，设备更新投入大</div>
+</div>
+
+<h2 id="附录E并购建议">附录E 并购建议</h2>
+<div class="callout">
+<div class="callout-title">📋 并购建议</div>
+<div>建议采用分步收购策略：首轮收购35%股权，后续根据业绩对赌完成剩余股权收购。</div>
+</div>
+
+<h2 id="附录F估值总结">附录F 估值总结</h2>
+<div class="callout">
+<div class="callout-title">💰 估值总结</div>
+<div>综合三锚估值法，最终建议收购价格区间为42-46亿元，对应PE倍数为12-15倍。</div>
+</div>
+
+
+<div class="callout" style="margin-top:300px;padding:24px;background:#f7fafc;border-left:4px solid #4299e1;border-radius:0 8px 8px 0;">
+<div style="font-weight:bold;color:#2b6cb0;margin-bottom:12px;">📊 V6 模板说明</div>
+<div style="line-height:1.8;">
+本报告采用V6公文标准版式：<br>
+• 仿宋字体，正文18px<br>
+• 左侧固定目录，点击跳转<br>
+• Chart.js 交互图表<br>
+• Mermaid 流程图渲染<br>
+• ASCII 矩阵表格<br>
+</div>
+</div>
+
+</body>
+</html>
