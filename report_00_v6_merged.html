@@ -6277,5 +6277,23 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 })();
 </script>
 
+
+
+<!-- P17 渲染调用 - IIFE 后执行 -->
+<script>
+// 确保 IIFE 中的 window.P16Charts 渲染
+setTimeout(function() {
+    try {
+        console.log('P17 delayed render start');
+        if (window.P16Charts && window.P16Charts.renderAll) {
+            window.P16Charts.renderAll();
+            console.log('P17 renderAll called');
+        }
+    } catch(e) {
+        console.error('Render error:', e);
+    }
+}, 2000);
+</script>
+
 </body>
 </html>
