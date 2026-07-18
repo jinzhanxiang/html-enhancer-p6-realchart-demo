@@ -6078,6 +6078,8 @@ T-15: 估值溢价确认
 </script>
 
 
+<script>
+<script>
 // ===== P17 渲染核心 - 直接暴露到 window =====
 window.P16Charts = {
     // 5 种 mermaid
@@ -6112,6 +6114,7 @@ window.P16Charts = {
 };
 
 // 页面加载后渲染
+</script>
 function tryRender(){ if(window.P16Charts&&window.P16Charts.renderAll){try{window.P16Charts.renderAll();}catch(e){console.error('Render error:',e);}} }
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',tryRender);}else{setTimeout(tryRender,500);}
 // ===== P17 核心结束 =====
