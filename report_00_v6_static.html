@@ -198,6 +198,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 console.log('P17 script loaded');
+        
+        // Chart.js 渲染后，强制删除 height
+        setTimeout(function() {
+            document.querySelectorAll('.chart-container canvas').forEach(function(c) {
+                c.removeAttribute('height');
+                c.style.height = 'auto';
+                c.style.minHeight = '100px';
+            });
+        }, 2000);
 </script>
 
 <h2 id="附录A财务分析">附录A 财务分析</h2>
