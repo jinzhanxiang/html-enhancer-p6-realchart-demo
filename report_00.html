@@ -2,8 +2,11 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>汇天IDC_v5 · LLM 增强版 V6</title>
 <style>
+/* P14 FIX 2026-07-18 19:30 · 主公指令实战测试 P6 图表效果 · 注入 mermaid.js 让 2 个 flowchart 渲染 */
+
 body { font-family: "PingFang SC", "Microsoft YaHei", serif; line-height: 1.7; margin: 0; padding: 0; }
 body.scheme-blue { background: #f0f6ff; color: #1a365d; }
 .toc-sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 260px; background: #fff; padding: 16px; box-shadow: 2px 0 8px rgba(0,0,0,0.1); overflow-y: auto; z-index: 100; }
@@ -6190,5 +6193,20 @@ flowchart LR
 </div>
 </section>
 </main>
+<!-- P14: mermaid 渲染注入 -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+<script>
+  if (typeof mermaid !== 'undefined') {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default',
+      securityLevel: 'loose',
+      flowchart: { htmlLabels: true, curve: 'basis' }
+    });
+  } else {
+    console.error('P14: mermaid library failed to load');
+  }
+</script>
+
 </body>
 </html>
