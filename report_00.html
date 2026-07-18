@@ -83,6 +83,14 @@ body { margin-top: 48px; }
 
 /* 数据表格可视化 */
 .data-table-visual { margin: 16px 0; }
+
+/* P16 15种版式样式 */
+.ascii-figure { background: #fff; padding: 16px; border-radius: 8px; margin: 16px 0; }
+.ascii-figure pre { font-family: monospace; font-size: 13px; line-height: 1.6; }
+.ascii-figure table { width: 100%; border-collapse: collapse; }
+.ascii-figure td, .ascii-figure th { border: 1px solid #e2e8f0; padding: 8px; text-align: left; }
+.ascii-figure th { background: #f7fafc; }
+.chart-container { margin: 24px 0; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
 </style>
 </head>
 <body class="scheme-blue">
@@ -147,7 +155,10 @@ body { margin-top: 48px; }
 <p>🎯 <strong>综合评级</strong>:<strong>75/100 · 推荐推进</strong>(详见 §16.2)</p>
 <hr />
 </div><h1>📋 报告大纲</h1>
-<h2 id="主体122章核心论证结论">主体(1-22 章,核心论证 + 结论)</h2><div class="callout callout-conclusion">
+<h2 id="主体122章核心论证结论"
+<div class="chart-container" data-chart-type="chartjs-bar" data-chart-data='{"labels": ["核心论证1-22章", "附录A-J", "附录K-T", "扩展论证"], "values": [22, 10, 16, 10]}'>
+  <div class="chart-title">📊 报告结构总览</div>
+</div>>主体(1-22 章,核心论证 + 结论)</h2><div class="callout callout-conclusion">
 <details class="table-collapse" open><summary>📊 展开/折叠表格（2）</summary>
 <table>
 <thead>
@@ -322,7 +333,10 @@ body { margin-top: 48px; }
 </blockquote>
 <hr />
 <h1>Phase 1 - 纵向分析(公司 + 资源 + 并表)</h1>
-<h2 id="第1章汇天网络基本盘双源验证三源实测">第 1 章 汇天网络基本盘(双源验证,三源实测)</h2>
+<h2 id="第1章汇天网络基本盘双源验证三源实测"
+<div class="chart-container" data-chart-type="chartjs-pie" data-chart-data='{"labels": ["京东", "华为", "中信银行", "运营商", "其他"], "values": [42.59, 25.9, 10.94, 8, 12.57]}'>
+  <div class="chart-title">📊 客户结构</div>
+</div>>第 1 章 汇天网络基本盘(双源验证,三源实测)</h2>
 <h3>1.1 公司本体(5⭐数据)</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（4）</summary>
 <table>
@@ -851,7 +865,9 @@ body { margin-top: 48px; }
 <p><strong>§2.4 注脚（口径说明）</strong>：本表估值溢价口径为 <strong>+10-20%</strong>，系已经过上方 §2.5.4 市场化压力测试校准后的&quot;市场化可实现值&quot;。基于&quot;可变现市场收窄&quot;（金融客户仅 11-17% 柜量）与&quot;电力瓶颈制约&quot;（4.4 kW 限制 AI 客户）双重论证,估值溢价口径校准至 +10-20%,保守取值 +10pp (+4.2 亿)。完整论证细节见上方折叠区。</p>
 </blockquote>
 <hr />
-<h2 id="第3章REITs估值锚定">第 3 章 REITs 估值锚定</h2>
+<h2 id="第3章REITs估值锚定"<div class="chart-container" data-chart-type="chartjs-radar" data-chart-data='{"labels": ["EV/EBITDA", "分派率", "资产规模", "客户集中度", "上架率"], "values": [16, 4.5, 42, 79, 63]}'>
+  <div class="chart-title">📊 估值雷达</div>
+</div>>第 3 章 REITs 估值锚定</h2>
 <blockquote>
 <p><strong>估值方法</strong>:本章对汇天项目采用<strong>多方法并列估值 + 综合加权裁决</strong>的估值框架(综合考量 EV/EBITDA 锚定法、分派率倒推法、可比交易对标法三种视角),基于不同方法的假设差异给出稳健估值区间与最终推荐值,供决策层参考。</p>
 </blockquote>
@@ -2515,7 +2531,9 @@ body { margin-top: 48px; }
 <li><strong>建议</strong>:与戴德梁行沟通,<strong>核实上架率下滑是否已充分计入 42 亿估值</strong>;若已计入则 42 亿可接受,若未计入则需重新评估</li>
 </ul>
 <hr />
-<h2 id="第8章司法风险市场化对标">第 8 章 司法风险市场化对标</h2>
+<h2 id="第8章司法风险市场化对标"<div class="chart-container" data-chart-type="ascii-matrix" data-chart-data='{"matrix": [["风险类型", "汇天", "润泽", "万国"], ["诉讼案件", "959件", "120件", "45件"], ["行政处罚", "4条", "2条", "1条"], ["限消令", "待核", "0条", "0条"]]}'>
+  <div class="chart-title">📊 司法风险对标</div>
+</div>>第 8 章 司法风险市场化对标</h2>
 <h3>8.1 同业司法案件数对比</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（42）</summary>
 <table>
@@ -2785,7 +2803,10 @@ body { margin-top: 48px; }
 <strong>应对</strong>:询价保守 + 2026Q4-2027Q1 窗口
 <strong>状态</strong>:✅ 已纳入时点决策</p>
 <hr />
-<h2 id="第12章三锚估值自主裁决">第 12 章 三锚估值(自主裁决)</h2>
+<h2 id="第12章三锚估值自主裁决"
+<div class="chart-container" data-chart-type="chartjs-bar" data-chart-data='{"labels": ["EV/EBITDA锚", "分派率锚", "可比对标", "最终推荐"], "values": [45, 46, 44, 42]}'>
+  <div class="chart-title">📊 三锚估值(亿元)</div>
+</div>>第 12 章 三锚估值(自主裁决)</h2>
 <h3>12.1 三锚估值</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（48）</summary>
 <table>
@@ -3253,7 +3274,10 @@ body { margin-top: 48px; }
 </tr>
 </tbody>
 </table></details>
-<h2 id="第20章5模块决策摘要">第 20 章 5 模块决策摘要</h2>
+<h2 id="第20章5模块决策摘要"
+<div class="chart-container" data-chart-type="chartjs-radar" data-chart-data='{"labels": ["资源稀缺度", "估值合理性", "并表可行性", "司法风险", "客户质量", "退出路径"], "values": [78, 85, 80, 70, 90, 75]}'>
+  <div class="chart-title">📊 综合评分 75/100</div>
+</div>>第 20 章 5 模块决策摘要</h2>
 <h3>模块 1:核心结论</h3>
 <p>✅ <strong>推荐推进 5 子平台联动合作</strong>,但<strong>询价锁定 42 亿(不上限 52 亿)</strong>,<strong>并表路径选 A+C+D</strong></p>
 <h3>模块 2:关键风险</h3>
@@ -6054,5 +6078,163 @@ T-15: 估值溢价确认
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<!-- P16 v1 15种可视化版式库 -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+<script>
+// P16 v1 初始化：15种版式
+(function() {
+  // mermaid 初始化
+  mermaid.initialize({ 
+    startOnLoad: true, 
+    theme: 'base',
+    themeVariables: { 
+      primaryColor: '#1a365d', 
+      lineColor: '#2c5282',
+      fontFamily: 'FangSong'
+    }
+  });
+  
+  // Chart.js 默认配置
+  Chart.defaults.font.family = '"FangSong", "仿宋", serif';
+  Chart.defaults.font.size = 14;
+  Chart.defaults.color = '#1a365d';
+  
+  // 15种版式渲染器
+  window.P16Charts = {
+    // ========== mermaid 5种 ==========
+    'mermaid-flowchart': function(container, data) {
+      container.innerHTML = '<div class="mermaid">' + data.code + '</div>';
+      mermaid.init(undefined, container.querySelectorAll('.mermaid'));
+    },
+    'mermaid-sequence': function(container, data) {
+      container.innerHTML = '<div class="mermaid">sequenceDiagram\n' + data.code + '\n</div>';
+      mermaid.init(undefined, container.querySelectorAll('.mermaid'));
+    },
+    'mermaid-class': function(container, data) {
+      container.innerHTML = '<div class="mermaid">classDiagram\n' + data.code + '\n</div>';
+      mermaid.init(undefined, container.querySelectorAll('.mermaid'));
+    },
+    'mermaid-state': function(container, data) {
+      container.innerHTML = '<div class="mermaid">stateDiagram-v2\n' + data.code + '\n</div>';
+      mermaid.init(undefined, container.querySelectorAll('.mermaid'));
+    },
+    'mermaid-er': function(container, data) {
+      container.innerHTML = '<div class="mermaid">erDiagram\n' + data.code + '\n</div>';
+      mermaid.init(undefined, container.querySelectorAll('.mermaid'));
+    },
+    
+    // ========== ascii 5种 ==========
+    'ascii-tree': function(container, data) {
+      const lines = data.code.split('\n');
+      let html = '<div class="ascii-figure ascii-tree"><pre>';
+      lines.forEach(line => html += '<div class="ascii-line">' + line + '</div>');
+      html += '</pre></div>';
+      container.innerHTML = html;
+    },
+    'ascii-timeline': function(container, data) {
+      let html = '<div class="ascii-timeline">';
+      (data.events || []).forEach(ev => {
+        html += '<div class="ascii-timeline-item"><div class="ascii-timeline-dot"></div>';
+        html += '<div class="ascii-timeline-label">' + ev.date + '</div>';
+        html += '<div class="ascii-timeline-desc">' + ev.desc + '</div></div>';
+      });
+      html += '</div>';
+      container.innerHTML = html;
+    },
+    'ascii-matrix': function(container, data) {
+      let html = '<div class="ascii-figure ascii-matrix"><table>';
+      (data.matrix || []).forEach(row => {
+        html += '<tr>';
+        row.forEach(cell => html += '<td>' + cell + '</td>');
+        html += '</tr>';
+      });
+      html += '</table></div>';
+      container.innerHTML = html;
+    },
+    'ascii-table': function(container, data) {
+      let html = '<div class="ascii-figure ascii-table"><table>';
+      (data.headers || []).forEach(h => html += '<th>' + h + '</th>');
+      (data.rows || []).forEach(row => {
+        html += '<tr>';
+        row.forEach(cell => html += '<td>' + cell + '</td>');
+        html += '</tr>';
+      });
+      html += '</table></div>';
+      container.innerHTML = html;
+    },
+    'ascii-gantt': function(container, data) {
+      let html = '<div class="ascii-figure ascii-gantt"><pre>';
+      (data.tasks || []).forEach(t => {
+        html += t.name + ' |' + '█'.repeat(t.days) + '\n';
+      });
+      html += '</pre></div>';
+      container.innerHTML = html;
+    },
+    
+    // ========== Chart.js 5种 ==========
+    'chartjs-bar': function(container, data) {
+      const canvas = document.createElement('canvas');
+      container.appendChild(canvas);
+      new Chart(canvas, {
+        type: 'bar',
+        data: { labels: data.labels, datasets: [{ label: data.label, data: data.values, backgroundColor: '#1a365d' }] },
+        options: { responsive: true, plugins: { legend: { display: false } } }
+      });
+    },
+    'chartjs-pie': function(container, data) {
+      const canvas = document.createElement('canvas');
+      container.appendChild(canvas);
+      new Chart(canvas, {
+        type: 'pie',
+        data: { labels: data.labels, datasets: [{ data: data.values, backgroundColor: ['#1a365d','#2c5282','#3182ce','#63b3ed','#90cdf4'] }] }
+      });
+    },
+    'chartjs-line': function(container, data) {
+      const canvas = document.createElement('canvas');
+      container.appendChild(canvas);
+      new Chart(canvas, {
+        type: 'line',
+        data: { labels: data.labels, datasets: [{ label: data.label, data: data.values, borderColor: '#1a365d', fill: false }] }
+      });
+    },
+    'chartjs-radar': function(container, data) {
+      const canvas = document.createElement('canvas');
+      container.appendChild(canvas);
+      new Chart(canvas, {
+        type: 'radar',
+        data: { labels: data.labels, datasets: [{ label: data.label, data: data.values, backgroundColor: 'rgba(26,54,93,0.2)', borderColor: '#1a365d' }] }
+      });
+    },
+    'chartjs-scatter': function(container, data) {
+      const canvas = document.createElement('canvas');
+      container.appendChild(canvas);
+      new Chart(canvas, {
+        type: 'scatter',
+        data: { datasets: [{ label: data.label, data: data.points.map(p => ({x: p.x, y: p.y})), backgroundColor: '#1a365d' }] }
+      });
+    },
+    
+    // 渲染所有带 data-chart-type 的容器
+    renderAll: function() {
+      document.querySelectorAll('[data-chart-type]').forEach(el => {
+        const type = el.getAttribute('data-chart-type');
+        const data = JSON.parse(el.getAttribute('data-chart-data') || '{}');
+        if (this[type]) {
+          this[type](el, data);
+        }
+      });
+    }
+  };
+  
+  // 页面加载完成后渲染
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => window.P16Charts.renderAll());
+  } else {
+    window.P16Charts.renderAll();
+  }
+})();
+
 </body>
 </html>
