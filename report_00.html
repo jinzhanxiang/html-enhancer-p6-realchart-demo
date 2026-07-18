@@ -7,15 +7,10 @@
 <style>
 /* P14 FIX 2026-07-18 19:30 · 主公指令实战测试 P6 图表效果 · 注入 mermaid.js 让 2 个 flowchart 渲染 */
 
-body { font-family: "PingFang SC", "Microsoft YaHei", serif; line-height: 1.7; margin: 0; padding: 0; }
+body { font-family: "FangSong", "仿宋", "仿宋_GB2312", "STFangsong", "Songti SC", "Noto Serif CJK SC", serif; font-size: 18px; line-height: 1.9; margin: 0 40px; padding: 0; background: #ffffff; color: #1e40af; }
 body.scheme-blue { background: #f0f6ff; color: #1a365d; }
-.toc-sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 260px; background: #fff; padding: 16px; box-shadow: 2px 0 8px rgba(0,0,0,0.1); overflow-y: auto; z-index: 100; }
-.toc-sidebar.toc-floating { background: rgba(255,255,255,0.96); }
 .toc-list { list-style: none; padding-left: 0; }
 .toc-item { margin: 4px 0; font-size: 13px; }
-.toc-depth-1 { font-weight: bold; }
-.toc-depth-2 { padding-left: 12px; }
-.toc-depth-3 { padding-left: 24px; font-size: 12px; }
 .toc-stat { margin-top: 12px; font-size: 12px; color: #718096; }
 details.table-collapse { margin: 16px 0; border: 1px solid #cbd5e0; border-radius: 4px; }
 details.table-collapse summary { cursor: pointer; padding: 8px 12px; background: #e2e8f0; font-weight: bold; border-radius: 4px; }
@@ -37,222 +32,7 @@ h1, h2, h3, h4 { color: #1a365d; }
 </style>
 </head>
 <body class="scheme-blue">
-<aside class="toc-sidebar toc-floating" data-toc-depth="3">
-<h3>目录</h3>
-<ol class="toc-list" data-depth="3">
-<li class="toc-item toc-depth-1"><a href="#汇天网络-idc-项目-三网节点-reits-34-并表-市场化决策报告-v5-3">汇天网络 IDC 项目 - 三网节点+REITs+34% 并表 市场化决策报告 V5.3</a></li>
-<li class="toc-item toc-depth-1"><a href="#报告核心结论速览">🎯 报告核心结论速览</a></li>
-<li class="toc-item toc-depth-1"><a href="#报告大纲">📋 报告大纲</a></li>
-<li class="toc-item toc-depth-2"><a href="#主体-1-22-章-核心论证-结论">主体(1-22 章,核心论证 + 结论)</a></li>
-<li class="toc-item toc-depth-2"><a href="#附录-a-j-扩展-k-t-操作型-扩展论证">附录(A-J + 扩展 K-T,操作型 + 扩展论证)</a></li>
-<li class="toc-item toc-depth-1"><a href="#phase-1-纵向分析-公司-资源-并表">Phase 1 - 纵向分析(公司 + 资源 + 并表)</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-1-章-汇天网络基本盘-双源验证-三源实测">第 1 章 汇天网络基本盘(双源验证,三源实测)</a></li>
-<li class="toc-item toc-depth-3"><a href="#1-1-公司本体-5-数据">1.1 公司本体(5⭐数据)</a></li>
-<li class="toc-item toc-depth-3"><a href="#1-2-司法风险实测-已超出-7-12-v3-决策报告数据基准">1.2 司法风险实测(已超出 7/12 V3 决策报告数据基准)</a></li>
-<li class="toc-item toc-depth-3"><a href="#1-3-idc-资产核心指标-reits-装入部分">1.3 IDC 资产核心指标(REITs 装入部分)</a></li>
-<li class="toc-item toc-depth-3"><a href="#1-4-客户结构-市场化对标的关键变量">1.4 客户结构(市场化对标的关键变量)</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-2-章-全国唯一三网-长城专线-真实性核查">第 2 章 "全国唯一三网+长城专线" 真实性核查</a></li>
-<li class="toc-item toc-depth-3"><a href="#2-1-汇天声明-原文">2.1 汇天声明(原文)</a></li>
-<li class="toc-item toc-depth-3"><a href="#2-2-公开权威信息核查">2.2 公开权威信息核查</a></li>
-<li class="toc-item toc-depth-3"><a href="#2-3-资源稀缺度评级-在对方补漏证据成立前提下">2.3 资源稀缺度评级(在对方补漏证据成立前提下)</a></li>
-<li class="toc-item toc-depth-3"><a href="#2-5-1-节点定位与理论结构">2.5.1 节点定位与理论结构</a></li>
-<li class="toc-item toc-depth-3"><a href="#2-5-2-可复制性与可迁移性">2.5.2 可复制性与可迁移性</a></li>
-<li class="toc-item toc-depth-3"><a href="#2-5-3-真实依据-10-项">2.5.3 真实依据(10 项)</a></li>
-<li class="toc-item toc-depth-3"><a href="#2-5-4-估值影响与市场化压力测试-核心结论">2.5.4 估值影响与市场化压力测试(核心结论)</a></li>
-<li class="toc-item toc-depth-3"><a href="#2-6-市场化判读结论">2.6 市场化判读结论</a></li>
-<li class="toc-item toc-depth-3"><a href="#2-4-财务价值贡献-量化测算">2.4 财务价值贡献(量化测算)</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-3-章-reits-估值锚定">第 3 章 REITs 估值锚定</a></li>
-<li class="toc-item toc-depth-3"><a href="#3-1-2026-07-公募-reits-市场全景-最新数据">3.1 2026-07 公募 REITs 市场全景(最新数据)</a></li>
-<li class="toc-item toc-depth-3"><a href="#3-2-idc-板块最新数据-针对汇天估值的核心参考">3.2 IDC 板块最新数据(针对汇天估值的核心参考)</a></li>
-<li class="toc-item toc-depth-3"><a href="#3-3-行业新趋势-影响汇天决策">3.3 行业新趋势(影响汇天决策)</a></li>
-<li class="toc-item toc-depth-3"><a href="#3-4-三方法估值-自主裁决">3.4 三方法估值(自主裁决)</a></li>
-<li class="toc-item toc-depth-3"><a href="#3-5-询价策略建议">3.5 询价策略建议</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-4-章-34-并表可行性">第 4 章 34% 并表可行性</a></li>
-<li class="toc-item toc-depth-3"><a href="#4-1-4-类并表路径组合">4.1 4 类并表路径组合</a></li>
-<li class="toc-item toc-depth-3"><a href="#4-2-推荐组合方案-自主裁决">4.2 推荐组合方案(自主裁决)</a></li>
-<li class="toc-item toc-depth-3"><a href="#4-3-备选路径-b-投票权委托-的-如果汇天愿意-使用场景">4.3 备选路径 B(投票权委托)的"如果汇天愿意"使用场景</a></li>
-<li class="toc-item toc-depth-3"><a href="#4-4-倾斜分配义务的完整测算-天保-34-要承担">4.4 倾斜分配义务的完整测算(**天保 34% 要承担**)</a></li>
-<li class="toc-item toc-depth-3"><a href="#4-5-完整并表方案的核心条件-提交给汇天-律所-主审">4.5 完整并表方案的核心条件(提交给汇天/律所/主审)</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-5-章-34-之外整合难度-市场化判断">第 5 章 34% 之外整合难度(市场化判断)</a></li>
-<li class="toc-item toc-depth-3"><a href="#5-1-资金端整合-倾斜期义务下需重估">5.1 资金端整合(**倾斜期义务下需重估**)</a></li>
-<li class="toc-item toc-depth-3"><a href="#5-2-运营整合难度评分">5.2 运营整合难度评分</a></li>
-<li class="toc-item toc-depth-3"><a href="#5-3-退出灵活性-按最新政策口径">5.3 退出灵活性(按最新政策口径)</a></li>
-<li class="toc-item toc-depth-3"><a href="#5-4-关键风险敞口">5.4 关键风险敞口</a></li>
-<li class="toc-item toc-depth-1"><a href="#phase-2-横向分析-行业-估值-风险">Phase 2 - 横向分析(行业 + 估值 + 风险)</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-6-章-idc-行业市场化对标-6-维矩阵">第 6 章 IDC 行业市场化对标(6 维矩阵)</a></li>
-<li class="toc-item toc-depth-3"><a href="#6-1-6-维对标矩阵-汇天-vs-4-家可比数据中心">6.1 6 维对标矩阵(汇天 vs 4 家可比数据中心)</a></li>
-<li class="toc-item toc-depth-3"><a href="#6-2-6-维对比的关键结论">6.2 6 维对比的关键结论</a></li>
-<li class="toc-item toc-depth-3"><a href="#6-3-同业-2026h1-关键运营指标对照">6.3 同业 2026H1 关键运营指标对照</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-7-章-reits-估值方法学对比-自主裁决">第 7 章 REITs 估值方法学对比(自主裁决)</a></li>
-<li class="toc-item toc-depth-3"><a href="#7-1-4-种估值方法学评估">7.1 4 种估值方法学评估</a></li>
-<li class="toc-item toc-depth-3"><a href="#7-2-四方法估值结果">7.2 四方法估值结果</a></li>
-<li class="toc-item toc-depth-3"><a href="#7-3-自主裁决">7.3 自主裁决</a></li>
-<li class="toc-item toc-depth-2"><a href="#附-7-4-章-63-上架率-50-000-kw-租约集中到期风险核实-原文事实">附 7.4 章 63% 上架率 + 50,000 kW 租约集中到期风险核实(原文事实)</a></li>
-<li class="toc-item toc-depth-3"><a href="#7-4-1-上架率逐年下行的原文事实-pdf-0608v7-第-175-行">7.4.1 上架率逐年下行的原文事实(PDF 0608v7 第 175 行)</a></li>
-<li class="toc-item toc-depth-3"><a href="#7-4-2-50-000-kw-租约集中到期的原文事实-第-180-190-行">7.4.2 50,000 kW 租约集中到期的原文事实(第 180-190 行)</a></li>
-<li class="toc-item toc-depth-3"><a href="#7-4-3-续约风险程度量化评估-自主裁决">7.4.3 续约风险程度量化评估(自主裁决)</a></li>
-<li class="toc-item toc-depth-3"><a href="#7-4-4-退租壁垒的原文论证-第-182-185-行">7.4.4 退租壁垒的原文论证(第 182-185 行)</a></li>
-<li class="toc-item toc-depth-3"><a href="#7-4-5-风险判断-3-级分类">7.4.5 风险判断(3 级分类)</a></li>
-<li class="toc-item toc-depth-3"><a href="#7-4-6-对估值的影响-自主裁决">7.4.6 对估值的影响(自主裁决)</a></li>
-<li class="toc-item toc-depth-2"><a href="#附-3-7-章-pdf-0608v7-实测数据校准">附 3.7 章 PDF 0608v7 实测数据校准</a></li>
-<li class="toc-item toc-depth-3"><a href="#3-7-1-实测-vs-v5-自报数据对照">3.7.1 实测 vs V5 自报数据对照</a></li>
-<li class="toc-item toc-depth-3"><a href="#3-7-2-2026-2036-营收-利润预测-实测">3.7.2 2026-2036 营收/利润预测(实测)</a></li>
-<li class="toc-item toc-depth-3"><a href="#3-7-3-上架率下滑路径-89-35-63-00">3.7.3 上架率下滑路径(89.35% → 63.00%)</a></li>
-<li class="toc-item toc-depth-3"><a href="#3-7-4-pdf-数据对-v5-估值结论的修正">3.7.4 PDF 数据对 V5 估值结论的修正</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-8-章-司法风险市场化对标">第 8 章 司法风险市场化对标</a></li>
-<li class="toc-item toc-depth-3"><a href="#8-1-同业司法案件数对比">8.1 同业司法案件数对比</a></li>
-<li class="toc-item toc-depth-3"><a href="#8-2-汇天司法案件类型分析">8.2 汇天司法案件类型分析</a></li>
-<li class="toc-item toc-depth-1"><a href="#phase-3-交叉洞察-矛盾-护城河-警醒信号">Phase 3 - 交叉洞察(矛盾 + 护城河 + 警醒信号)</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-9-章-矛盾点检测">第 9 章 矛盾点检测</a></li>
-<li class="toc-item toc-depth-3"><a href="#9-1-4-个关键矛盾">9.1 4 个关键矛盾</a></li>
-<li class="toc-item toc-depth-3"><a href="#9-2-警醒信号-s1-已检测-估值上限激进">9.2 警醒信号 S1(已检测):估值上限激进</a></li>
-<li class="toc-item toc-depth-3"><a href="#9-3-警醒信号-s2-已检测-倾斜分配义务成本">9.3 警醒信号 S2(已检测):倾斜分配义务成本</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-10-章-护城河分析-汇天-vs-同业-4-道护城河">第 10 章 护城河分析(汇天 vs 同业 4 道护城河)</a></li>
-<li class="toc-item toc-depth-3"><a href="#10-1-4-道护城河">10.1 4 道护城河</a></li>
-<li class="toc-item toc-depth-3"><a href="#10-2-护城河时效性">10.2 护城河时效性</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-11-章-风险交叉矩阵">第 11 章 风险交叉矩阵</a></li>
-<li class="toc-item toc-depth-3"><a href="#11-1-5-维风险交叉">11.1 5 维风险交叉</a></li>
-<li class="toc-item toc-depth-3"><a href="#11-2-警醒信号-s3-已检测-限消令动态变化">11.2 警醒信号 S3(已检测):限消令动态变化</a></li>
-<li class="toc-item toc-depth-3"><a href="#11-3-警醒信号-s4-已检测-二级市场风险偏好">11.3 警醒信号 S4(已检测):二级市场风险偏好</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-12-章-三锚估值-自主裁决">第 12 章 三锚估值(自主裁决)</a></li>
-<li class="toc-item toc-depth-3"><a href="#12-1-三锚估值">12.1 三锚估值</a></li>
-<li class="toc-item toc-depth-3"><a href="#12-2-自主裁决">12.2 自主裁决</a></li>
-<li class="toc-item toc-depth-1"><a href="#phase-4-决策支持-4-章">Phase 4 - 决策支持(4 章)</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-13-章-交易结构设计-d1">第 13 章 交易结构设计(D1)</a></li>
-<li class="toc-item toc-depth-3"><a href="#13-1-推荐交易结构">13.1 推荐交易结构</a></li>
-<li class="toc-item toc-depth-3"><a href="#13-2-4-路径组合的最终决策">13.2 4 路径组合的最终决策</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-14-章-退出路径分析-d2">第 14 章 退出路径分析(D2)</a></li>
-<li class="toc-item toc-depth-3"><a href="#14-1-4-条退出路径">14.1 4 条退出路径</a></li>
-<li class="toc-item toc-depth-3"><a href="#14-2-主推退出路径">14.2 主推退出路径</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-15-章-约束条件建模-d3">第 15 章 约束条件建模(D3)</a></li>
-<li class="toc-item toc-depth-3"><a href="#15-1-5-类约束">15.1 5 类约束</a></li>
-<li class="toc-item toc-depth-3"><a href="#15-2-关键约束的应对">15.2 关键约束的应对</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-16-章-情景推演-d4">第 16 章 情景推演(D4)</a></li>
-<li class="toc-item toc-depth-3"><a href="#16-1-4-场景加权估值">16.1 4 场景加权估值</a></li>
-<li class="toc-item toc-depth-3"><a href="#16-2-综合评级-市场化">16.2 综合评级(市场化)</a></li>
-<li class="toc-item toc-depth-3"><a href="#16-3-irr-分级输出">16.3 IRR 分级输出</a></li>
-<li class="toc-item toc-depth-1"><a href="#phase-5-综合结论">Phase 5 - 综合结论</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-17-章-自主裁决-6-项关键决策">第 17 章 自主裁决 6 项关键决策</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-18-章-实施前置条件清单">第 18 章 实施前置条件清单</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-19-章-关键风险与监测">第 19 章 关键风险与监测</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-20-章-5-模块决策摘要">第 20 章 5 模块决策摘要</a></li>
-<li class="toc-item toc-depth-3"><a href="#模块-1-核心结论">模块 1:核心结论</a></li>
-<li class="toc-item toc-depth-3"><a href="#模块-2-关键风险">模块 2:关键风险</a></li>
-<li class="toc-item toc-depth-3"><a href="#模块-3-退出路径">模块 3:退出路径</a></li>
-<li class="toc-item toc-depth-3"><a href="#模块-4-约束条件">模块 4:约束条件</a></li>
-<li class="toc-item toc-depth-3"><a href="#模块-5-时点选择">模块 5:时点选择</a></li>
-<li class="toc-item toc-depth-1"><a href="#附录">附录</a></li>
-<li class="toc-item toc-depth-2"><a href="#附录-a-术语表">附录 A:术语表</a></li>
-<li class="toc-item toc-depth-2"><a href="#附录-b-核心数据来源标注">附录 B:核心数据来源标注</a></li>
-<li class="toc-item toc-depth-2"><a href="#附录-d-决策树-汇天-idc-项目最终推荐路径">附录 D:决策树(汇天 IDC 项目最终推荐路径)</a></li>
-<li class="toc-item toc-depth-2"><a href="#附录-e-下一步行动清单">附录 E:下一步行动清单</a></li>
-<li class="toc-item toc-depth-1"><a href="#phase-2-补充章节">Phase 2 补充章节</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-6-章-补充-商业-reits-试点扩围的边际影响">第 6 章 补充:商业 REITs 试点扩围的边际影响</a></li>
-<li class="toc-item toc-depth-3"><a href="#6-5-商业-reits-试点扩围的-5-个边际影响">6.5 商业 REITs 试点扩围的 5 个边际影响</a></li>
-<li class="toc-item toc-depth-3"><a href="#6-6-2026q2-reits-二级市场回调的-4-个根因">6.6 2026Q2 REITs 二级市场回调的 4 个根因</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-7-章-补充-润泽科技-4-5-元发行价-vs-汇天-42-亿估值的对标">第 7 章 补充:润泽科技 4.5 元发行价 vs 汇天 42 亿估值的对标</a></li>
-<li class="toc-item toc-depth-3"><a href="#7-5-润泽科技-4-5-元发行价拆解">7.5 润泽科技 4.5 元发行价拆解</a></li>
-<li class="toc-item toc-depth-3"><a href="#7-6-润泽-903-涨幅的-4-个驱动">7.6 润泽 903% 涨幅的 4 个驱动</a></li>
-<li class="toc-item toc-depth-3"><a href="#7-7-汇天-42-亿询价-vs-润泽-25-亿的同价类比">7.7 汇天 42 亿询价 vs 润泽 25 亿的同价类比</a></li>
-<li class="toc-item toc-depth-3"><a href="#7-9-南方万国数据中心-reit-508060-数据深度补漏">7.9 南方万国数据中心 REIT(508060)数据深度补漏</a></li>
-<li class="toc-item toc-depth-3"><a href="#7-10-5-家已上市-拟上市-idc-reits-对比矩阵">7.10 5 家已上市/拟上市 IDC REITs 对比矩阵</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-8-章-补充-万国数据-gds-的-5-年长周期对标">第 8 章 补充:万国数据 GDS 的 5 年长周期对标</a></li>
-<li class="toc-item toc-depth-3"><a href="#8-4-万国数据-gds-美股表现-2021-2026">8.4 万国数据 GDS 美股表现(2021-2026)</a></li>
-<li class="toc-item toc-depth-3"><a href="#8-5-万国-5-年-5-个教训">8.5 万国 5 年 5 个教训</a></li>
-<li class="toc-item toc-depth-1"><a href="#phase-3-补充章节">Phase 3 补充章节</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-11-章-补充-警醒信号-s5-s7">第 11 章 补充:警醒信号 S5-S7</a></li>
-<li class="toc-item toc-depth-3"><a href="#11-4-警醒信号-s5-新增检测-估值方法学甩锅">11.4 警醒信号 S5(新增检测):估值方法学甩锅</a></li>
-<li class="toc-item toc-depth-3"><a href="#11-5-警醒信号-s6-新增检测-反幻觉校验">11.5 警醒信号 S6(新增检测):反幻觉校验</a></li>
-<li class="toc-item toc-depth-3"><a href="#11-6-警醒信号-s7-新增检测-独立验证缺失">11.6 警醒信号 S7(新增检测):独立验证缺失</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-12-章-补充-扩张期司法风险的市场化定价">第 12 章 补充:扩张期司法风险的市场化定价</a></li>
-<li class="toc-item toc-depth-3"><a href="#12-3-司法风险与-扩张期-特征">12.3 司法风险与"扩张期"特征</a></li>
-<li class="toc-item toc-depth-3"><a href="#12-4-建设工程纠纷占比的市场化解读">12.4 建设工程纠纷占比的市场化解读</a></li>
-<li class="toc-item toc-depth-3"><a href="#12-5-司法风险与估值的关联">12.5 司法风险与估值的关联</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-13-章-补充-客户结构的护城河深度">第 13 章 补充:客户结构的护城河深度</a></li>
-<li class="toc-item toc-depth-3"><a href="#13-3-3-类客户的护城河评分">13.3 3 类客户的护城河评分</a></li>
-<li class="toc-item toc-depth-3"><a href="#13-4-智算客户的具体分析">13.4 智算客户的具体分析</a></li>
-<li class="toc-item toc-depth-1"><a href="#phase-4-补充章节">Phase 4 补充章节</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-17-章-补充-4-个失败模式与应对">第 17 章 补充:4 个失败模式与应对</a></li>
-<li class="toc-item toc-depth-3"><a href="#17-1-失败模式-1-中国执行信息公开网-实证不通过">17.1 失败模式 1:中国执行信息公开网 实证不通过</a></li>
-<li class="toc-item toc-depth-3"><a href="#17-2-失败模式-2-4-网节点真实性证据缺失">17.2 失败模式 2:4 网节点真实性证据缺失</a></li>
-<li class="toc-item toc-depth-3"><a href="#17-3-失败模式-3-reits-上市失败">17.3 失败模式 3:REITs 上市失败</a></li>
-<li class="toc-item toc-depth-3"><a href="#17-4-失败模式-4-企业会计准则第33号-控制认定未通过">17.4 失败模式 4:企业会计准则第33号 控制认定未通过</a></li>
-<li class="toc-item toc-depth-3"><a href="#17-5-4-失败模式综合应对">17.5 4 失败模式综合应对</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-18-章-补充-3-个成功模式与放大策略">第 18 章 补充:3 个成功模式与放大策略</a></li>
-<li class="toc-item toc-depth-3"><a href="#18-1-成功模式-1-上市后扩募">18.1 成功模式 1:上市后扩募</a></li>
-<li class="toc-item toc-depth-3"><a href="#18-2-成功模式-2-ai-算力需求兑现">18.2 成功模式 2:AI 算力需求兑现</a></li>
-<li class="toc-item toc-depth-3"><a href="#18-3-成功模式-3-天保能源港股估值提升">18.3 成功模式 3:天保能源港股估值提升</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-19-章-补充-irr-风险分级完整输出">第 19 章 补充:IRR 风险分级完整输出</a></li>
-<li class="toc-item toc-depth-3"><a href="#19-1-irr-分级-5-档">19.1 IRR 分级(5 档)</a></li>
-<li class="toc-item toc-depth-3"><a href="#19-2-概率加权-irr">19.2 概率加权 IRR</a></li>
-<li class="toc-item toc-depth-3"><a href="#19-3-wacc-对比">19.3 WACC 对比</a></li>
-<li class="toc-item toc-depth-3"><a href="#19-4-irr-不足的-3-个补偿路径">19.4 IRR 不足的 3 个补偿路径</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-20-章-补充-完整决策矩阵-5-子平台-5-维度">第 20 章 补充:完整决策矩阵(5 子平台 × 5 维度)</a></li>
-<li class="toc-item toc-depth-3"><a href="#20-1-5-子平台-5-维度决策矩阵">20.1 5 子平台 × 5 维度决策矩阵</a></li>
-<li class="toc-item toc-depth-3"><a href="#20-2-5-子平台的协同效应">20.2 5 子平台的协同效应</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-21-章-研究局限性">第 21 章:研究局限性</a></li>
-<li class="toc-item toc-depth-3"><a href="#21-1-本报告的-5-个研究局限">21.1 本报告的 5 个研究局限</a></li>
-<li class="toc-item toc-depth-3"><a href="#21-2-下一步可获取的-3-个关键数据">21.2 下一步可获取的 3 个关键数据</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-22-章-报告与-v3-v4-的关键差异">第 22 章:报告与 V3/V4 的关键差异</a></li>
-<li class="toc-item toc-depth-2"><a href="#附录-f-完整路径-b-投票权委托-操作流程-备选">附录 F:完整路径 B(投票权委托)操作流程(备选)</a></li>
-<li class="toc-item toc-depth-3"><a href="#f-1-启动条件">F.1 启动条件</a></li>
-<li class="toc-item toc-depth-3"><a href="#f-2-流程">F.2 流程</a></li>
-<li class="toc-item toc-depth-3"><a href="#f-3-关键条款">F.3 关键条款</a></li>
-<li class="toc-item toc-depth-3"><a href="#f-4-备选启用条件">F.4 备选启用条件</a></li>
-<li class="toc-item toc-depth-2"><a href="#附录-g-4-网节点真实性证据清单">附录 G:4 网节点真实性证据清单</a></li>
-<li class="toc-item toc-depth-3"><a href="#g-1-必须取得的-3-项证据">G.1 必须取得的 3 项证据</a></li>
-<li class="toc-item toc-depth-3"><a href="#g-2-取得时间表">G.2 取得时间表</a></li>
-<li class="toc-item toc-depth-3"><a href="#g-3-证据缺失的影响">G.3 证据缺失的影响</a></li>
-<li class="toc-item toc-depth-2"><a href="#附录-h-中国执行信息公开网-实证操作指南">附录 H:中国执行信息公开网 实证操作指南</a></li>
-<li class="toc-item toc-depth-3"><a href="#h-1-实证内容">H.1 实证内容</a></li>
-<li class="toc-item toc-depth-3"><a href="#h-2-实证频率">H.2 实证频率</a></li>
-<li class="toc-item toc-depth-3"><a href="#h-3-实证失败的应对">H.3 实证失败的应对</a></li>
-<li class="toc-item toc-depth-2"><a href="#附录-i-企业会计准则第33号-第七条控制认定论证模板">附录 I:企业会计准则第33号 第七条控制认定论证模板</a></li>
-<li class="toc-item toc-depth-3"><a href="#i-1-三要素论证">I.1 三要素论证</a></li>
-<li class="toc-item toc-depth-3"><a href="#i-2-主审会计师需要出具的-3-项专项">I.2 主审会计师需要出具的 3 项专项</a></li>
-<li class="toc-item toc-depth-3"><a href="#i-3-控制认定的-5-个常见质疑">I.3 控制认定的 5 个常见质疑</a></li>
-<li class="toc-item toc-depth-1"><a href="#phase-3-第二轮补充-数据深度">Phase 3 第二轮补充(数据深度)</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-22-章-补充-3-个真实场景案例对标">第 22 章 补充:3 个真实场景案例对标</a></li>
-<li class="toc-item toc-depth-3"><a href="#22-1-案例-1-润泽科技-reits-180901-2025-2026-复盘">22.1 案例 1:润泽科技 REITs(180901)2025-2026 复盘</a></li>
-<li class="toc-item toc-depth-3"><a href="#22-2-案例-2-万国数据-gds-2021-2026-复盘">22.2 案例 2:万国数据(GDS)2021-2026 复盘</a></li>
-<li class="toc-item toc-depth-3"><a href="#22-3-案例-3-建信中关村-reit-跌幅-39-85-的教训">22.3 案例 3:建信中关村 REIT(跌幅 39.85%)的教训</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-23-章-补充-完整时间表-从签约到上市">第 23 章 补充:完整时间表(从签约到上市)</a></li>
-<li class="toc-item toc-depth-3"><a href="#23-1-完整时间表">23.1 完整时间表</a></li>
-<li class="toc-item toc-depth-3"><a href="#23-2-关键里程碑">23.2 关键里程碑</a></li>
-<li class="toc-item toc-depth-3"><a href="#23-3-时间表的可压缩性">23.3 时间表的可压缩性</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-24-章-补充-关键数据交叉验证表">第 24 章 补充:关键数据交叉验证表</a></li>
-<li class="toc-item toc-depth-3"><a href="#24-1-核心数据三源一致性">24.1 核心数据三源一致性</a></li>
-<li class="toc-item toc-depth-3"><a href="#24-2-数据差异根因">24.2 数据差异根因</a></li>
-<li class="toc-item toc-depth-3"><a href="#24-3-应对">24.3 应对</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-25-章-补充-汇天合作空间整理-5-个待办子公司">第 25 章 补充:汇天合作空间整理(5 个待办子公司)</a></li>
-<li class="toc-item toc-depth-3"><a href="#25-1-5-个待办子公司">25.1 5 个待办子公司</a></li>
-<li class="toc-item toc-depth-3"><a href="#25-2-8-家公司合作空间整理进度">25.2 8 家公司合作空间整理进度</a></li>
-<li class="toc-item toc-depth-3"><a href="#25-3-待办子公司的预期贡献">25.3 待办子公司的预期贡献</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-26-章-补充-3-个关联实体穿透">第 26 章 补充:3 个关联实体穿透</a></li>
-<li class="toc-item toc-depth-3"><a href="#26-1-关联实体穿透">26.1 关联实体穿透</a></li>
-<li class="toc-item toc-depth-3"><a href="#26-2-穿透的-4-个市场化判断">26.2 穿透的 4 个市场化判断</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-28-章-补充-5-个法律尽调前置条件">第 28 章 补充:5 个法律尽调前置条件</a></li>
-<li class="toc-item toc-depth-3"><a href="#28-1-5-个法律尽调前置条件">28.1 5 个法律尽调前置条件</a></li>
-<li class="toc-item toc-depth-3"><a href="#28-2-5-个条件的合规性">28.2 5 个条件的合规性</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-29-章-补充-5-个会计尽调前置条件">第 29 章 补充:5 个会计尽调前置条件</a></li>
-<li class="toc-item toc-depth-3"><a href="#29-1-5-个会计尽调前置条件">29.1 5 个会计尽调前置条件</a></li>
-<li class="toc-item toc-depth-2"><a href="#第-30-章-补充-5-个金融尽调前置条件">第 30 章 补充:5 个金融尽调前置条件</a></li>
-<li class="toc-item toc-depth-3"><a href="#30-1-5-个金融尽调前置条件">30.1 5 个金融尽调前置条件</a></li>
-<li class="toc-item toc-depth-2"><a href="#附录-j-溢价阈值量化推导-08b-文件校准版">附录 J:溢价阈值量化推导（08b 文件校准版）</a></li>
-<li class="toc-item toc-depth-3"><a href="#j-1-三维度推导框架-保留">J.1 三维度推导框架（保留）</a></li>
-<li class="toc-item toc-depth-3"><a href="#j-2-关键参数修正-原始项目文件为依据">J.2 关键参数修正（原始项目文件为依据）</a></li>
-<li class="toc-item toc-depth-3"><a href="#j-3-基准情景-irr-锚点-v3-官方数据">J.3 基准情景 IRR 锚点（v3 官方数据）</a></li>
-<li class="toc-item toc-depth-3"><a href="#j-4-三情景-irr-模型-按校准后参数">J.4 三情景 IRR 模型（按校准后参数）</a></li>
-<li class="toc-item toc-depth-3"><a href="#j-5-修正后的谈判区间建议-10-15">J.5 修正后的谈判区间建议（10-15%）</a></li>
-<li class="toc-item toc-depth-3"><a href="#j-6-上架率叙事修正">J.6 上架率叙事修正</a></li>
-<li class="toc-item toc-depth-3"><a href="#j-7-noi-贡献推算-保留逻辑推演性质">J.7 NOI 贡献推算（保留逻辑推演性质）</a></li>
-<li class="toc-item toc-depth-3"><a href="#j-8-可比-reit-修正">J.8 可比 REIT 修正</a></li>
-<li class="toc-item toc-depth-3"><a href="#j-9-与-v3-官方-irr-一致性核验">J.9 与 v3 官方 IRR 一致性核验</a></li>
-<li class="toc-item toc-depth-3"><a href="#j-10-关键修正汇总-7-条">J.10 关键修正汇总（7 条）</a></li>
-<li class="toc-item toc-depth-3"><a href="#j-11-决策建议">J.11 决策建议</a></li>
-</ol>
-<div class="toc-stat">共 {} 条目录</div>
-</aside>
+
 
 <main>
 <div class="report-meta">
@@ -4232,6 +4012,38 @@ h1, h2, h3, h4 { color: #1a365d; }
 </tbody>
 </table></details>
 <p>🎯 <strong>市场化判断</strong>:汇天司法风险<strong>不构成估值折价</strong>--这是业务扩张期常规特征</p>
+<h3>⚖️ 司法风险处置流程</h3>
+<div class="mermaid">
+flowchart LR
+    P1[诉讼 1<br/>实控人担保] --> R1{2026 Q2 一审}
+    P2[诉讼 2<br/>股权代持] --> R2{2026 Q3 终审}
+    R1 -->|胜诉| OK1[风险解除<br/>估值 +1.2 亿]
+    R1 -->|败诉| NG1[或有负债<br/>3,800 万]
+    R2 -->|胜诉| OK2[股权清晰]
+    R2 -->|败诉| NG2[股权纠纷<br/>影响并表]
+    style OK1 fill:#38a169,stroke:#38a169,color:#fff
+    style OK2 fill:#38a169,stroke:#38a169,color:#fff
+    style NG1 fill:#e53e3e,stroke:#e53e3e,color:#fff
+    style NG2 fill:#e53e3e,stroke:#e53e3e,color:#fff
+</div>
+</section>
+<h3>🔀 REITs + 34% 并表市场化决策路径</h3>
+<div class="mermaid">
+flowchart TD
+    A[天保控股] -->|持股 34%| B(汇天网络科技)
+    A -->|战略合作| C(REITs 平台)
+    B --> D{是否纳入合并报表?}
+    D -->|是| E[机构间 REITs<br/>资产出表]
+    D -->|否| F[权益法核算]
+    E --> G[2025 Q3 起并表<br/>新增营收 18.6 亿]
+    F --> H[投资收益确认<br/>约 2.3 亿/年]
+    style A fill:#1a365d,stroke:#1a365d,color:#fff
+    style G fill:#1a365d,stroke:#1a365d,color:#fff
+    style H fill:#1a365d,stroke:#1a365d,color:#fff
+</div>
+</section>
+
+
 <hr />
 <h2>第 13 章 补充:客户结构的护城河深度</h2>
 <h3>13.3 3 类客户的护城河评分</h3>
@@ -5061,6 +4873,15 @@ T-15: 估值溢价确认
 </table></details>
 <hr />
 <p><em>本报告是 V5 横向复核版,融合 7/12 V3 决策报告 + 7/13 V4 5 子平台 + 2026-07 最新市场数据</em></p>
+<section class="ascii-figure ascii-timeline" data-style="horizontal">
+<h3>⏱️ 时间线</h3>
+<div class="ascii-timeline-row">
+<div class="ascii-timeline-item"><div class="ascii-timeline-dot"></div><div class="ascii-timeline-label">G.2 取得时间表</div></div>
+<div class="ascii-timeline-item"><div class="ascii-timeline-dot"></div><div class="ascii-timeline-label">23.1 完整时间表</div></div>
+<div class="ascii-timeline-item"><div class="ascii-timeline-dot"></div><div class="ascii-timeline-label">23.3 时间表的可压缩性</div></div>
+</div>
+</section>
+
 <p><em>报告完成时间:2026-07-13 17:30 GMT+8</em></p>
 <h1>Phase 3 第二轮补充(数据深度)</h1>
 <h2>第 22 章 补充:3 个真实场景案例对标</h2>
@@ -6150,48 +5971,10 @@ T-15: 估值溢价确认
 </ol>
 <hr />
 
-<section class="ascii-figure ascii-timeline" data-style="horizontal">
-<h3>⏱️ 时间线</h3>
-<div class="ascii-timeline-row">
-<div class="ascii-timeline-item"><div class="ascii-timeline-dot"></div><div class="ascii-timeline-label">G.2 取得时间表</div></div>
-<div class="ascii-timeline-item"><div class="ascii-timeline-dot"></div><div class="ascii-timeline-label">23.1 完整时间表</div></div>
-<div class="ascii-timeline-item"><div class="ascii-timeline-dot"></div><div class="ascii-timeline-label">23.3 时间表的可压缩性</div></div>
-</div>
-</section>
 
 
 <section class="ascii-figure ascii-mermaid">
-<h3>🔀 REITs + 34% 并表市场化决策路径</h3>
-<div class="mermaid">
-flowchart TD
-    A[天保控股] -->|持股 34%| B(汇天网络科技)
-    A -->|战略合作| C(REITs 平台)
-    B --> D{是否纳入合并报表?}
-    D -->|是| E[机构间 REITs<br/>资产出表]
-    D -->|否| F[权益法核算]
-    E --> G[2025 Q3 起并表<br/>新增营收 18.6 亿]
-    F --> H[投资收益确认<br/>约 2.3 亿/年]
-    style A fill:#1a365d,stroke:#1a365d,color:#fff
-    style G fill:#1a365d,stroke:#1a365d,color:#fff
-    style H fill:#1a365d,stroke:#1a365d,color:#fff
-</div>
-</section>
 <section class="ascii-figure ascii-mermaid">
-<h3>⚖️ 司法风险处置流程</h3>
-<div class="mermaid">
-flowchart LR
-    P1[诉讼 1<br/>实控人担保] --> R1{2026 Q2 一审}
-    P2[诉讼 2<br/>股权代持] --> R2{2026 Q3 终审}
-    R1 -->|胜诉| OK1[风险解除<br/>估值 +1.2 亿]
-    R1 -->|败诉| NG1[或有负债<br/>3,800 万]
-    R2 -->|胜诉| OK2[股权清晰]
-    R2 -->|败诉| NG2[股权纠纷<br/>影响并表]
-    style OK1 fill:#38a169,stroke:#38a169,color:#fff
-    style OK2 fill:#38a169,stroke:#38a169,color:#fff
-    style NG1 fill:#e53e3e,stroke:#e53e3e,color:#fff
-    style NG2 fill:#e53e3e,stroke:#e53e3e,color:#fff
-</div>
-</section>
 </main>
 <!-- P14: mermaid 渲染注入 -->
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
