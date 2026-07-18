@@ -6084,7 +6084,7 @@ T-15: 估值溢价确认
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
 <script>
 // P16 v1 初始化：15种版式
-(function() {
+
   // mermaid 初始化
   mermaid.initialize({ 
     startOnLoad: true, 
@@ -6234,149 +6234,7 @@ T-15: 估值溢价确认
   } else {
     window.P16Charts.renderAll();
   }
-})();
 
-
-<!-- P17 渲染修复 -->
-<script>
-(function() {
-  // 把全局赋值提前
-  window.P16Charts = {
-    // 15种版式渲染器
-    'mermaid-flowchart': function(container, data) {
-      container.innerHTML = '<div class="mermaid">' + data.code + '</div>';
-      if (typeof mermaid !== 'undefined') mermaid.init(undefined, container.querySelectorAll('.mermaid'));
-    },
-    'mermaid-sequence': function(container, data) {
-      container.innerHTML = '<div class="mermaid">sequenceDiagram\n' + data.code + '\n</div>';
-      if (typeof mermaid !== 'undefined') mermaid.init(undefined, container.querySelectorAll('.mermaid'));
-    },
-    'mermaid-class': function(container, data) {
-      container.innerHTML = '<div class="mermaid">classDiagram\n' + data.code + '\n</div>';
-      if (typeof mermaid !== 'undefined') mermaid.init(undefined, container.querySelectorAll('.mermaid'));
-    },
-    'mermaid-state': function(container, data) {
-      container.innerHTML = '<div class="mermaid">stateDiagram-v2\n' + data.code + '\n</div>';
-      if (typeof mermaid !== 'undefined') mermaid.init(undefined, container.querySelectorAll('.mermaid'));
-    },
-    'mermaid-er': function(container, data) {
-      container.innerHTML = '<div class="mermaid">erDiagram\n' + data.code + '\n</div>';
-      if (typeof mermaid !== 'undefined') mermaid.init(undefined, container.querySelectorAll('.mermaid'));
-    },
-    'ascii-tree': function(container, data) {
-      const lines = data.code.split('\n');
-      let html = '<div class="ascii-figure ascii-tree"><pre>';
-      lines.forEach(line => html += '<div class="ascii-line">' + line + '</div>');
-      html += '</pre></div>';
-      container.innerHTML = html;
-    },
-    'ascii-timeline': function(container, data) {
-      let html = '<div class="ascii-timeline">';
-      (data.events || []).forEach(ev => {
-        html += '<div class="ascii-timeline-item"><div class="ascii-timeline-dot"></div>';
-        html += '<div class="ascii-timeline-label">' + ev.date + '</div>';
-        html += '<div class="ascii-timeline-desc">' + ev.desc + '</div></div>';
-      });
-      html += '</div>';
-      container.innerHTML = html;
-    },
-    'ascii-matrix': function(container, data) {
-      // P17 风格：创建 ASCII 表
-      var m = data.matrix || [];
-      if (m.length === 0) return;
-      var maxLens = [];
-      m.forEach(function(r){r.forEach(function(c,i){maxLens[i]=Math.max(maxLens[i]||0,String(c).length);});});
-      var lines = [];
-      lines.push('┌'+maxLens.map(function(l){return'─'.repeat(l+2);}).join('┬')+'┐');
-      lines.push('│'+m[0].map(function(c,i){return' '+String(c).padEnd(maxLens[i])+' ';}).join('│')+'│');
-      lines.push('├'+maxLens.map(function(l){return'─'.repeat(l+2);}).join('┼')+'┤');
-      for(var j=1;j<m.length;j++) lines.push('│'+m[j].map(function(c,i){return' '+String(c).padEnd(maxLens[i])+' ';}).join('│')+'│');
-      lines.push('└'+maxLens.map(function(l){return'─'.repeat(l+2);}).join('┴')+'┘');
-      container.innerHTML = '<pre class="ascii-matrix">' + lines.join('\n') + '</pre>';
-    },
-    'ascii-table': function(container, data) {
-      let html = '<div class="ascii-figure ascii-table"><table>';
-      (data.headers || []).forEach(h => html += '<th>' + h + '</th>');
-      (data.rows || []).forEach(row => {
-        html += '<tr>';
-        row.forEach(cell => html += '<td>' + cell + '</td>');
-        html += '</tr>';
-      });
-      html += '</table></div>';
-      container.innerHTML = html;
-    },
-    'ascii-gantt': function(container, data) {
-      let html = '<div class="ascii-figure ascii-gantt"><pre>';
-      (data.tasks || []).forEach(t => {
-        html += t.name + ' |' + '█'.repeat(t.days) + '\n';
-      });
-      html += '</pre></div>';
-      container.innerHTML = html;
-    },
-    'chartjs-bar': function(container, data) {
-      const canvas = container.querySelector('canvas') || document.createElement('canvas');
-      if (!canvas.parentElement) container.appendChild(canvas);
-      if (typeof Chart !== 'undefined') {
-        new Chart(canvas, {
-          type: 'bar',
-          data: { labels: data.labels || [], datasets: [{label: data.note||'', data: data.values||[], backgroundColor: 'rgba(30,64,175,0.7)'}] },
-          options: { responsive: true, maintainAspectRatio: false }
-        });
-      }
-    },
-    'chartjs-pie': function(container, data) {
-      const canvas = container.querySelector('canvas') || document.createElement('canvas');
-      if (!canvas.parentElement) container.appendChild(canvas);
-      if (typeof Chart !== 'undefined') {
-        new Chart(canvas, {
-          type: 'pie',
-          data: { labels: data.labels || [], datasets: [{label: data.note||'', data: data.values||[], backgroundColor: ['#1e40af','#3b82f6','#60a5fa','#93c5fd','#bfdbfe']}] },
-          options: { responsive: true, maintainAspectRatio: false }
-        });
-      }
-    },
-    'chartjs-radar': function(container, data) {
-      const canvas = container.querySelector('canvas') || document.createElement('canvas');
-      if (!canvas.parentElement) container.appendChild(canvas);
-      if (typeof Chart !== 'undefined') {
-        new Chart(canvas, {
-          type: 'radar',
-          data: { labels: data.labels || [], datasets: [{label: data.note||'', data: data.values||[], backgroundColor: 'rgba(30,64,175,0.5)'}] },
-          options: { responsive: true, maintainAspectRatio: false }
-        });
-      }
-    },
-    'chartjs-scatter': function(container, data) {
-      const canvas = container.querySelector('canvas') || document.createElement('canvas');
-      if (!canvas.parentElement) container.appendChild(canvas);
-      if (typeof Chart !== 'undefined') {
-        new Chart(canvas, {
-          type: 'scatter',
-          data: { datasets: [{ label: data.label, data: data.points.map(p => ({x: p.x, y: p.y})), backgroundColor: '#1a365d' }] },
-          options: { responsive: true, maintainAspectRatio: false }
-        });
-      }
-    },
-    // 渲染所有
-    renderAll: function() {
-      document.querySelectorAll('[data-chart-type]').forEach(el => {
-        const type = el.getAttribute('data-chart-type');
-        const data = JSON.parse(el.getAttribute('data-chart-data') || '{}');
-        if (this[type]) {
-          this[type](el, data);
-        }
-      });
-    }
-  };
-  
-  // 页面加载完成后渲染
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => window.P16Charts.renderAll());
-  } else {
-    window.P16Charts.renderAll();
-  }
-})();
-</script>
 
 </body>
 </html>
