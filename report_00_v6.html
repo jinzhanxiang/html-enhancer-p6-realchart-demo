@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>汇天网络 IDC 项目 - V6 模板测试</title>
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<!-- Mermaid CDN -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
+
+<style>
+/* === V6 L0 硬规则样式 === */
+
+/* 0.3 字体样式 */
+body {
+  font-family: "FangSong", "仿宋", "仿宋_GB2312", "STFangsong", "Songti SC", "Noto Serif CJK SC", serif;
+  font-size: 18px;
+  line-height: 1.9;
+  margin: 0;
+  padding: 0;
+  color: #1a365d;
+  background: #fff;
+}
+
+/* h1 金色下划线 */
+h1 {
+  font-size: 28px;
+  color: #1a365d;
+  border-bottom: 2px solid #D4AF37;
+  padding-bottom: 12px;
+  margin: 24px 40px;
+}
+
+/* === L0.1 左侧目录 === */
+.toc-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 260px;
+  height: 100vh;
+  overflow-y: auto;
+  background: #f8f9fa;
+  border-right: 1px solid #e9ecef;
+  z-index: 999;
+  padding: 20px 0;
+}
+
+.toc-header {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 16px 16px;
+  border-bottom: 1px solid #e9ecef;
+  margin-bottom: 12px;
+  color: #1a365d;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-item a {
+  display: block;
+  padding: 8px 16px;
+  color: #495057;
+  text-decoration: none;
+  font-size: 14px;
+  border-left: 3px solid transparent;
+}
+
+.toc-item a:hover {
+  background: #e9ecef;
+  border-left-color: #D4AF37;
+  color: #1e40af;
+}
+
+/* === L0.2 顶部导航 === */
+.top-nav {
+  position: fixed;
+  top: 0;
+  width: calc(100% - 260px);
+  height: 50px;
+  left: 260px;
+  background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.nav-container {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  height: 100%;
+  align-items: center;
+  padding: 0 20px;
+  gap: 4px;
+}
+
+.nav-item {
+  flex-shrink: 0;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.nav-item:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+/* === 主体内容区域（右侧）=== */
+.main-content {
+  margin-left: 260px;
+  padding-top: 50px;
+  min-height: 100vh;
+}
+
+.report-body {
+  padding: 20px 40px;
+}
+
+/* === 图表容器 === */
+.chart-container {
+  margin: 24px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.chart-container canvas {
+  max-width: 100%;
+  height: auto !important;
+}
+
+/* === ASCII 表格样式 === */
+.ascii-matrix {
+  font-family: "SF Mono", "FangSong", monospace;
+  font-size: 14px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.ascii-matrix table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.ascii-matrix th, .ascii-matrix td {
+  border: 1px solid #dee2e6;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.ascii-matrix th {
+  background: #1a365d;
+  color: #fff;
+}
+
+/* 响应式 */
+@media (max-width: 1024px) {
+  .toc-sidebar { display: none; }
+  .top-nav { width: 100%; left: 0; }
+  .main-content { margin-left: 0; }
+}
+</style>
+</head>
+
+<body>
+<!-- L0.1 左侧目录 -->
+<aside class="toc-sidebar">
+  <div class="toc-header">📚 目录</div>
+  <nav class="toc-nav">
+    <ul class="toc-list">
+      <li class="toc-item"><a href="#报告结构">报告结构</a></li>
+      <li class="toc-item"><a href="#客户结构">客户结构</a></li>
+      <li class="toc-item"><a href="#REITs估值">REITs 估值锚定</a></li>
+      <li class="toc-item"><a href="#司法风险">司法风险对标</a></li>
+      <li class="toc-item"><a href="#三锚估值">三锚估值</a></li>
+      <li class="toc-item"><a href="#综合评级">综合评级</a></li>
+    </ul>
+  </nav>
+</aside>
+
+<!-- L0.2 顶部导航 -->
+<nav class="top-nav">
+  <div class="nav-container">
+    <a class="nav-item" href="#报告结构">📊 报告结构</a>
+    <a class="nav-item" href="#客户结构">👥 客户结构</a>
+    <a class="nav-item" href="#REITs估值">📈 REITs 估值</a>
+    <a class="nav-item" href="#司法风险">⚖️ 司法风险</a>
+    <a class="nav-item" href="#三锚估值">💰 三锚估值</a>
+    <a class="nav-item" href="#综合评级">⭐ 综合评级</a>
+  </div>
+</nav>
+
+<!-- 主体内容 -->
+<div class="main-content">
+  <div class="report-body">
+    <h1 id="报告标题">汇天网络 IDC 项目 - V6 模板测试</h1>
+    
+    <h2 id="报告结构">📊 报告结构总览</h2>
+    <div class="chart-container" data-chart-type="chartjs-bar" data-chart-data='{"labels": ["核心论证1-22章", "附录A-J", "附录K-T", "扩展论证"], "values": [22, 10, 16, 10], "note": "报告章节统计"}'>
+      <canvas></canvas>
+    </div>
+    
+    <h2 id="客户结构">👥 客户结构分析</h2>
+    <div class="chart-container" data-chart-type="chartjs-pie" data-chart-data='{"labels": ["京东", "华为", "中信银行", "运营商", "其他"], "values": [42.59, 25.9, 10.94, 8, 12.57], "note": "客户收入占比(%)"}'>
+      <canvas></canvas>
+    </div>
+    
+    <h2 id="REITs估值">📈 REITs 估值锚定</h2>
+    <div class="chart-container" data-chart-type="chartjs-radar" data-chart-data='{"labels": ["EV/EBITDA", "分派率", "资产规模", "客户集中度", "上架率"], "values": [16, 4.5, 42, 79, 63], "note": "估值五维评估"}'>
+      <canvas></canvas>
+    </div>
+    
+    <h2 id="司法风险">⚖️ 司法风险市场化对标</h2>
+    <div class="chart-container" data-chart-type="ascii-matrix" data-chart-data='{"matrix": [["风险类型", "汇天", "润泽", "万国"], ["诉讼案件", "959件", "120件", "45件"], ["行政处罚", "4条", "2条", "1条"]], "note": "司法风险横向对标"}'>
+    </div>
+    
+    <h2 id="三锚估值">💰 三锚估值（自主裁决）</h2>
+    <div class="chart-container" data-chart-type="chartjs-bar" data-chart-data='{"labels": ["EV/EBITDA锚", "分派率锚", "可比对标", "最终推荐"], "values": [45, 46, 44, 42], "note": "单位：亿元"}'>
+      <canvas></canvas>
+    </div>
+    
+    <h2 id="综合评级">⭐ 综合评级</h2>
+    <div class="chart-container" data-chart-type="chartjs-radar" data-chart-data='{"labels": ["资源稀缺度", "估值合理性", "并表可行性", "司法风险", "客户质量", "退出路径"], "values": [78, 85, 80, 70, 90, 75], "note": "综合评分 75/100"}'>
+      <canvas></canvas>
+    </div>
+    
+    <hr>
+    <p style="text-align: center; color: #666; font-size: 14px;">
+      V6 模板测试 · 生成时间: 2026-07-18
+    </p>
+  </div>
+</div>
+
+<!-- L0.4 Chart.js 全局对象（必须在 window 上） -->
+<script>
+// ✅ 关键：必须挂载到 window，而不是 IIFE 局部作用域
+(function() {
+  function renderAll() {
+    console.log('P16Charts.renderAll() 被调用');
+    
+    // 查找所有 chart-container
+    document.querySelectorAll('.chart-container').forEach(function(container) {
+      const type = container.getAttribute('data-chart-type');
+      const dataStr = container.getAttribute('data-chart-data');
+      
+      if (!type || !dataStr) return;
+      
+      // 如果已经有 canvas，跳过
+      if (container.querySelector('canvas')) return;
+      
+      try {
+        const data = JSON.parse(dataStr);
+        
+        // 创建 canvas
+        const canvas = document.createElement('canvas');
+        container.appendChild(canvas);
+        
+        // Chart.js 类型映射
+        const chartType = type.replace('chartjs-', '');
+        
+        // 创建图表
+        new Chart(canvas, {
+          type: chartType,
+          data: {
+            labels: data.labels || [],
+            datasets: [{
+              label: data.note || '',
+              data: data.values || [],
+              backgroundColor: [
+                'rgba(30, 64, 175, 0.7)',
+                'rgba(37, 99, 235, 0.7)',
+                'rgba(59, 130, 246, 0.7)',
+                'rgba(96, 165, 250, 0.7)',
+                'rgba(147, 197, 253, 0.7)',
+                'rgba(191, 219, 254, 0.7)'
+              ],
+              borderColor: '#1e40af',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: { font: { family: 'FangSong', size: 14 } }
+              }
+            }
+          }
+        });
+        
+        console.log('渲染成功: ' + type);
+      } catch (e) {
+        console.error('渲染失败: ' + type, e);
+      }
+    });
+  }
+  
+  function renderOne(containerId) {
+    const container = document.getElementById(containerId);
+    if (container) {
+      // 单个渲染逻辑
+    }
+  }
+  
+  // ✅ 关键：挂载到 window 全局对象
+  window.P16Charts = {
+    renderAll: renderAll,
+    renderOne: renderOne
+  };
+  
+  console.log('window.P16Charts 已挂载');
+})();
+
+// 页面加载后自动渲染
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOMContentLoaded 触发');
+  if (window.P16Charts && window.P16Charts.renderAll) {
+    window.P16Charts.renderAll();
+  }
+});
+</script>
+</body>
+</html>
