@@ -31,9 +31,69 @@ th { background: #e2e8f0; }
 h1, h2, h3, h4 { color: #1a365d; }
 h1 { border-bottom: 3px solid rgb(214, 158, 46); padding-bottom: 8px; }
 h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: linear-gradient(180deg, #1a365d 0%, #2c5282 100%);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+}
+.nav-scroll {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0 20px;
+  gap: 8px;
+}
+.nav-scroll::-webkit-scrollbar { display: none; }
+.nav-item {
+  flex-shrink: 0;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-item:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+body { margin-top: 48px; }
+
+/* Chart.js 样式 */
+.chart-container { margin: 24px 0; padding: 16px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
+.chart-title { font-size: 16px; font-weight: bold; color: #1a365d; margin-bottom: 12px; }
+
+/* Plotly 样式 */
+.plotly-container { margin: 24px 0; padding: 16px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
+
+/* 数据表格可视化 */
+.data-table-visual { margin: 16px 0; }
 </style>
 </head>
 <body class="scheme-blue">
+<nav class="top-nav">
+<div class="nav-container">
+<div class="nav-scroll">
+<a href="#主体122章核心论证结论" class="nav-item">主体(1-22 章,核心论证 + 结论)</a><a href="#附录AJ扩展KT操作型扩展论证" class="nav-item">附录(A-J + 扩展 K-T,操作型 + 扩展论证)</a><a href="#第1章汇天网络基本盘双源验证三源实测" class="nav-item">第 1 章 汇天网络基本盘(双源验证,三源实测)</a><a href="#第2章quot全国唯一三网长城专线quo" class="nav-item">第 2 章 &quot;全国唯一三网+长城专线&quot; 真实性核查</a><a href="#第3章REITs估值锚定" class="nav-item">第 3 章 REITs 估值锚定</a><a href="#第4章34并表可行性" class="nav-item">第 4 章 34% 并表可行性</a><a href="#第5章34之外整合难度市场化判断" class="nav-item">第 5 章 34% 之外整合难度(市场化判断)</a><a href="#第6章IDC行业市场化对标6维矩阵" class="nav-item">第 6 章 IDC 行业市场化对标(6 维矩阵)</a><a href="#第7章REITs估值方法学对比自主裁决" class="nav-item">第 7 章 REITs 估值方法学对比(自主裁决)</a><a href="#附74章63上架率50000kW租约集中" class="nav-item">附 7.4 章 63% 上架率 + 50,000 kW 租约集中到期风</a><a href="#附37章PDF0608v7实测数据校准" class="nav-item">附 3.7 章 PDF 0608v7 实测数据校准</a><a href="#第8章司法风险市场化对标" class="nav-item">第 8 章 司法风险市场化对标</a><a href="#第9章矛盾点检测" class="nav-item">第 9 章 矛盾点检测</a><a href="#第10章护城河分析汇天vs同业4道护城河" class="nav-item">第 10 章 护城河分析(汇天 vs 同业 4 道护城河)</a><a href="#第11章风险交叉矩阵" class="nav-item">第 11 章 风险交叉矩阵</a><a href="#第12章三锚估值自主裁决" class="nav-item">第 12 章 三锚估值(自主裁决)</a><a href="#第13章交易结构设计D1" class="nav-item">第 13 章 交易结构设计(D1)</a><a href="#第14章退出路径分析D2" class="nav-item">第 14 章 退出路径分析(D2)</a><a href="#第15章约束条件建模D3" class="nav-item">第 15 章 约束条件建模(D3)</a><a href="#第16章情景推演D4" class="nav-item">第 16 章 情景推演(D4)</a><a href="#第17章自主裁决6项关键决策" class="nav-item">第 17 章 自主裁决 6 项关键决策</a><a href="#第18章实施前置条件清单" class="nav-item">第 18 章 实施前置条件清单</a><a href="#第19章关键风险与监测" class="nav-item">第 19 章 关键风险与监测</a><a href="#第20章5模块决策摘要" class="nav-item">第 20 章 5 模块决策摘要</a><a href="#附录A术语表" class="nav-item">附录 A:术语表</a><a href="#附录B核心数据来源标注" class="nav-item">附录 B:核心数据来源标注</a><a href="#附录D决策树汇天IDC项目最终推荐路径" class="nav-item">附录 D:决策树(汇天 IDC 项目最终推荐路径)</a><a href="#附录E下一步行动清单" class="nav-item">附录 E:下一步行动清单</a><a href="#第6章补充商业REITs试点扩围的边际影" class="nav-item">第 6 章 补充:商业 REITs 试点扩围的边际影响</a><a href="#第7章补充润泽科技45元发行价vs汇天4" class="nav-item">第 7 章 补充:润泽科技 4.5 元发行价 vs 汇天 42 亿估值</a><a href="#第8章补充万国数据GDS的5年长周期对标" class="nav-item">第 8 章 补充:万国数据 GDS 的 5 年长周期对标</a><a href="#第11章补充警醒信号S5S7" class="nav-item">第 11 章 补充:警醒信号 S5-S7</a><a href="#第12章补充扩张期司法风险的市场化定价" class="nav-item">第 12 章 补充:扩张期司法风险的市场化定价</a><a href="#第13章补充客户结构的护城河深度" class="nav-item">第 13 章 补充:客户结构的护城河深度</a><a href="#第17章补充4个失败模式与应对" class="nav-item">第 17 章 补充:4 个失败模式与应对</a><a href="#第18章补充3个成功模式与放大策略" class="nav-item">第 18 章 补充:3 个成功模式与放大策略</a><a href="#第19章补充IRR风险分级完整输出" class="nav-item">第 19 章 补充:IRR 风险分级完整输出</a><a href="#第20章补充完整决策矩阵5子平台5维度" class="nav-item">第 20 章 补充:完整决策矩阵(5 子平台 × 5 维度)</a><a href="#第21章研究局限性" class="nav-item">第 21 章:研究局限性</a><a href="#第22章报告与V3V4的关键差异" class="nav-item">第 22 章:报告与 V3/V4 的关键差异</a>
+</div>
+</div>
+</nav>
+
 
 
 <main>
@@ -87,7 +147,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 <p>🎯 <strong>综合评级</strong>:<strong>75/100 · 推荐推进</strong>(详见 §16.2)</p>
 <hr />
 </div><h1>📋 报告大纲</h1>
-<h2>主体(1-22 章,核心论证 + 结论)</h2><div class="callout callout-conclusion">
+<h2 id="主体122章核心论证结论">主体(1-22 章,核心论证 + 结论)</h2><div class="callout callout-conclusion">
 <details class="table-collapse" open><summary>📊 展开/折叠表格（2）</summary>
 <table>
 <thead>
@@ -205,7 +265,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </tr>
 </tbody>
 </table></details>
-</div><h2>附录(A-J + 扩展 K-T,操作型 + 扩展论证)</h2>
+</div><h2 id="附录AJ扩展KT操作型扩展论证">附录(A-J + 扩展 K-T,操作型 + 扩展论证)</h2>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（3）</summary>
 <table>
 <thead>
@@ -262,7 +322,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </blockquote>
 <hr />
 <h1>Phase 1 - 纵向分析(公司 + 资源 + 并表)</h1>
-<h2>第 1 章 汇天网络基本盘(双源验证,三源实测)</h2>
+<h2 id="第1章汇天网络基本盘双源验证三源实测">第 1 章 汇天网络基本盘(双源验证,三源实测)</h2>
 <h3>1.1 公司本体(5⭐数据)</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（4）</summary>
 <table>
@@ -476,7 +536,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </tbody>
 </table></details>
 <p><strong>8 号楼已整体出售给中央国债登记结算有限责任公司</strong>--这是&quot;客户自持楼栋&quot;模式,市场化程度高</p>
-<h2>第 2 章 &quot;全国唯一三网+长城专线&quot; 真实性核查</h2>
+<h2 id="第2章quot全国唯一三网长城专线quo">第 2 章 &quot;全国唯一三网+长城专线&quot; 真实性核查</h2>
 <blockquote>
 <p><strong>本章节为&quot;假设对方能出示尽调补漏证据&quot;前提下的市场化复核。3 项补漏证据是结论成立的前置条件</strong>:</p>
 <ol>
@@ -791,7 +851,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 <p><strong>§2.4 注脚（口径说明）</strong>：本表估值溢价口径为 <strong>+10-20%</strong>，系已经过上方 §2.5.4 市场化压力测试校准后的&quot;市场化可实现值&quot;。基于&quot;可变现市场收窄&quot;（金融客户仅 11-17% 柜量）与&quot;电力瓶颈制约&quot;（4.4 kW 限制 AI 客户）双重论证,估值溢价口径校准至 +10-20%,保守取值 +10pp (+4.2 亿)。完整论证细节见上方折叠区。</p>
 </blockquote>
 <hr />
-<h2>第 3 章 REITs 估值锚定</h2>
+<h2 id="第3章REITs估值锚定">第 3 章 REITs 估值锚定</h2>
 <blockquote>
 <p><strong>估值方法</strong>:本章对汇天项目采用<strong>多方法并列估值 + 综合加权裁决</strong>的估值框架(综合考量 EV/EBITDA 锚定法、分派率倒推法、可比交易对标法三种视角),基于不同方法的假设差异给出稳健估值区间与最终推荐值,供决策层参考。</p>
 </blockquote>
@@ -1361,7 +1421,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 <li>2025 首批 IDC REITs 上市后破发,<strong>1 年期累计 30%+ 跌幅</strong>(市场情绪未恢复)</li>
 <li>润泽扩募在审,<strong>汇天首发窗口期收窄</strong>(2027Q1 后竞争加剧)</li>
 </ul>
-<h2>第 4 章 34% 并表可行性</h2>
+<h2 id="第4章34并表可行性">第 4 章 34% 并表可行性</h2>
 <blockquote>
 <p><strong>核心变化</strong>:并表不再局限&quot;34%&quot;,而是 4 类路径组合 + 倾斜分配义务的全代价测算</p>
 </blockquote>
@@ -1571,7 +1631,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </tr>
 </tbody>
 </table></details>
-<h2>第 5 章 34% 之外整合难度(市场化判断)</h2>
+<h2 id="第5章34之外整合难度市场化判断">第 5 章 34% 之外整合难度(市场化判断)</h2>
 <h3>5.1 资金端整合(<strong>倾斜期义务下需重估</strong>)</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（25）</summary>
 <table>
@@ -1721,7 +1781,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </tbody>
 </table></details>
 <h1>Phase 2 - 横向分析(行业 + 估值 + 风险)</h1>
-<h2>第 6 章 IDC 行业市场化对标(6 维矩阵)</h2>
+<h2 id="第6章IDC行业市场化对标6维矩阵">第 6 章 IDC 行业市场化对标(6 维矩阵)</h2>
 <h3>6.1 6 维对标矩阵(汇天 vs 4 家可比数据中心)</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（29）</summary>
 <table>
@@ -1873,7 +1933,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </tbody>
 </table></details>
 <p>🎯 <strong>关键发现(按 PDF 0608v7 实测)</strong>:<strong>汇天上架率 63.00%(2026E)远低于行业基准 95%</strong>--这是市场化的关键弱项,源于 50,000 kW 租约 2026 集中到期(占已租 84%),需尽调核实</p>
-<h2>第 7 章 REITs 估值方法学对比(自主裁决)</h2>
+<h2 id="第7章REITs估值方法学对比自主裁决">第 7 章 REITs 估值方法学对比(自主裁决)</h2>
 <h3>7.1 4 种估值方法学评估</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（32）</summary>
 <table>
@@ -1958,7 +2018,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 <h3>7.3 自主裁决</h3>
 <p>🎯 <strong>最终估值区间 45-50 亿</strong>(高于戴德梁行评估 42.02 亿,反映 4 网资源稀缺性溢价 8-19%)</p>
 <p>🎯 <strong>询价策略推荐保守口径 42 亿</strong>(不上限 52 亿)-- 理由是 2026Q2 二级回调 + 破发风险</p>
-<h2>附 7.4 章 63% 上架率 + 50,000 kW 租约集中到期风险核实(原文事实)</h2>
+<h2 id="附74章63上架率50000kW租约集中">附 7.4 章 63% 上架率 + 50,000 kW 租约集中到期风险核实(原文事实)</h2>
 <blockquote>
 <p><strong>数据出处</strong>:<code>汇天IDC项目汇报-0608v7.txt</code> 第 165-220 行(原文事实,第三方独立核实)
 63% 上架率(2026E) + 50,000 kW 租约 2026 集中到期(占已租 84%)--原文表述续约信号 + 风险量化</p>
@@ -2205,7 +2265,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 <li><strong>戴德梁行评估 42.02 亿已含审慎预估</strong>--但<strong>未量化&quot;中信银行续签失败&quot;情景</strong>,主审会计师可能要求压力测试</li>
 <li><strong>综合判断</strong>:上架率 63% + 租约集中到期的整体风险<strong>中等</strong>,但<strong>中信银行续签是单一关键变量</strong>,需推动 6/30 前谈判</li>
 </ul>
-<h2>附 3.7 章 PDF 0608v7 实测数据校准</h2>
+<h2 id="附37章PDF0608v7实测数据校准">附 3.7 章 PDF 0608v7 实测数据校准</h2>
 <blockquote>
 <p><strong>来源</strong>:汇天 IDC 项目汇报-0608v7.pdf(戴德梁行/汇天智算备考报表)</p>
 </blockquote>
@@ -2455,7 +2515,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 <li><strong>建议</strong>:与戴德梁行沟通,<strong>核实上架率下滑是否已充分计入 42 亿估值</strong>;若已计入则 42 亿可接受,若未计入则需重新评估</li>
 </ul>
 <hr />
-<h2>第 8 章 司法风险市场化对标</h2>
+<h2 id="第8章司法风险市场化对标">第 8 章 司法风险市场化对标</h2>
 <h3>8.1 同业司法案件数对比</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（42）</summary>
 <table>
@@ -2540,7 +2600,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </table></details>
 <p><strong>核心结论</strong>:<strong>60% 案件是 IDC 园区建设期的常规诉讼</strong>,不是经营恶化信号</p>
 <h1>Phase 3 - 交叉洞察(矛盾 + 护城河 + 警醒信号)</h1>
-<h2>第 9 章 矛盾点检测</h2>
+<h2 id="第9章矛盾点检测">第 9 章 矛盾点检测</h2>
 <h3>9.1 4 个关键矛盾</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（44）</summary>
 <table>
@@ -2588,7 +2648,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 <strong>应对</strong>:明示财务成本 + 时点选择
 <strong>状态</strong>:✅ 已量化</p>
 <hr />
-<h2>第 10 章 护城河分析(汇天 vs 同业 4 道护城河)</h2>
+<h2 id="第10章护城河分析汇天vs同业4道护城河">第 10 章 护城河分析(汇天 vs 同业 4 道护城河)</h2>
 <h3>10.1 4 道护城河</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（45）</summary>
 <table>
@@ -2665,7 +2725,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </tr>
 </tbody>
 </table></details>
-<h2>第 11 章 风险交叉矩阵</h2>
+<h2 id="第11章风险交叉矩阵">第 11 章 风险交叉矩阵</h2>
 <h3>11.1 5 维风险交叉</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（47）</summary>
 <table>
@@ -2725,7 +2785,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 <strong>应对</strong>:询价保守 + 2026Q4-2027Q1 窗口
 <strong>状态</strong>:✅ 已纳入时点决策</p>
 <hr />
-<h2>第 12 章 三锚估值(自主裁决)</h2>
+<h2 id="第12章三锚估值自主裁决">第 12 章 三锚估值(自主裁决)</h2>
 <h3>12.1 三锚估值</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（48）</summary>
 <table>
@@ -2768,7 +2828,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 <p>🎯 <strong>戴德梁行 42 亿为询价中枢,二级市场溢价纳入估值模型但不冲上限</strong></p>
 <hr />
 <h1>Phase 4 - 决策支持(4 章)</h1>
-<h2>第 13 章 交易结构设计(D1)</h2>
+<h2 id="第13章交易结构设计D1">第 13 章 交易结构设计(D1)</h2>
 <h3>13.1 推荐交易结构</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（49）</summary>
 <table>
@@ -2811,7 +2871,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 <p>🎯 <strong>主推:路径 A + C + D</strong>(34% + 一票否决 + 一致行动协议)
 🎯 <strong>备选:路径 B</strong>(投票权委托)-- 仅在汇天主动提出时启用</p>
 <hr />
-<h2>第 14 章 退出路径分析(D2)</h2>
+<h2 id="第14章退出路径分析D2">第 14 章 退出路径分析(D2)</h2>
 <h3>14.1 4 条退出路径</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（50）</summary>
 <table>
@@ -2858,7 +2918,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 <h3>14.2 主推退出路径</h3>
 <p>🎯 <strong>主推:路径 1(36 个月后大宗减持)+ 路径 2(扩募换手)</strong>-- 这是 70% 概率场景下的最优解</p>
 <hr />
-<h2>第 15 章 约束条件建模(D3)</h2>
+<h2 id="第15章约束条件建模D3">第 15 章 约束条件建模(D3)</h2>
 <h3>15.1 5 类约束</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（51）</summary>
 <table>
@@ -2906,7 +2966,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 <h3>15.2 关键约束的应对</h3>
 <p>🎯 <strong>国资委审批 + 证监会备案 = 最长约束 6-9 月</strong>-- 决定整体时点为 2026Q4-2027Q1</p>
 <hr />
-<h2>第 16 章 情景推演(D4)</h2>
+<h2 id="第16章情景推演D4">第 16 章 情景推演(D4)</h2>
 <h3>16.1 4 场景加权估值</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（52）</summary>
 <table>
@@ -3049,7 +3109,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 <p>🎯 <strong>中性情景 IRR 5-7%</strong> -- 这是天保基建 WACC(11%)之下,在方案中明示财务成本</p>
 <hr />
 <h1>Phase 5 - 综合结论</h1>
-<h2>第 17 章 自主裁决 6 项关键决策</h2>
+<h2 id="第17章自主裁决6项关键决策">第 17 章 自主裁决 6 项关键决策</h2>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（55）</summary>
 <table>
 <thead>
@@ -3099,7 +3159,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </tr>
 </tbody>
 </table></details>
-<h2>第 18 章 实施前置条件清单</h2>
+<h2 id="第18章实施前置条件清单">第 18 章 实施前置条件清单</h2>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（56）</summary>
 <table>
 <thead>
@@ -3149,7 +3209,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </tr>
 </tbody>
 </table></details>
-<h2>第 19 章 关键风险与监测</h2>
+<h2 id="第19章关键风险与监测">第 19 章 关键风险与监测</h2>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（57）</summary>
 <table>
 <thead>
@@ -3193,7 +3253,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </tr>
 </tbody>
 </table></details>
-<h2>第 20 章 5 模块决策摘要</h2>
+<h2 id="第20章5模块决策摘要">第 20 章 5 模块决策摘要</h2>
 <h3>模块 1:核心结论</h3>
 <p>✅ <strong>推荐推进 5 子平台联动合作</strong>,但<strong>询价锁定 42 亿(不上限 52 亿)</strong>,<strong>并表路径选 A+C+D</strong></p>
 <h3>模块 2:关键风险</h3>
@@ -3221,7 +3281,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </ul>
 <hr />
 <h1>附录</h1>
-<h2>附录 A:术语表</h2>
+<h2 id="附录A术语表">附录 A:术语表</h2>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（58）</summary>
 <table>
 <thead>
@@ -3279,7 +3339,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </tr>
 </tbody>
 </table></details>
-<h2>附录 B:核心数据来源标注</h2>
+<h2 id="附录B核心数据来源标注">附录 B:核心数据来源标注</h2>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（59）</summary>
 <table>
 <thead>
@@ -3327,7 +3387,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </tr>
 </tbody>
 </table></details>
-<h2>附录 D:决策树(汇天 IDC 项目最终推荐路径)</h2>
+<h2 id="附录D决策树汇天IDC项目最终推荐路径">附录 D:决策树(汇天 IDC 项目最终推荐路径)</h2>
 <pre><code>问:4 网节点真实性?
   ├─ 是(核心机房协议 + CGWNET 授权 + PoP 设备清单)→ 估值溢价 +10-20%（见 §2.5.7）→ 询价 45 亿
   └─ 否/部分 → 估值溢价 0-10% → 询价 42 亿
@@ -3347,7 +3407,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 
 最终:5 子平台联动 + 询价 42 亿 + 2027Q1 上市 + 路径 A+C+D + 接受倾斜分配义务
 </code></pre>
-<h2>附录 E:下一步行动清单</h2>
+<h2 id="附录E下一步行动清单">附录 E:下一步行动清单</h2>
 <ol>
 <li><strong>派法务登录 中国执行信息公开网</strong>(限消令/被执行人/失信被执行人/股权出质查询)</li>
 <li><strong>要求汇天方提供</strong>:4 网核心机房协议 + CGWNET 授权 + PoP 设备清单</li>
@@ -3359,7 +3419,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </ol>
 <hr />
 <h1>Phase 2 补充章节</h1>
-<h2>第 6 章 补充:商业 REITs 试点扩围的边际影响</h2>
+<h2 id="第6章补充商业REITs试点扩围的边际影">第 6 章 补充:商业 REITs 试点扩围的边际影响</h2>
 <h3>6.5 商业 REITs 试点扩围的 5 个边际影响</h3>
 <p>商业不动产 REITs 试点自 2025-12 启动以来,2026H1 已 4 单挂牌(砂之船/首农/中金唯品会/汇添富上海地产),合计募资 203.32 亿元(占总首发规模 68.37%)。这对汇天 IDC REITs 的影响包括:</p>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（60）</summary>
@@ -3439,7 +3499,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </tbody>
 </table></details>
 <p>🎯 <strong>关键结论</strong>:<strong>回调是 4 个短期因素叠加,IDC 板块相对抗跌(仅跌 1.23% 整体下降)</strong>-- 这是汇天上市时点的核心数据支撑</p>
-<h2>第 7 章 补充:润泽科技 4.5 元发行价 vs 汇天 42 亿估值的对标</h2>
+<h2 id="第7章补充润泽科技45元发行价vs汇天4">第 7 章 补充:润泽科技 4.5 元发行价 vs 汇天 42 亿估值的对标</h2>
 <h3>7.5 润泽科技 4.5 元发行价拆解</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（62）</summary>
 <table>
@@ -3820,7 +3880,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </tbody>
 </table></details>
 <p>🎯 <strong>关键发现</strong>:<strong>5 家 IDC/仓储 REITs 中,汇天规模最大(43.4 亿)、区位最优(北京通州)、客户结构最全</strong> -- 这构成&quot;汇天询价 42 亿&quot;的强支撑</p>
-<h2>第 8 章 补充:万国数据 GDS 的 5 年长周期对标</h2>
+<h2 id="第8章补充万国数据GDS的5年长周期对标">第 8 章 补充:万国数据 GDS 的 5 年长周期对标</h2>
 <h3>8.4 万国数据 GDS 美股表现(2021-2026)</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（70）</summary>
 <table>
@@ -3911,7 +3971,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 </tbody>
 </table></details>
 <h1>Phase 3 补充章节</h1>
-<h2>第 11 章 补充:警醒信号 S5-S7</h2>
+<h2 id="第11章补充警醒信号S5S7">第 11 章 补充:警醒信号 S5-S7</h2>
 <h3>11.4 警醒信号 S5(新增检测):估值方法学甩锅</h3>
 <p><strong>触发</strong>:以&quot;3 选项 A/B/C 让拍板估值方法学&quot;的方式报告
 <strong>应对</strong>:本报告已<strong>自主裁决</strong>(45-50 亿区间 + 询价 42 亿推荐)
@@ -3925,7 +3985,7 @@ h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
 <strong>应对</strong>:本报告<strong>所有数据 2026-07-13 实测</strong>(tavily 2026-07-10/13 经济参考报+财联社)
 <strong>状态</strong>:✅ 已解决</p>
 <hr />
-<h2>第 12 章 补充:扩张期司法风险的市场化定价</h2>
+<h2 id="第12章补充扩张期司法风险的市场化定价">第 12 章 补充:扩张期司法风险的市场化定价</h2>
 <h3>12.3 司法风险与&quot;扩张期&quot;特征</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（72）</summary>
 <table>
@@ -4047,7 +4107,7 @@ flowchart TD
 
 
 <hr />
-<h2>第 13 章 补充:客户结构的护城河深度</h2>
+<h2 id="第13章补充客户结构的护城河深度">第 13 章 补充:客户结构的护城河深度</h2>
 <h3>13.3 3 类客户的护城河评分</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（75）</summary>
 <table>
@@ -4124,7 +4184,7 @@ flowchart TD
 </table></details>
 <p>🎯 <strong>关键发现</strong>:汇天 5 家智算客户中 3 家是&quot;国家队 + 生态卡位&quot;-- 这是 AI 算力赛道的稀缺资源,<strong>比单纯 IDC 客户更有长期价值</strong></p>
 <h1>Phase 4 补充章节</h1>
-<h2>第 17 章 补充:4 个失败模式与应对</h2>
+<h2 id="第17章补充4个失败模式与应对">第 17 章 补充:4 个失败模式与应对</h2>
 <h3>17.1 失败模式 1:中国执行信息公开网 实证不通过</h3>
 <p><strong>触发条件</strong>:汇天及关联方在 中国执行信息公开网 实证中出现<strong>任何</strong>新增限消令 / 被执行人 / 失信被执行人
 <strong>应对</strong>:立即暂停推进 + 重新评估控制权稳定性
@@ -4180,7 +4240,7 @@ flowchart TD
 </tbody>
 </table></details>
 <hr />
-<h2>第 18 章 补充:3 个成功模式与放大策略</h2>
+<h2 id="第18章补充3个成功模式与放大策略">第 18 章 补充:3 个成功模式与放大策略</h2>
 <h3>18.1 成功模式 1:上市后扩募</h3>
 <p><strong>触发条件</strong>:REITs 上市 36 个月后,扩募机制启动
 <strong>应对</strong>:天保 34% 减持 + 新战投进入 + 扩入东六栋剩余机柜
@@ -4197,7 +4257,7 @@ flowchart TD
 <strong>概率</strong>:40-50%
 <strong>财务影响</strong>:协同效应 +1-2 亿</p>
 <hr />
-<h2>第 19 章 补充:IRR 风险分级完整输出</h2>
+<h2 id="第19章补充IRR风险分级完整输出">第 19 章 补充:IRR 风险分级完整输出</h2>
 <h3>19.1 IRR 分级(5 档)</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（78）</summary>
 <table>
@@ -4356,7 +4416,7 @@ flowchart TD
 </tr>
 </tbody>
 </table></details>
-<h2>第 20 章 补充:完整决策矩阵(5 子平台 × 5 维度)</h2>
+<h2 id="第20章补充完整决策矩阵5子平台5维度">第 20 章 补充:完整决策矩阵(5 子平台 × 5 维度)</h2>
 <h3>20.1 5 子平台 × 5 维度决策矩阵</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（82）</summary>
 <table>
@@ -4455,7 +4515,7 @@ flowchart TD
 </tbody>
 </table></details>
 <hr />
-<h2>第 21 章:研究局限性</h2>
+<h2 id="第21章研究局限性">第 21 章:研究局限性</h2>
 <h3>21.1 本报告的 5 个研究局限</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（84）</summary>
 <table>
@@ -4533,7 +4593,7 @@ flowchart TD
 </tbody>
 </table></details>
 <hr />
-<h2>第 22 章:报告与 V3/V4 的关键差异</h2>
+<h2 id="第22章报告与V3V4的关键差异">第 22 章:报告与 V3/V4 的关键差异</h2>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（86）</summary>
 <table>
 <thead>
@@ -4596,7 +4656,7 @@ flowchart TD
 </tbody>
 </table></details>
 <hr />
-<h2>附录 F:完整路径 B(投票权委托)操作流程(备选)</h2>
+<h2 id="附录F完整路径B投票权委托操作流程备选">附录 F:完整路径 B(投票权委托)操作流程(备选)</h2>
 <h3>F.1 启动条件</h3>
 <p><strong>汇天方主动提出</strong> → 启动路径 B 谈判</p>
 <h3>F.2 流程</h3>
@@ -4644,7 +4704,7 @@ T+0: 提交 REITs 公开募集说明书
 <h3>F.4 备选启用条件</h3>
 <p>🎯 <strong>仅在主推组合(路径 A+C+D)失效时启用</strong> -- 这是应急方案,不是首选</p>
 <hr />
-<h2>附录 G:4 网节点真实性证据清单</h2>
+<h2 id="附录G4网节点真实性证据清单">附录 G:4 网节点真实性证据清单</h2>
 <h3>G.1 必须取得的 3 项证据</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（88）</summary>
 <table>
@@ -4712,7 +4772,7 @@ T-15: 估值溢价确认
 </tbody>
 </table></details>
 <hr />
-<h2>附录 H:中国执行信息公开网 实证操作指南</h2>
+<h2 id="附录H中国执行信息公开网实证操作指南">附录 H:中国执行信息公开网 实证操作指南</h2>
 <h3>H.1 实证内容</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（90）</summary>
 <table>
@@ -4804,7 +4864,7 @@ T-15: 估值溢价确认
 </tbody>
 </table></details>
 <hr />
-<h2>附录 I:企业会计准则第33号 第七条控制认定论证模板</h2>
+<h2 id="附录I企业会计准则第33号第七条控制认定">附录 I:企业会计准则第33号 第七条控制认定论证模板</h2>
 <h3>I.1 三要素论证</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（93）</summary>
 <table>
@@ -4886,7 +4946,7 @@ T-15: 估值溢价确认
 
 <p><em>报告完成时间:2026-07-13 17:30 GMT+8</em></p>
 <h1>Phase 3 第二轮补充(数据深度)</h1>
-<h2>第 22 章 补充:3 个真实场景案例对标</h2>
+<h2 id="第22章补充3个真实场景案例对标">第 22 章 补充:3 个真实场景案例对标</h2>
 <h3>22.1 案例 1:润泽科技 REITs(180901)2025-2026 复盘</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（95）</summary>
 <table>
@@ -4991,7 +5051,7 @@ T-15: 估值溢价确认
 </table></details>
 <p>🎯 <strong>关键启示</strong>:<strong>单一资产 + 集中客户 + 高空置率 = 跌幅 -39% 风险</strong>--汇天<strong>必须 4 网资源 + 3 类客户 + 提升签约率至 95%</strong> 才能规避此类风险</p>
 <hr />
-<h2>第 23 章 补充:完整时间表(从签约到上市)</h2>
+<h2 id="第23章补充完整时间表从签约到上市">第 23 章 补充:完整时间表(从签约到上市)</h2>
 <h3>23.1 完整时间表</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（98）</summary>
 <table>
@@ -5164,7 +5224,7 @@ T-15: 估值溢价确认
 </tbody>
 </table></details>
 <hr />
-<h2>第 24 章 补充:关键数据交叉验证表</h2>
+<h2 id="第24章补充关键数据交叉验证表">第 24 章 补充:关键数据交叉验证表</h2>
 <h3>24.1 核心数据三源一致性</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（101）</summary>
 <table>
@@ -5244,7 +5304,7 @@ T-15: 估值溢价确认
 <h3>24.3 应对</h3>
 <p>🎯 <strong>以 中国执行信息公开网 实证为准</strong> -- 律所专项核查 + 主审会计师二次验证</p>
 <hr />
-<h2>第 25 章 补充:汇天合作空间整理(5 个待办子公司)</h2>
+<h2 id="第25章补充汇天合作空间整理5个待办子公">第 25 章 补充:汇天合作空间整理(5 个待办子公司)</h2>
 <h3>25.1 5 个待办子公司</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（103）</summary>
 <table>
@@ -5359,7 +5419,7 @@ T-15: 估值溢价确认
 </tbody>
 </table></details>
 <hr />
-<h2>第 26 章 补充:3 个关联实体穿透</h2>
+<h2 id="第26章补充3个关联实体穿透">第 26 章 补充:3 个关联实体穿透</h2>
 <h3>26.1 关联实体穿透</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（106）</summary>
 <table>
@@ -5438,7 +5498,7 @@ T-15: 估值溢价确认
 </table></details>
 <hr />
 <hr />
-<h2>第 28 章 补充:5 个法律尽调前置条件</h2>
+<h2 id="第28章补充5个法律尽调前置条件">第 28 章 补充:5 个法律尽调前置条件</h2>
 <h3>28.1 5 个法律尽调前置条件</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（108）</summary>
 <table>
@@ -5516,7 +5576,7 @@ T-15: 估值溢价确认
 </tbody>
 </table></details>
 <hr />
-<h2>第 29 章 补充:5 个会计尽调前置条件</h2>
+<h2 id="第29章补充5个会计尽调前置条件">第 29 章 补充:5 个会计尽调前置条件</h2>
 <h3>29.1 5 个会计尽调前置条件</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（110）</summary>
 <table>
@@ -5562,7 +5622,7 @@ T-15: 估值溢价确认
 </tbody>
 </table></details>
 <hr />
-<h2>第 30 章 补充:5 个金融尽调前置条件</h2>
+<h2 id="第30章补充5个金融尽调前置条件">第 30 章 补充:5 个金融尽调前置条件</h2>
 <h3>30.1 5 个金融尽调前置条件</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（111）</summary>
 <table>
@@ -5608,7 +5668,7 @@ T-15: 估值溢价确认
 </tbody>
 </table></details>
 <hr />
-<h2>附录 J:溢价阈值量化推导（08b 文件校准版）</h2>
+<h2 id="附录J溢价阈值量化推导08b文件校准版">附录 J:溢价阈值量化推导（08b 文件校准版）</h2>
 <blockquote>
 <p><strong>本附录目的</strong>：将 08b《溢价阈值量化推导》文件的方法论融入本报告，并按原始项目文件校准其数值基础。</p>
 <p><strong>校准原则</strong>：仅以原始项目文件本身（汇天IDC项目汇报-0608v7.pdf / 中信建投 7-7 合作方案.txt）为依据，不以任何二手分析报告为参考。</p>
@@ -5993,5 +6053,6 @@ T-15: 估值溢价确认
   }
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </body>
 </html>
