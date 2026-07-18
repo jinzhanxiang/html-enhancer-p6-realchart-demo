@@ -6077,6 +6077,46 @@ T-15: 估值溢价确认
   }
 </script>
 
+
+// ===== P17 渲染核心 - 直接暴露到 window =====
+window.P16Charts = {
+    // 5 种 mermaid
+    'mermaid-flowchart': function(c, d) { c.innerHTML = '<div class="mermaid">' + d.code + '</div>'; if(typeof mermaid!=="undefined") mermaid.init(null, c.querySelectorAll('.mermaid')); },
+    'mermaid-sequence': function(c, d) { c.innerHTML = '<div class="mermaid">sequenceDiagram\n' + d.code + '\n</div>'; if(typeof mermaid!=="undefined") mermaid.init(null, c.querySelectorAll('.mermaid')); },
+    'mermaid-class': function(c, d) { c.innerHTML = '<div class="mermaid">classDiagram\n' + d.code + '\n</div>'; if(typeof mermaid!=="undefined") mermaid.init(null, c.querySelectorAll('.mermaid')); },
+    'mermaid-state': function(c, d) { c.innerHTML = '<div class="mermaid">stateDiagram-v2\n' + d.code + '\n</div>'; if(typeof mermaid!=="undefined") mermaid.init(null, c.querySelectorAll('.mermaid')); },
+    'mermaid-er': function(c, d) { c.innerHTML = '<div class="mermaid">erDiagram\n' + d.code + '\n</div>'; if(typeof mermaid!=="undefined") mermaid.init(null, c.querySelectorAll('.mermaid')); },
+    // 5 种 ascii
+    'ascii-tree': function(c, d) { c.innerHTML = '<div class="ascii-figure"><pre>' + d.code + '</pre></div>'; },
+    'ascii-timeline': function(c, d) { let h='<div class="ascii-timeline">'; (d.events||[]).forEach(e=>{h+='<div class="tl-item"><span class="tl-date">'+e.date+'</span><span class="tl-desc">'+e.desc+'</span></div>';}); h+='</div>'; c.innerHTML=h; },
+    'ascii-matrix': function(c, d) {
+      var m=d.matrix||[]; if(!m.length)return;
+      var ml=[]; m.forEach(function(r){r.forEach(function(c,i){ml[i]=Math.max(ml[i]||0,String(c).length);});});
+      var lines=[];
+      lines.push('┌'+ml.map(function(l){return'─'.repeat(l+2);}).join('┬')+'┐');
+      lines.push('│'+m[0].map(function(v,i){return' '+String(v).padEnd(ml[i])+' ';}).join('│')+'│');
+      lines.push('├'+ml.map(function(l){return'─'.repeat(l+2);}).join('┼')+'┤');
+      for(var j=1;j<m.length;j++) lines.push('│'+m[j].map(function(v,i){return' '+String(v).padEnd(ml[i])+' ';}).join('│')+'│');
+      lines.push('└'+ml.map(function(l){return'─'.repeat(l+2);}).join('┴')+'┘');
+      c.innerHTML='<pre class="ascii-matrix">'+lines.join('\n')+'</pre>';
+    },
+    'ascii-table': function(c, d) { let h='<table>'; (d.headers||[]).forEach(x=>h+='<th>'+x+'</th>'); (d.rows||[]).forEach(r=>{h+='<tr>';r.forEach(x=>h+='<td>'+x+'</td>');h+='</tr>';}); h+='</table>'; c.innerHTML='<div class="ascii-table">'+h+'</div>'; },
+    'ascii-gantt': function(c, d) { let h='<pre>'; (d.tasks||[]).forEach(t=>{h+=t.name+' |'+'█'.repeat(t.days)+'\n';}); h+='</pre>'; c.innerHTML=h; },
+    // 5 种 chart.js (简化版)
+    'chartjs-bar': function(c, d) { var ca=c.querySelector('canvas')||document.createElement('canvas'); if(!ca.parentElement)c.appendChild(ca); if(typeof Chart!=='undefined')new Chart(ca,{type:'bar',data:{labels:d.labels||[],datasets:[{label:d.note||'',data:d.values||[],backgroundColor:'rgba(30,64,175,0.7)'}]},options:{responsive:true,maintainAspectRatio:false}}); },
+    'chartjs-pie': function(c, d) { var ca=c.querySelector('canvas')||document.createElement('canvas'); if(!ca.parentElement)c.appendChild(ca); if(typeof Chart!=='undefined')new Chart(ca,{type:'pie',data:{labels:d.labels||[],datasets:[{label:d.note||'',data:d.values||[],backgroundColor:['#1e40af','#3b82f6','#60a5fa','#93c5fd','#bfdbfe']}]},options:{responsive:true,maintainAspectRatio:false}}); },
+    'chartjs-radar': function(c, d) { var ca=c.querySelector('canvas')||document.createElement('canvas'); if(!ca.parentElement)c.appendChild(ca); if(typeof Chart!=='undefined')new Chart(ca,{type:'radar',data:{labels:d.labels||[],datasets:[{label:d.note||'',data:d.values||[],backgroundColor:'rgba(30,64,175,0.5)'}]},options:{responsive:true,maintainAspectRatio:false}}); },
+    'chartjs-scatter': function(c, d) { var ca=c.querySelector('canvas')||document.createElement('canvas'); if(!ca.parentElement)c.appendChild(ca); if(typeof Chart!=='undefined')new Chart(ca,{type:'scatter',data:{datasets:[{label:d.label||'',data:d.points||[],backgroundColor:'#1a365d'}]},options:{responsive:true,maintainAspectRatio:false}}); },
+    // renderAll
+    renderAll: function() { document.querySelectorAll('[data-chart-type]').forEach(function(el){var t=el.getAttribute('data-chart-type');var d=JSON.parse(el.getAttribute('data-chart-data')||'{}');if(this[t])this[t](el,d);}.bind(this)); }
+};
+
+// 页面加载后渲染
+function tryRender(){ if(window.P16Charts&&window.P16Charts.renderAll){try{window.P16Charts.renderAll();}catch(e){console.error('Render error:',e);}} }
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',tryRender);}else{setTimeout(tryRender,500);}
+// ===== P17 核心结束 =====
+
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
 <!-- P16 v1 15种可视化版式库 -->
@@ -6084,7 +6124,7 @@ T-15: 估值溢价确认
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
 <script>
 // P16 v1 初始化：15种版式
-
+(function() {
   // mermaid 初始化
   mermaid.initialize({ 
     startOnLoad: true, 
@@ -6234,7 +6274,7 @@ T-15: 估值溢价确认
   } else {
     window.P16Charts.renderAll();
   }
-
+})();
 
 </body>
 </html>
