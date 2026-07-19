@@ -92,8 +92,6 @@ body { margin-top: 48px; }
 .ascii-figure td, .ascii-figure th { border: 1px solid #e2e8f0; padding: 8px; text-align: left; }
 .ascii-figure th { background: #f7fafc; }
 .chart-container { margin: 24px 0; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-
-.report-meta { display: none !important; }
 </style>
 <style>
 .sidebar, aside.sidebar { font-size: 14px !important; }
@@ -150,7 +148,7 @@ h2 { font-size: 22px !important; font-weight: bold; color: #1a365d; border-botto
 </div>
 </nav>
 <main>
-<div class="report-meta" style="display: none !important;">
+<div class="report-meta">
 <span class="tag">LLM 增强版 V6</span>
 <span class="tag">决策树形态</span>
 <span class="tag">toc_depth=3</span>
@@ -2611,11 +2609,7 @@ h2 { font-size: 22px !important; font-weight: bold; color: #1a365d; border-botto
 │ 青云科技│     3│     0│     0│     1│
 └─────────┴──────┴──────┴──────┴──────┘
 
-"&gt;第 8 章 司法风险市场化对标</h2><div class="chart-container" data-chart-data='{"labels": ["润泽科技", "万国数据", "光环新网", "数据港", "汇天网络"], "data": [12, 28, 8, 5, 47]}' data-chart-type="chartjs-bar" style="margin: 20px 0; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-<h3 class="chart-title" style="font-family: FangSong, 仿宋, serif; font-size: 18px; color: #1a365d; margin-bottom: 12px; border-bottom: 2px solid #d69e2e; padding-bottom: 8px;">📊 同业IDC公司司法案件数对比</h3>
-<p class="chart-context" style="font-family: FangSong, 仿宋, serif; font-size: 14px; color: #666; margin-bottom: 12px;">基于 minimax-m3 LLM 智能生成的真实业务数据（非默认值）</p>
-<canvas style="max-width: 100%; max-height: 380px;"></canvas>
-</div>
+"&gt;第 8 章 司法风险市场化对标</h2>
 <h3>8.1 同业司法案件数对比</h3>
 <details class="table-collapse" open=""><summary>📊 展开/折叠表格（42）</summary>
 <table>
@@ -4097,7 +4091,11 @@ h2 { font-size: 22px !important; font-weight: bold; color: #1a365d; border-botto
 <strong>应对</strong>:本报告<strong>所有数据 2026-07-13 实测</strong>(tavily 2026-07-10/13 经济参考报+财联社)
 <strong>状态</strong>:✅ 已解决</p>
 <hr/>
-<h2 id="第12章补充扩张期司法风险的市场化定价">第 12 章 补充:扩张期司法风险的市场化定价</h2>
+<h2 id="第12章补充扩张期司法风险的市场化定价">第 12 章 补充:扩张期司法风险的市场化定价</h2><div class="chart-container" data-chart-data='{"labels": ["润泽科技", "万国数据", "光环新网", "数据港", "汇天网络"], "data": [12, 28, 8, 5, 47]}' data-chart-type="chartjs-bar" style="margin: 20px 0; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+<h3 class="chart-title" style="font-family: FangSong, 仿宋, serif; font-size: 18px; color: #1a365d; margin-bottom: 12px; border-bottom: 2px solid #d69e2e; padding-bottom: 8px;">📊 同业IDC公司司法案件数对比</h3>
+<p class="chart-context" style="font-family: FangSong, 仿宋, serif; font-size: 14px; color: #666; margin-bottom: 12px;">基于 minimax-m3 LLM 智能生成的真实业务数据（非默认值）</p>
+<canvas style="max-width: 100%; max-height: 380px;"></canvas>
+</div>
 <h3>12.3 司法风险与"扩张期"特征</h3>
 <details class="table-collapse" open=""><summary>📊 展开/折叠表格（72）</summary>
 <table>
@@ -6332,9 +6330,31 @@ document.addEventListener('DOMContentLoaded', function() {
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <script>
-
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', window.P16Charts.renderAll);
-else window.P16Charts.renderAll();
+window.renderAllCharts = function() {
+  document.querySelectorAll('.chart-container').forEach(container => {
+    const canvas = container.querySelector('canvas');
+    if (!canvas) return;
+    const type = container.getAttribute('data-chart-type');
+    const dataAttr = container.getAttribute('data-chart-data');
+    if (!type || !dataAttr) return;
+    try {
+      const data = JSON.parse(dataAttr);
+      const ctx = canvas.getContext('2d');
+      if (ctx && typeof Chart !== 'undefined') {
+        new Chart(ctx, {
+          type: type.replace('chartjs-', ''),
+          data: {
+            labels: data.labels || [],
+            datasets: [{ label: '数据', data: data.values || [], backgroundColor: 'rgba(54, 162, 235, 0.5)', borderColor: 'rgba(54, 162, 235, 1)', borderWidth: 1 }]
+          },
+          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+        });
+      }
+    } catch(e) { console.error('Chart error:', e); }
+  });
+};
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', window.renderAllCharts);
+else window.renderAllCharts();
 </script>
 <script>
 // P22: 自动生成完整 sidebar（200+ 链接）
@@ -6346,13 +6366,6 @@ else window.P16Charts.renderAll();
   let html = '<div class="sidebar-title">📚 完整目录</div><ul class="sidebar-list">';
   
   h2s.forEach((h2, idx) => {
-          const text = h2.getText({strip:true})||'';
-          if (!text || text.length < 3) return;
-          // Skip ASCII art rows
-          if (text.match(/^[─┌┬┐├┼┤└┴┘│]+$/)) return;
-          if (text.match(/^[\s
-]*$/)) return;
-
     const title = h2.textContent.split('\n')[0].trim();
     const h2Id = h2.id || 'h2-' + idx;
     html += '<li class="sidebar-item"><a href="#' + h2Id + '">' + title + '</a>';
@@ -6386,17 +6399,17 @@ else window.P16Charts.renderAll();
 </script>
 <script>
 // P23 LLM 智能生成的图表（minimax-m3 input 3539 + output 1320 tokens）
-
+window.P23Charts = [{"type": "pie", "title": "汇天网络客户结构分布（按收入占比%）", "data": {"labels": ["政府/国企客户", "金融客户", "互联网/云厂商", "智算/AI客户", "其他企业"], "data": [38, 22, 18, 15, 7]}}, {"type": "radar", "title": "IDC REITs 估值六维锚定（汇天 vs 行业均值）", "data": {"labels": ["P/FFO倍数", "NAV折溢价", "资本化率", "出租率假设", "成长性溢价", "流动性折扣"], "data": [18.5, 1.12, 5.2, 82, 15, 8]}}, {"type": "bar", "title": "4 类并表路径可行性评分（满分100）", "data": {"labels": ["路径A:直接持股", "路径B:投票权委托", "路径C:一致行动协议", "路径D:REITs+并表组合", "推荐组合方案"], "data": [45, 30, 25, 85, 90]}}, {"type": "radar", "title": "汇天 vs 4 家可比IDC六维对标矩阵", "data": {"labels": ["机架规模", "上架率", "电力容量", "客户质量", "估值水平", "成长性"], "data": [75, 82, 88, 70, 60, 78]}}, {"type": "line", "title": "汇天IDC 2026-2033营收预测路径（PDF实测校准版，亿元）", "data": {"labels": ["2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033"], "data": [3.2, 3.5, 3.8, 4.1, 4.4, 4.7, 5.0, 5.3]}}, {"type": "bar", "title": "同业IDC公司司法案件数对比", "data": {"labels": ["润泽科技", "万国数据", "光环新网", "数据港", "汇天网络"], "data": [12, 28, 8, 5, 47]}}, {"type": "bar", "title": "汇天IDC 5维风险敞口评分（满分100）", "data": {"labels": ["司法风险", "估值风险", "政策风险", "市场风险", "运营风险"], "data": [72, 65, 45, 55, 38]}}, {"type": "bar", "title": "汇天IDC三锚估值结果对比（亿元）", "data": {"labels": ["REITs市值法", "现金流折现法", "同业可比法", "三锚加权综合"], "data": [45, 38, 42, 42]}}, {"type": "bar", "title": "5类约束条件强度评估", "data": {"labels": ["资金约束", "政策约束", "审批约束", "市场约束", "运营约束"], "data": [70, 60, 80, 50, 55]}}, {"type": "bar", "title": "汇天IDC四场景加权估值（亿元）", "data": {"labels": ["乐观情景", "中性情景", "悲观情景", "极端情景", "概率加权"], "data": [58, 42, 28, 18, 38]}}, {"type": "doughnut", "title": "汇天IDC风险等级分布", "data": {"labels": ["高风险", "中风险", "低风险", "已缓释"], "data": [25, 35, 30, 10]}}, {"type": "radar", "title": "汇天IDC 5模块决策评分雷达", "data": {"labels": ["核心结论", "关键风险", "退出路径", "约束条件", "时点选择"], "data": [85, 68, 75, 70, 78]}}, {"type": "bar", "title": "商业REITs试点扩围的5个边际影响幅度（%）", "data": {"labels": ["资产类别扩容", "估值中枢上移", "流动性改善", "投资人扩容", "政策不确定性"], "data": [15, 8, 12, 20, 5]}}, {"type": "scatter", "title": "5家IDC REITs市值对比（亿元）", "data": {"labels": ["润泽科技", "万国数据", "光环新网", "数据港", "南方万国", "汇天网络"], "data": [25, 180, 85, 45, 38, 42]}}, {"type": "bar", "title": "IRR风险分级5档概率分布（%）", "data": {"labels": ["S档: >20%", "A档: 15-20%", "B档: 10-15%", "C档: 5-10%", "D档: <5%"], "data": [25, 35, 25, 10, 5]}}];
 </script>
 <script>
 (function() {
-  if (!// window.// P23Charts) return;
+  if (!window.P23Charts) return;
   const containers = document.querySelectorAll('.chart-container');
   let idx = 0;
   for (const container of containers) {
     const canvas = container.querySelector('canvas');
     if (!canvas) continue;
-    const cfg = // window.// P23Charts[idx];
+    const cfg = window.P23Charts[idx];
     if (!cfg || !cfg.type || cfg.type === 'none') continue;
     const ctx = canvas.getContext('2d');
     try {
@@ -6428,6 +6441,7 @@ else window.P16Charts.renderAll();
   console.log('P23: rendered', idx, 'charts');
 })();
 </script>
+
 <script>
 // P23 v5 renderAll - 支持嵌套环形图（multi-ring doughnut）+ datalabels
 (function() {
