@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>宏远创信综合智慧能源尽调报告 - P19 V7 E2E</title>
+<link rel="stylesheet" href="https://jinzhanxiang.github.io/html-enhancer-p6-realchart-demo/assets/report.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>汇天IDC_v5 · LLM 增强版 V6</title>
+<style>
+/* P14 FIX 2026-07-18 19:30 · 主公指令实战测试 P6 图表效果 · 注入 mermaid.js 让 2 个 flowchart 渲染 */
+
+body { font-family: "FangSong", "仿宋", "仿宋_GB2312", "STFangsong", "Songti SC", "Noto Serif CJK SC", serif; font-size: 18px; line-height: 1.9; margin: 0 40px; padding: 0; background: #ffffff; color: #1e40af; }
+body.scheme-blue { background: #f0f6ff; color: #1a365d; }
+.toc-list { list-style: none; padding-left: 0; }
+.toc-item { margin: 4px 0; font-size: 13px; }
+.toc-stat { margin-top: 12px; font-size: 12px; color: #718096; }
+details.table-collapse { margin: 16px 0; border: 1px solid #cbd5e0; border-radius: 4px; }
+details.table-collapse summary { cursor: pointer; padding: 8px 12px; background: #e2e8f0; font-weight: bold; border-radius: 4px; }
+details.table-collapse table { margin: 12px; }
+.ascii-timeline { margin: 24px 0; padding: 16px; background: #fff; border-left: 4px solid #1a365d; border-radius: 4px; }
+.ascii-timeline-row { display: flex; gap: 24px; overflow-x: auto; padding: 12px 0; }
+.ascii-timeline-item { flex: 0 0 200px; text-align: center; }
+.ascii-timeline-dot { width: 18px; height: 18px; background: #1a365d; border-radius: 50%; margin: 0 auto 8px; }
+.ascii-timeline-label { font-size: 12px; }
+.ascii-mermaid { background: #fff; padding: 16px; border-radius: 4px; margin: 24px 0; border: 1px solid #cbd5e0; }
+.mermaid { background: #fff; padding: 16px; text-align: center; font-family: monospace; white-space: pre; overflow-x: auto; }
+.callout.callout-conclusion { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 16px; margin: 16px 0; border-radius: 4px; }
+.priority-section { background: #fff7ed; padding: 12px; border-left: 3px solid #ea580c; margin: 12px 0; border-radius: 4px; }
+body { margin-left: 280px; padding: 24px; max-width: 1100px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+th, td { border: 1px solid #cbd5e0; padding: 6px 12px; text-align: left; }
+th { background: #e2e8f0; }
+h1, h2, h3, h4 { color: #1a365d; }
+h1 { border-bottom: 3px solid rgb(214, 158, 46); padding-bottom: 8px; }
+h2 { border-bottom: 2px solid #cbd5e0; padding-bottom: 6px; }
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: linear-gradient(180deg, #1a365d 0%, #2c5282 100%);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+}
+.nav-scroll {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0 20px;
+  gap: 8px;
+}
+.nav-scroll::-webkit-scrollbar { display: none; }
+.nav-item {
+  flex-shrink: 0;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-item:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+body { margin-top: 48px; }
+
+/* Chart.js 样式 */
+.chart-container { margin: 24px 0; padding: 16px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
+.chart-title { font-size: 16px; font-weight: bold; color: #1a365d; margin-bottom: 12px; }
+
+/* Plotly 样式 */
+.plotly-container { margin: 24px 0; padding: 16px; background: #fff; border-radius: 8px; border: 1px solid #e2e8f0; }
+
+/* 数据表格可视化 */
+.data-table-visual { margin: 16px 0; }
+
+/* P16 15种版式样式 */
+.ascii-figure { background: #fff; padding: 16px; border-radius: 8px; margin: 16px 0; }
+.ascii-figure pre { font-family: monospace; font-size: 13px; line-height: 1.6; }
+.ascii-figure table { width: 100%; border-collapse: collapse; }
+.ascii-figure td, .ascii-figure th { border: 1px solid #e2e8f0; padding: 8px; text-align: left; }
+.ascii-figure th { background: #f7fafc; }
+.chart-container { margin: 24px 0; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+.sidebar{position:fixed;left:0;top:0;width:220px;height:100vh;background:#f8f9fa;border-right:1px solid #e9ecef;z-index:999;overflow-y:auto;padding:16px 0}
+.sidebar-title{font-size:16px;font-weight:bold;padding:0 16px 12px;border-bottom:1px solid #e9ecef;margin-bottom:12px}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{display:block;padding:8px 16px;color:#495057;text-decoration:none;font-size:14px}
+.sidebar a:hover{background:#e9ecef;color:#1e40af}
+body{margin-left:220px}
+</style>
+
+
+<!-- P17 全局 window.P16Charts 预定义 -->
+<script>
+window.P16Charts = window.P16Charts || {
+    // 空对象，等待渲染器注入
+    renderAll: function() { console.log('P16Charts.renderAll called'); }
+};
+</script>
+
+
+</head>
+<body class="scheme-blue">
+<nav class="top-nav">
+<div class="nav-container">
+<div class="nav-scroll">
+<a href="#主体122章核心论证结论" class="nav-item">主体(1-22 章,核心论证 + 结论)</a><a href="#附录AJ扩展KT操作型扩展论证" class="nav-item">附录(A-J + 扩展 K-T,操作型 + 扩展论证)</a><a href="#第1章汇天网络基本盘双源验证三源实测" class="nav-item">第 1 章 汇天网络基本盘(双源验证,三源实测)</a><a href="#第2章quot全国唯一三网长城专线quo" class="nav-item">第 2 章 &quot;全国唯一三网+长城专线&quot; 真实性核查</a><a href="#第3章REITs估值锚定" class="nav-item">第 3 章 REITs 估值锚定</a><a href="#第4章34并表可行性" class="nav-item">第 4 章 34% 并表可行性</a><a href="#第5章34之外整合难度市场化判断" class="nav-item">第 5 章 34% 之外整合难度(市场化判断)</a><a href="#第6章IDC行业市场化对标6维矩阵" class="nav-item">第 6 章 IDC 行业市场化对标(6 维矩阵)</a><a href="#第7章REITs估值方法学对比自主裁决" class="nav-item">第 7 章 REITs 估值方法学对比(自主裁决)</a><a href="#附74章63上架率50000kW租约集中" class="nav-item">附 7.4 章 63% 上架率 + 50,000 kW 租约集中到期风</a><a href="#附37章PDF0608v7实测数据校准" class="nav-item">附 3.7 章 PDF 0608v7 实测数据校准</a><a href="#第8章司法风险市场化对标" class="nav-item">第 8 章 司法风险市场化对标</a><a href="#第9章矛盾点检测" class="nav-item">第 9 章 矛盾点检测</a><a href="#第10章护城河分析汇天vs同业4道护城河" class="nav-item">第 10 章 护城河分析(汇天 vs 同业 4 道护城河)</a><a href="#第11章风险交叉矩阵" class="nav-item">第 11 章 风险交叉矩阵</a><a href="#第12章三锚估值自主裁决" class="nav-item">第 12 章 三锚估值(自主裁决)</a><a href="#第13章交易结构设计D1" class="nav-item">第 13 章 交易结构设计(D1)</a><a href="#第14章退出路径分析D2" class="nav-item">第 14 章 退出路径分析(D2)</a><a href="#第15章约束条件建模D3" class="nav-item">第 15 章 约束条件建模(D3)</a><a href="#第16章情景推演D4" class="nav-item">第 16 章 情景推演(D4)</a><a href="#第17章自主裁决6项关键决策" class="nav-item">第 17 章 自主裁决 6 项关键决策</a><a href="#第18章实施前置条件清单" class="nav-item">第 18 章 实施前置条件清单</a><a href="#第19章关键风险与监测" class="nav-item">第 19 章 关键风险与监测</a><a href="#第20章5模块决策摘要" class="nav-item">第 20 章 5 模块决策摘要</a><a href="#附录A术语表" class="nav-item">附录 A:术语表</a><a href="#附录B核心数据来源标注" class="nav-item">附录 B:核心数据来源标注</a><a href="#附录D决策树汇天IDC项目最终推荐路径" class="nav-item">附录 D:决策树(汇天 IDC 项目最终推荐路径)</a><a href="#附录E下一步行动清单" class="nav-item">附录 E:下一步行动清单</a><a href="#第6章补充商业REITs试点扩围的边际影" class="nav-item">第 6 章 补充:商业 REITs 试点扩围的边际影响</a><a href="#第7章补充润泽科技45元发行价vs汇天4" class="nav-item">第 7 章 补充:润泽科技 4.5 元发行价 vs 汇天 42 亿估值</a><a href="#第8章补充万国数据GDS的5年长周期对标" class="nav-item">第 8 章 补充:万国数据 GDS 的 5 年长周期对标</a><a href="#第11章补充警醒信号S5S7" class="nav-item">第 11 章 补充:警醒信号 S5-S7</a><a href="#第12章补充扩张期司法风险的市场化定价" class="nav-item">第 12 章 补充:扩张期司法风险的市场化定价</a><a href="#第13章补充客户结构的护城河深度" class="nav-item">第 13 章 补充:客户结构的护城河深度</a><a href="#第17章补充4个失败模式与应对" class="nav-item">第 17 章 补充:4 个失败模式与应对</a><a href="#第18章补充3个成功模式与放大策略" class="nav-item">第 18 章 补充:3 个成功模式与放大策略</a><a href="#第19章补充IRR风险分级完整输出" class="nav-item">第 19 章 补充:IRR 风险分级完整输出</a><a href="#第20章补充完整决策矩阵5子平台5维度" class="nav-item">第 20 章 补充:完整决策矩阵(5 子平台 × 5 维度)</a><a href="#第21章研究局限性" class="nav-item">第 21 章:研究局限性</a><a href="#第22章报告与V3V4的关键差异" class="nav-item">第 22 章:报告与 V3/V4 的关键差异</a>
+</div>
+</div>
+</nav>
+<aside class="sidebar"><div class="sidebar-title">目录</div><ul>
+<li><a href="#主体122章核心论证结论">主体(1-22章)</a></li>
+<li><a href="#第1章汇天网络基本盘双源验证三源实测">§1 汇天</a></li>
+<li><a href="#第3章REITs估值锚定">§3 REITs</a></li>
+<li><a href="#第8章司法风险市场化对标">§8 司法</a></li>
+<li><a href="#第12章三锚估值自主裁决">§12 三锚</a></li>
+<li><a href="#第20章5模块决策摘要">§20 摘要</a></li>
+</ul></aside>
+<article class="content" role="main">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<style id="toc-sidebar">
+/* ===== enhance_report: 浮动侧边栏（默认收起）V14.0 重大修复 ===== */
+/* ⚠️ FIX V14.0: 必须用 position:fixed，否则 transform 偏移会依赖文档流造成布局错乱 */
+.toc-sidebar, .key-conclusion{
+  position:fixed !important;top:80px;z-index:90;
+  width:240px;max-height:75vh;overflow-y:auto;
+  padding:14px;border-radius:8px;
+  background:#fff;border:1px solid #e2e8f0;
+  box-shadow:0 4px 16px rgba(0,0,0,0.12);
+  font-size:13px;line-height:1.55;
+  transition:transform 0.3s ease,left 0.3s ease,right 0.3s ease;
+  box-sizing:border-box;
+}
+.toc-sidebar{left:0}
+.key-conclusion{right:0}
+/* V15.2.7 FIX: 默认完全隐藏（不占据浮动位置）避免视口外 borderLeft 残留 */
+.toc-sidebar:not(.open){transform:translateX(calc(-100% - 20px));visibility:hidden;opacity:0;pointer-events:none}
+.toc-sidebar.open{transform:translateX(10px);visibility:visible;opacity:1;pointer-events:auto}
+.key-conclusion:not(.open){transform:translateX(calc(100% + 20px));visibility:hidden;opacity:0;pointer-events:none}
+.key-conclusion.open{transform:translateX(-10px);visibility:visible;opacity:1;pointer-events:auto}
+/* ⚠️ V15.2.10 FIX: PC 端默认隐藏 toggle 按钮（主公 2026-07-15 08:23 反馈"PC 端像手机版"）
+   toggle 按钮在桌面端默认隐藏，只在 < 768px 移动端显示，避免桌面端误以为窄屏 */
+.toc-sidebar-toggle, .key-conclusion-toggle{display:none !important}
+.toc-sidebar-toggle, .key-conclusion-toggle{
+  position:fixed;z-index:99;padding:10px 14px;border-radius:8px;
+  cursor:pointer;font-size:13px;font-weight:600;border:none;
+  box-shadow:0 2px 8px rgba(0,0,0,0.2);
+  white-space:nowrap;
+}
+.toc-sidebar-toggle{top:120px;left:20px;background:#1a365d;color:#fff}
+.key-conclusion-toggle{top:120px;right:20px;background:linear-gradient(135deg,#fef3c7,#fde68a);border:2px solid #d69e2e;color:#744210}
+/* ⚠️ FIX V15.0: TOC 标题 + 列表完整排版（解决"打开后排版混乱"） */
+.toc-sidebar .toc-title{
+  font-size:14px !important;font-weight:700 !important;
+  color:#1a365d !important;margin:0 0 10px 0 !important;
+  padding-bottom:8px !important;border-bottom:2px solid #1a365d !important;
+  text-align:left !important;line-height:1.4 !important;
+}
+.toc-sidebar .toc-list, .toc-sidebar ul.toc-list{
+  list-style:none !important;margin:0 !important;padding:0 !important;
+  max-height:65vh !important;overflow-y:auto !important;
+}
+.toc-sidebar .toc-list li, .toc-sidebar ul.toc-list > li{
+  margin:0 !important;padding:0 !important;line-height:1.5 !important;
+  border:none !important;
+}
+.toc-sidebar .toc-list a, .toc-sidebar ul.toc-list a{
+  display:block !important;padding:6px 10px !important;
+  color:#1a365d !important;text-decoration:none !important;
+  font-size:13px !important;line-height:1.5 !important;
+  border-radius:4px !important;transition:background 0.15s ease !important;
+  word-break:break-word !important;
+}
+.toc-sidebar .toc-list a:hover, .toc-sidebar ul.toc-list a:hover{
+  background:#f1f5f9 !important;color:#0f172a !important;
+}
+.toc-sidebar .toc-list .toc-h2, .toc-sidebar ul.toc-list > li > a.toc-h2{
+  font-weight:700 !important;font-size:13px !important;
+  color:#1a365d !important;margin-top:6px !important;
+  border-left:3px solid #1a365d !important;
+}
+.toc-sidebar .toc-list .toc-h3, .toc-sidebar ul.toc-list ul > li > a.toc-h3{
+  font-weight:400 !important;font-size:12px !important;
+  color:#475569 !important;padding-left:22px !important;
+  border-left:1px solid #cbd5e1 !important;
+}
+.toc-sidebar .toc-list ul, .toc-sidebar ul.toc-list ul{
+  list-style:none !important;margin:0 !important;padding:0 !important;
+}
+.toc-sidebar::-webkit-scrollbar{width:6px}
+.toc-sidebar::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}
+.toc-sidebar::-webkit-scrollbar-track{background:#f1f5f9}
+/* Key Conclusion 排版 */
+.key-conclusion .toc-title{
+  font-size:14px !important;font-weight:700 !important;
+  color:#744210 !important;margin:0 0 10px 0 !important;
+  padding-bottom:8px !important;border-bottom:2px solid #d69e2e !important;
+  text-align:left !important;
+}
+.key-conclusion .toc-list, .key-conclusion ul.toc-list{
+  list-style:none !important;margin:0 !important;padding:0 !important;
+}
+.key-conclusion .toc-list li{margin:0 0 8px 0 !important;padding:0 !important;line-height:1.5 !important}
+.key-conclusion .toc-list a{
+  display:block !important;padding:6px 10px !important;
+  color:#744210 !important;text-decoration:none !important;
+  font-size:13px !important;border-radius:4px !important;
+}
+.key-conclusion .toc-list a:hover{background:#fef3c7 !important}
+/* ⚠️ V15.2.11 主公 2026-07-15 09:27:52 指令：彻底删除手机界面，全部采用 PC 版
+   原 @media (max-width:768px) 和 @media (max-width:420px) 整块删除
+   后续需要移动端适配时，再重新设计 */
+
+/* ===== 关键结论 callout ===== */
+.callout-conclusion{background:linear-gradient(135deg,#fffbeb,#fef3c7);
+  border-left:4px solid #d69e2e;padding:18px 22px;margin:24px 0;border-radius:0 8px 8px 0;
+  box-shadow:0 2px 6px rgba(214,158,46,0.1)}
+.callout-conclusion h2, .callout-conclusion h3{
+  color:#744210;border-bottom:2px solid #d69e2e;padding-bottom:8px;margin-top:0}
+.callout-conclusion ul{padding-left:20px}
+
+# ⚠️ V15.2.9 主公 2026-07-15 08:15 反馈：完全去除深色模式（点击浅色不切换 + 深色模式退化）
+# 兜底决策：彻底删除所有 @media (prefers-color-scheme:dark) 和 body.dark-mode CSS
+# 历史：V13.0 加 dark CSS → V15.2.6 锁定 → V15.2.8 增强 dark → V15.2.9 全删
+# 未来若需重新支持深色模式，需重新设计：优先用 prefers-color-scheme media query + JS 切换双轨
+<style id="theme-toggle">
+/* ===== enhance_report: 深色模式切换按钮 ===== */
+.theme-toggle-btn{
+  position:fixed;top:20px;right:20px;z-index:999;
+  width:44px;height:44px;border-radius:50%;
+  border:2px solid #d69e2e;background:#fff;
+  font-size:22px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 8px rgba(0,0,0,0.15);
+  transition:transform 0.2s ease,box-shadow 0.2s ease
+}
+.theme-toggle-btn:hover{transform:scale(1.08);box-shadow:0 4px 12px rgba(0,0,0,0.25)}
+/* ⚠️ V15.2.11 主公 2026-07-15 09:27:52 指令：删除手机界面，全部采用 PC 版
+   原 @media (max-width:768px) 整块删除，后续需要移动端适配时再重新设计 */
+/* ⚠️ FIX V14.0+V15.0: 深色模式全局覆盖（背景、文字、表格、链接等 + 防色冲突） */
+/* ⚠️ FIX V15.0: 顸底底色重组中、深淺切换（防止主体叠元色元）主调为 #0f172a 深背景 + #e2e8f0 浅文字 */
+  border-color:#334155 !important
+}
+  color:inherit !important
+}
+/* TOC / 关键结論侧栏 */
+  background:#1e293b !important;border-color:#334155 !important;color:#e2e8f0 !important
+}
+/* 表格 */
+  background:#334155 !important;color:#f1f5f9 !important;border-color:#475569 !important
+}
+/* 文字层级 */
+/* 链接 */
+/* Callout */
+  background:linear-gradient(135deg,#451a03,#78350f) !important;
+  border-left-color:#fbbf24 !important;color:#fef3c7 !important
+}
+  color:#fbbf24 !important;border-bottom-color:#fbbf24 !important
+}
+  color:#fef3c7 !important
+}
+  background:linear-gradient(135deg,#451a03,#78350f) !important;color:#fef3c7 !important
+}
+/* 图表 */
+
+/* ============================================================
+   ⚠️ V13.0 图表文字规范化（与正文 17px 视觉对齐，已固化到执行脚本）
+   --------------------------------------------------------------
+   背景：图表 SVG 默认 viewBox="0 0 100" + 实际宽度 ~720px，
+   旧硬编码 font-size="3" 在 viewBox 单位下会被放大到 21.6px，
+   反而比正文 17px 还大——主公多次反馈「图表字体过大」。
+   规则：图表内所有 SVG text 元素按视觉级别统一到 12~16px。
+   auto_chart.py 同步把所有字号替换为 FS_TITLE/FS_SUB/FS_LABEL/
+   FS_AXIS/FS_TICK/FS_BIG/FS_GAUGE_BIG 常量；此处 CSS 是最终像素兜底。
+   ============================================================ */
+.chart-figure svg text{font-size:13px !important; font-family:-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif !important}
+/* 新 V13.0 常量映射（auto_chart.py 现在生成的图表） */
+.chart-figure svg text[font-size="1.4"]{font-size:11px !important}
+.chart-figure svg text[font-size="1.5"]{font-size:13px !important}
+.chart-figure svg text[font-size="1.7"]{font-size:12px !important}
+.chart-figure svg text[font-size="1.8"]{font-size:14px !important}
+.chart-figure svg text[font-size="2.0"]{font-size:13px !important}
+.chart-figure svg text[font-size="2.4"]{font-size:14px !important}
+.chart-figure svg text[font-size="3.0"]{font-size:15px !important}
+.chart-figure svg text[font-size="4.2"]{font-size:17px !important}
+.chart-figure svg text[font-size="6.5"]{font-size:19px !important}
+/* ⚠️ V15.2.9 关键修复 (主公 2026-07-15 05:24 反馈 multi_radar 字号过大) :
+   rebase_svg_viewbox V15.2.3 会把 viewBox 单位 font-size 自动 ×9.4 转 px：
+     font-size="1.4" → "13.2px"
+     font-size="1.5" → "14.1px"
+     font-size="1.7" → "16.0px"
+     font-size="1.8" → "16.9px"
+   → 上方 viewBox 单位规则全部失效（attr 选择器必须精确匹配字符串值），
+     实际部署的 SVG 是 13.2/14.1/16/16.9 px，渲染 ≈ 22-24px 过大。
+   修复：补 4 条 px 单位选择器，把字号钳到 13-14px（与正文 17px 视觉对齐）。 */
+.chart-figure svg text[font-size="13.2px"]{font-size:11px !important}
+.chart-figure svg text[font-size="14.1px"]{font-size:12px !important}
+.chart-figure svg text[font-size="16px"]{font-size:13px !important}
+.chart-figure svg text[font-size="16.9px"]{font-size:14px !important}
+/* ⚠️ V15.2.11 主公 2026-07-15 09:12:22 反馈路径流程图字体失调：
+   流程图 _render_flow 写 font-size="2.0"（viewBox 单位）
+   rebase_svg_viewbox 自动 ×9.4 → 18.8px
+   补 18.8px → 14px 映射钳位 */
+.chart-figure svg text[font-size="18.8px"]{font-size:14px !important}
+/* ⚠️ V15.2.11 主公 2026-07-15 10:38 反馈 15.7px：
+   viewBox "0 0 780 X" 时 SCALE=940/780=1.205，2.0×1.205=2.41
+   补 2.41px → 14px 映射钳位 */
+.chart-figure svg text[font-size="2.41px"]{font-size:14px !important}
+/* ⚠️ 实际部署显示 15.7px（V15.2.10 之前 rebase 的 13×1.205=15.67）
+   补 15.7px → 14px 映射 */
+.chart-figure svg text[font-size="15.7px"]{font-size:14px !important}
+/* ⚠️ 兼容遗留 V12.0 之前硬编码的字号（保证旧报告重新部署后也被矫正） */
+.chart-figure svg text[font-size="2.5"]{font-size:12px !important}
+.chart-figure svg text[font-size="2.8"]{font-size:12px !important}
+.chart-figure svg text[font-size="3"]{font-size:12px !important}
+.chart-figure svg text[font-size="3.2"]{font-size:13px !important}
+.chart-figure svg text[font-size="3.5"]{font-size:13px !important}
+.chart-figure svg text[font-size="4"]{font-size:14px !important}
+.chart-figure svg text[font-size="4.5"]{font-size:15px !important}
+.chart-figure svg text[font-size="5"]{font-size:17px !important}
+.chart-figure svg text[font-size="6"]{font-size:19px !important}
+.chart-figure svg text[font-size="9"]{font-size:24px !important}
+.chart-figure svg text[font-size="16"]{font-size:30px !important}
+/* 段落个人 inline-style 中的黑色、高亮度文字 （主动顶代）*/
+  color:#e2e8f0 !important
+}
+  color:#0f172a !important  /* 深色背景下白色字看不见而变虚背景 */
+}
+  background:#1e293b !important  /* 浅底变深底保持内容可见 */
+}
+/* 重要代码块不反转：原始亮底色语义为主 */
+  background:#0b1424 !important;color:#e2e8f0 !important;border-color:#334155 !important
+}
+</style>
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宏远创信（综合智慧能源）尽调分析报告</title>
+<link rel="stylesheet" href="/Users/jinzhanxiang/.openclaw/workspace-project/assets/report.css">
+</head>
+<body><button id="dark-mode-toggle" class="theme-toggle-btn" title="切换深色模式" aria-label="切换深色模式">🌙</button>
+<div class="toc-sidebar"><div class="toc-title">📑 章节导航（共 14 节）</div>
+<ul class="toc-list">
+<li><a href="#auto-h-1-7fe243" class="toc-h2">第 1 章 · 公司概况</a>
+<ul class="toc-sub">
+<li><a href="#auto-h-101-7a867a" class="toc-h3">1.1 基本信息</a>
+<li><a href="#auto-h-102-57f6fd" class="toc-h3">1.2 业务结构</a>
+</ul>
+</ul>
+<li><a href="#auto-h-2-253e8b" class="toc-h2">第 2 章 · 财务概况</a>
+<ul class="toc-sub">
+<li><a href="#auto-h-103-3c76f5" class="toc-h3">2.1 收入结构（万元）</a>
+<li><a href="#auto-h-104-df89a9" class="toc-h3">2.2 收入增长趋势</a>
+</ul>
+</ul>
+<li><a href="#auto-h-3-8a45a1" class="toc-h2">第 3 章 · 行业对标</a>
+<ul class="toc-sub">
+<li><a href="#auto-h-105-2a331e" class="toc-h3">3.1 市场地位</a>
+</ul>
+</ul>
+<li><a href="#auto-h-4-f5fb24" class="toc-h2">第 4 章 · 风险评估</a>
+<ul class="toc-sub">
+<li><a href="#auto-h-106-fbd901" class="toc-h3">4.1 风险矩阵</a>
+<li><a href="#auto-h-107-089bed" class="toc-h3">4.2 风险趋势</a>
+</ul>
+</ul>
+<li><a href="#auto-h-5-12680f" class="toc-h2">第 5 章 · 估值分析</a>
+<ul class="toc-sub">
+<li><a href="#auto-h-108-74ed0e" class="toc-h3">5.1 市盈率对标</a>
+</ul>
+</ul>
+<li><a href="#auto-h-6-445278" class="toc-h2">结论与建议</a>
+</ul>
+</ul>
+</div>
+
+<div class="key-conclusion">
+<h3 class="callout-h">🎯 关键结论</h3>
+<p>核心观点详见正文各章节分析。</p>
+</div>
+<h1>宏远创信（综合智慧能源）尽调分析报告</h1>
+<blockquote>
+<p><strong>报告类型</strong>：决策模式报告（22章）<br>
+<strong>报告日期</strong>：2026年7月7日<br>
+<strong>项目阶段</strong>：新增储备项目（早期评估）</p>
+</blockquote>
+<hr>
+<h2 id="auto-h-1-7fe243">第 1 章 · 公司概况</h2>
+<h3 id="auto-h-101-7a867a">1.1 基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>公司全称</td>
+<td>北京宏远创信能源科技有限公司</td>
+</tr>
+<tr>
+<td>成立时间</td>
+<td>2015 年</td>
+</tr>
+<tr>
+<td>所在地</td>
+<td>北京</td>
+</tr>
+<tr>
+<td>业务范围</td>
+<td>电力市场化交易、碳资产开发、能源场站投资</td>
+</tr>
+</tbody>
+</table>
+<h3 id="auto-h-102-57f6fd">1.2 业务结构</h3>
+<div class="chart-wrapper"><figure class="chart-figure chart-stacked_bar "><div class="line-legend"><span class="lg-dot" style="background:#1a365d"></span>LED芯片<span class="lg-dot" style="background:#d69e2e"></span>LED器件<span class="lg-dot" style="background:#2c5282"></span>模组<span class="lg-dot" style="background:#2f855a"></span>其他</div><svg viewBox="0 0 940 940" class="stacked-svg" width="100%" height="auto"><line x1="9.40" y1="9.40" x2="92.12" y2="9.40" stroke="#718096" stroke-width="0.3" stroke-dasharray="2,2"/><text x="8.46" y="10.34" text-anchor="end" font-size="13.2px" fill="#718096">10</text><line x1="9.40" y1="25.85" x2="92.12" y2="25.85" stroke="#718096" stroke-width="0.3" stroke-dasharray="2,2"/><text x="8.46" y="26.79" text-anchor="end" font-size="13.2px" fill="#718096">7</text><line x1="9.40" y1="42.30" x2="92.12" y2="42.30" stroke="#718096" stroke-width="0.3" stroke-dasharray="2,2"/><text x="8.46" y="43.24" text-anchor="end" font-size="13.2px" fill="#718096">5</text><line x1="9.40" y1="58.75" x2="92.12" y2="58.75" stroke="#718096" stroke-width="0.3" stroke-dasharray="2,2"/><text x="8.46" y="59.69" text-anchor="end" font-size="13.2px" fill="#718096">2</text><line x1="9.40" y1="75.20" x2="92.12" y2="75.20" stroke="#718096" stroke-width="0.3" stroke-dasharray="2,2"/><text x="8.46" y="76.14" text-anchor="end" font-size="13.2px" fill="#718096">0</text><line x1="9.40" y1="75.20" x2="92.12" y2="75.20" stroke="#718096" stroke-width="0.6"/><rect x="15.04" y="56.02" width="11.28" height="19.18" fill="#1a365d"/><text x="20.68" y="66.55" text-anchor="middle" font-size="12.2px" fill="#fff" font-weight="700">LED芯片</text><rect x="15.04" y="49.82" width="11.28" height="6.20" fill="#d69e2e"/><text x="20.68" y="53.86" text-anchor="middle" font-size="12.2px" fill="#fff" font-weight="700">LED器件</text><rect x="15.04" y="47.75" width="11.28" height="2.07" fill="#2c5282"/><rect x="15.04" y="46.44" width="11.28" height="1.41" fill="#2f855a"/><text x="20.68" y="45.50" text-anchor="middle" font-size="12.2px" fill="#1a365d" font-weight="700">4</text><text x="20.68" y="80.84" text-anchor="middle" font-size="12.2px" fill="#1a365d" font-weight="700">2019</text><rect x="33.84" y="53.30" width="11.28" height="21.90" fill="#1a365d"/><text x="39.48" y="65.14" text-anchor="middle" font-size="12.2px" fill="#fff" font-weight="700">LED芯片</text><rect x="33.84" y="42.96" width="11.28" height="10.25" fill="#d69e2e"/><text x="39.48" y="49.07" text-anchor="middle" font-size="12.2px" fill="#fff" font-weight="700">LED器件</text><rect x="33.84" y="39.57" width="11.28" height="3.38" fill="#2c5282"/><rect x="33.84" y="37.51" width="11.28" height="2.07" fill="#2f855a"/><text x="39.48" y="36.57" text-anchor="middle" font-size="12.2px" fill="#1a365d" font-weight="700">6</text><text x="39.48" y="80.84" text-anchor="middle" font-size="12.2px" fill="#1a365d" font-weight="700">2020</text><rect x="52.64" y="44.37" width="11.28" height="30.83" fill="#1a365d"/><text x="58.28" y="60.72" text-anchor="middle" font-size="12.2px" fill="#fff" font-weight="700">LED芯片</text><rect x="52.64" y="30.64" width="11.28" height="13.72" fill="#d69e2e"/><text x="58.28" y="38.45" text-anchor="middle" font-size="12.2px" fill="#fff" font-weight="700">LED器件</text><rect x="52.64" y="25.19" width="11.28" height="5.45" fill="#2c5282"/><text x="58.28" y="28.86" text-anchor="middle" font-size="12.2px" fill="#fff" font-weight="700">模组</text><rect x="52.64" y="21.71" width="11.28" height="3.38" fill="#2f855a"/><text x="58.28" y="20.77" text-anchor="middle" font-size="12.2px" fill="#1a365d" font-weight="700">8</text><text x="58.28" y="80.84" text-anchor="middle" font-size="12.2px" fill="#1a365d" font-weight="700">2021</text><rect x="71.44" y="39.57" width="11.28" height="35.63" fill="#1a365d"/><text x="77.08" y="58.28" text-anchor="middle" font-size="12.2px" fill="#fff" font-weight="700">LED芯片</text><rect x="71.44" y="21.71" width="11.28" height="17.86" fill="#d69e2e"/><text x="77.08" y="31.58" text-anchor="middle" font-size="12.2px" fill="#fff" font-weight="700">LED器件</text><rect x="71.44" y="13.54" width="11.28" height="8.27" fill="#2c5282"/><text x="77.08" y="18.52" text-anchor="middle" font-size="12.2px" fill="#fff" font-weight="700">模组</text><rect x="71.44" y="9.40" width="11.28" height="4.14" fill="#2f855a"/><text x="77.08" y="8.46" text-anchor="middle" font-size="12.2px" fill="#1a365d" font-weight="700">10</text><text x="77.08" y="80.84" text-anchor="middle" font-size="12.2px" fill="#1a365d" font-weight="700">2022</text></svg></figure></div>
+
+<figure class="chart-figure chart-pie "><div class="ch-title">宏远创信业务结构分布</div><div class="pie-flex"><svg viewBox="0 0 940 940" class="pie-svg" width="100%" height="auto"><path d="M100,100 L180.00,100.00 A80,80 0 0,1 23.92,124.72 Z" fill="#1a365d" stroke="#fff" stroke-width="1.5"/><text x="101.06" y="138.57" text-anchor="middle" dominant-baseline="middle" font-size="12.2px" fill="#fff" font-weight="700">45.0%</text><path d="M100,100 L23.92,124.72 A80,80 0 0,1 100.00,20.00 Z" fill="#d69e2e" stroke="#fff" stroke-width="1.5"/><text x="57.50" y="67.48" text-anchor="middle" dominant-baseline="middle" font-size="12.2px" fill="#fff" font-weight="700">30.0%</text><path d="M100,100 L100.00,20.00 A80,80 0 0,1 180.00,100.00 Z" fill="#2c5282" stroke="#fff" stroke-width="1.5"/><text x="125.90" y="62.10" text-anchor="middle" dominant-baseline="middle" font-size="12.2px" fill="#fff" font-weight="700">25.0%</text></svg><div class="pie-legend"><span class="lg-dot" style="background:#1a365d"></span>电力交易 <small>(45.0%)</small><span class="lg-dot" style="background:#d69e2e"></span>碳资产 <small>(30.0%)</small><span class="lg-dot" style="background:#2c5282"></span>能源投资 <small>(25.0%)</small></div></div></figure>
+<hr>
+<h2 id="auto-h-2-253e8b">第 2 章 · 财务概况</h2>
+<h3 id="auto-h-103-3c76f5">2.1 收入结构（万元）</h3>
+<table>
+<thead>
+<tr>
+<th>年度</th>
+<th>2023</th>
+<th>2024</th>
+<th>2025E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>电力交易</td>
+<td>8,500</td>
+<td>12,000</td>
+<td>15,000</td>
+</tr>
+<tr>
+<td>碳资产</td>
+<td>3,200</td>
+<td>5,500</td>
+<td>7,800</td>
+</tr>
+<tr>
+<td>能源投资</td>
+<td>1,800</td>
+<td>4,200</td>
+<td>6,500</td>
+</tr>
+</tbody>
+</table>
+<h3 id="auto-h-104-df89a9">2.2 收入增长趋势</h3>
+<div class="chart-legend-auto" data-floating="0" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:14px 0 14px 0;padding:10px 14px;background:#fffbeb;border:2px solid #d69e2e;border-radius:8px;font-size:13px;color:#1a202c;max-width:100%;"><strong style="color:#744210;">图例：</strong><span class="lg-item"><span class="lg-dot" style="background:#dc2626"></span>晶能光电</span> <span class="lg-item"><span class="lg-dot" style="background:#2563eb"></span>三安光电</span> <span class="lg-item"><span class="lg-dot" style="background:#059669"></span>兆驰股份</span></div><figure class="chart-figure chart-bar_vertical "><div class="ch-title">收入增长趋势分析</div><div class="vbar-container"><div class="vbar-item"><div class="vbar-num">13500</div><div class="vbar-bar" style="height:46.1%;background:#1a365d"></div><div class="vbar-label">2023</div></div><div class="vbar-item"><div class="vbar-num">21700</div><div class="vbar-bar" style="height:74.1%;background:#d69e2e"></div><div class="vbar-label">2024</div></div><div class="vbar-item"><div class="vbar-num">29300</div><div class="vbar-bar" style="height:100.0%;background:#2c5282"></div><div class="vbar-label">2025E</div></div></div></figure>
+<hr>
+<h2 id="auto-h-3-8a45a1">第 3 章 · 行业对标</h2>
+<div class="chart-wrapper"><figure class="chart-figure chart-multi_radar "><div class="line-legend"><span class="lg-dot" style="background:#1a365d"></span>晶能光电<span class="lg-dot" style="background:#d69e2e"></span>三安光电<span class="lg-dot" style="background:#2c5282"></span>兆驰股份</div><svg viewBox="0 0 940 940" class="multiradar-svg" width="100%" height="auto"><polygon points="94.00,75.20 110.26,84.60 110.26,103.40 94.00,112.80 77.74,103.40 77.74,84.60" fill="none" stroke="#718096" stroke-width="0.4" stroke-dasharray="2,2"/><polygon points="94.00,56.40 126.52,75.20 126.52,112.80 94.00,131.60 61.48,112.80 61.48,75.20" fill="none" stroke="#718096" stroke-width="0.4" stroke-dasharray="2,2"/><polygon points="94.00,37.60 142.88,65.80 142.88,122.20 94.00,150.40 45.12,122.20 45.12,65.80" fill="none" stroke="#718096" stroke-width="0.4" stroke-dasharray="2,2"/><polygon points="94.00,18.80 159.14,56.40 159.14,131.60 94.00,169.20 28.86,131.60 28.86,56.40" fill="none" stroke="#718096" stroke-width="0.4" stroke-dasharray="2,2"/><line x1="94.00" y1="94.00" x2="94.00" y2="18.80" stroke="#718096" stroke-width="0.4"/><text x="94.00" y="3.76" text-anchor="middle" font-size="16.0px" fill="#1a365d" font-weight="700">净利率</text><line x1="94.00" y1="94.00" x2="159.14" y2="56.40" stroke="#718096" stroke-width="0.4"/><text x="173.81" y="49.82" text-anchor="middle" font-size="16.0px" fill="#1a365d" font-weight="700">毛利率</text><line x1="94.00" y1="94.00" x2="159.14" y2="131.60" stroke="#718096" stroke-width="0.4"/><text x="173.81" y="141.94" text-anchor="middle" font-size="16.0px" fill="#1a365d" font-weight="700">ROE</text><line x1="94.00" y1="94.00" x2="94.00" y2="169.20" stroke="#718096" stroke-width="0.4"/><text x="94.00" y="188.00" text-anchor="middle" font-size="16.0px" fill="#1a365d" font-weight="700">研发占比</text><line x1="94.00" y1="94.00" x2="28.86" y2="131.60" stroke="#718096" stroke-width="0.4"/><text x="14.19" y="141.94" text-anchor="middle" font-size="16.0px" fill="#1a365d" font-weight="700">客户集中度</text><line x1="94.00" y1="94.00" x2="28.86" y2="56.40" stroke="#718096" stroke-width="0.4"/><text x="14.19" y="49.82" text-anchor="middle" font-size="16.0px" fill="#1a365d" font-weight="700">产能利用率</text><polygon points="94.00,33.84 152.66,60.16 146.08,124.08 94.00,146.64 48.41,120.32 41.92,63.92" fill="#1a365d" fill-opacity="0.22" stroke="#1a365d" stroke-width="2.4"/><polygon points="94.00,78.96 120.04,78.96 113.55,105.28 94.00,131.60 54.90,116.56 48.41,67.68" fill="#d69e2e" fill-opacity="0.22" stroke="#d69e2e" stroke-width="2.4"/><polygon points="94.00,71.44 126.52,75.20 120.04,109.04 94.00,124.08 61.48,112.80 48.41,67.68" fill="#2c5282" fill-opacity="0.22" stroke="#2c5282" stroke-width="2.4"/></svg></figure></div>
+
+<h3 id="auto-h-105-2a331e">3.1 市场地位</h3>
+<div class="chart-legend-auto" data-floating="0" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:14px 0 14px 0;padding:10px 14px;background:#fffbeb;border:2px solid #d69e2e;border-radius:8px;font-size:13px;color:#1a202c;max-width:100%;"><strong style="color:#744210;">图例：</strong><span class="lg-item"><span class="lg-dot" style="background:#dc2626"></span>晶能光电</span> <span class="lg-item"><span class="lg-dot" style="background:#2563eb"></span>三安光电</span> <span class="lg-item"><span class="lg-dot" style="background:#059669"></span>兆驰股份</span></div><figure class="chart-figure chart-bar_horizontal "><div class="ch-title">市场份额对比</div><div class="hbar-container"><div class="hbar-row"><div class="hbar-label">竞争A</div><div class="hbar-track"><div class="hbar-fill" style="width:100.0%;background:#1a365d"></div></div><div class="hbar-num">28</div></div><div class="hbar-row"><div class="hbar-label">竞争B</div><div class="hbar-track"><div class="hbar-fill" style="width:64.3%;background:#d69e2e"></div></div><div class="hbar-num">18</div></div><div class="hbar-row"><div class="hbar-label">竞争C</div><div class="hbar-track"><div class="hbar-fill" style="width:53.6%;background:#2c5282"></div></div><div class="hbar-num">15</div></div><div class="hbar-row"><div class="hbar-label">宏远创信</div><div class="hbar-track"><div class="hbar-fill" style="width:42.9%;background:#2f855a"></div></div><div class="hbar-num">12</div></div></div></figure>
+<hr>
+<h2 id="auto-h-4-f5fb24">第 4 章 · 风险评估</h2>
+<h3 id="auto-h-106-fbd901">4.1 风险矩阵</h3>
+<div class="chart-wrapper"><div class="chart-legend-auto" data-floating="0" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:14px 0 14px 0;padding:10px 14px;background:#fffbeb;border:2px solid #d69e2e;border-radius:8px;font-size:13px;color:#1a202c;max-width:100%;"><strong style="color:#744210;">图例：</strong><span class="lg-item"><span class="lg-dot" style="background:#dc2626"></span>晶能光电</span> <span class="lg-item"><span class="lg-dot" style="background:#2563eb"></span>三安光电</span> <span class="lg-item"><span class="lg-dot" style="background:#059669"></span>兆驰股份</span></div><figure class="chart-figure chart-heatmap "><svg viewBox="0 0 940 940" class="heatmap-svg" width="100%" height="auto"><text x="10.34" y="16.17" text-anchor="end" font-size="13.2px" fill="#1a365d" font-weight="700">中低端</text><text x="10.34" y="35.53" text-anchor="end" font-size="13.2px" fill="#1a365d" font-weight="700">中端</text><text x="10.34" y="54.71" text-anchor="end" font-size="13.2px" fill="#1a365d" font-weight="700">高端</text><text x="10.34" y="74.07" text-anchor="end" font-size="13.2px" fill="#1a365d" font-weight="700">定制化</text><text x="18.99" y="4.70" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">衬底材料</text><text x="34.40" y="4.70" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">外延片</text><text x="49.82" y="4.70" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">芯片</text><text x="65.24" y="4.70" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">封装</text><text x="80.65" y="4.70" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">模组</text><rect x="11.28" y="5.64" width="15.42" height="19.27" fill="rgb(214,158,46)" stroke="#fff" stroke-width="0.3"/><text x="18.99" y="16.17" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">12</text><rect x="26.70" y="5.64" width="15.42" height="19.27" fill="rgb(203,152,48)" stroke="#fff" stroke-width="0.3"/><text x="34.40" y="16.17" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">15</text><rect x="42.11" y="5.64" width="15.42" height="19.27" fill="rgb(178,138,54)" stroke="#fff" stroke-width="0.3"/><text x="49.82" y="16.17" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">22</text><rect x="57.53" y="5.64" width="15.42" height="19.27" fill="rgb(157,126,60)" stroke="#fff" stroke-width="0.3"/><text x="65.24" y="16.17" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">28</text><rect x="72.94" y="5.64" width="15.42" height="19.27" fill="rgb(143,118,63)" stroke="#fff" stroke-width="0.3"/><text x="80.65" y="16.17" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">32</text><rect x="11.28" y="24.91" width="15.42" height="19.27" fill="rgb(192,146,51)" stroke="#fff" stroke-width="0.3"/><text x="18.99" y="35.53" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">18</text><rect x="26.70" y="24.91" width="15.42" height="19.27" fill="rgb(178,138,54)" stroke="#fff" stroke-width="0.3"/><text x="34.40" y="35.53" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">22</text><rect x="42.11" y="24.91" width="15.42" height="19.27" fill="rgb(150,122,61)" stroke="#fff" stroke-width="0.3"/><text x="49.82" y="35.53" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">30</text><rect x="57.53" y="24.91" width="15.42" height="19.27" fill="rgb(132,112,66)" stroke="#fff" stroke-width="0.3"/><text x="65.24" y="35.53" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">35</text><rect x="72.94" y="24.91" width="15.42" height="19.27" fill="rgb(114,103,70)" stroke="#fff" stroke-width="0.3"/><text x="80.65" y="35.53" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">40</text><rect x="11.28" y="44.18" width="15.42" height="19.27" fill="rgb(167,132,57)" stroke="#fff" stroke-width="0.3"/><text x="18.99" y="54.71" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">25</text><rect x="26.70" y="44.18" width="15.42" height="19.27" fill="rgb(143,118,63)" stroke="#fff" stroke-width="0.3"/><text x="34.40" y="54.71" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">32</text><rect x="42.11" y="44.18" width="15.42" height="19.27" fill="rgb(107,99,72)" stroke="#fff" stroke-width="0.3"/><text x="49.82" y="54.71" text-anchor="middle" font-size="13.2px" fill="#fff" font-weight="700">42</text><rect x="57.53" y="44.18" width="15.42" height="19.27" fill="rgb(86,87,77)" stroke="#fff" stroke-width="0.3"/><text x="65.24" y="54.71" text-anchor="middle" font-size="13.2px" fill="#fff" font-weight="700">48</text><rect x="72.94" y="44.18" width="15.42" height="19.27" fill="rgb(61,73,84)" stroke="#fff" stroke-width="0.3"/><text x="80.65" y="54.71" text-anchor="middle" font-size="13.2px" fill="#fff" font-weight="700">55</text><rect x="11.28" y="63.45" width="15.42" height="19.27" fill="rgb(150,122,61)" stroke="#fff" stroke-width="0.3"/><text x="18.99" y="74.07" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">30</text><rect x="26.70" y="63.45" width="15.42" height="19.27" fill="rgb(121,106,69)" stroke="#fff" stroke-width="0.3"/><text x="34.40" y="74.07" text-anchor="middle" font-size="13.2px" fill="#1a365d" font-weight="700">38</text><rect x="42.11" y="63.45" width="15.42" height="19.27" fill="rgb(79,83,79)" stroke="#fff" stroke-width="0.3"/><text x="49.82" y="74.07" text-anchor="middle" font-size="13.2px" fill="#fff" font-weight="700">50</text><rect x="57.53" y="63.45" width="15.42" height="19.27" fill="rgb(50,67,86)" stroke="#fff" stroke-width="0.3"/><text x="65.24" y="74.07" text-anchor="middle" font-size="13.2px" fill="#fff" font-weight="700">58</text><rect x="72.94" y="63.45" width="15.42" height="19.27" fill="rgb(26,54,93)" stroke="#fff" stroke-width="0.3"/><text x="80.65" y="74.07" text-anchor="middle" font-size="13.2px" fill="#fff" font-weight="700">65</text></svg></figure></div>
+
+<table>
+<thead>
+<tr>
+<th>风险类型</th>
+<th>概率</th>
+<th>影响</th>
+<th>等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>政策变化</td>
+<td>中</td>
+<td>高</td>
+<td>中</td>
+</tr>
+<tr>
+<td>市场波动</td>
+<td>高</td>
+<td>中</td>
+<td>高</td>
+</tr>
+<tr>
+<td>技术迭代</td>
+<td>中</td>
+<td>中</td>
+<td>中</td>
+</tr>
+</tbody>
+</table>
+<h3 id="auto-h-107-089bed">4.2 风险趋势</h3>
+<figure class="chart-figure chart-line "><div class="ch-title">风险指数变化趋势</div><div class="line-legend"><span class="lg-dot" style="background:#1a365d"></span>默认</div><svg viewBox="0 0 940 940" class="line-svg" width="100%" height="auto"><line x1="94.00" y1="84.60" x2="846.00" y2="84.60" stroke="#718096" stroke-width="0.3" stroke-dasharray="2,2"/><text x="84.60" y="83.66" text-anchor="end" font-size="13.2px" fill="#718096">45.0</text><line x1="94.00" y1="47.00" x2="846.00" y2="47.00" stroke="#718096" stroke-width="0.3" stroke-dasharray="2,2"/><text x="84.60" y="46.06" text-anchor="end" font-size="13.2px" fill="#718096">55.0</text><line x1="94.00" y1="9.40" x2="846.00" y2="9.40" stroke="#718096" stroke-width="0.3" stroke-dasharray="2,2"/><text x="84.60" y="8.46" text-anchor="end" font-size="13.2px" fill="#718096">65.0</text><line x1="9.40" y1="846.00" x2="9.40" y2="864.80" stroke="#718096" stroke-width="0.5"/><text x="9.40" y="921.20" text-anchor="middle" font-size="13.2px" fill="#718096">2023</text><line x1="47.00" y1="846.00" x2="47.00" y2="864.80" stroke="#718096" stroke-width="0.5"/><text x="47.00" y="921.20" text-anchor="middle" font-size="13.2px" fill="#718096">2024</text><line x1="84.60" y1="846.00" x2="84.60" y2="864.80" stroke="#718096" stroke-width="0.5"/><text x="84.60" y="921.20" text-anchor="middle" font-size="13.2px" fill="#718096">2025E</text><line x1="94.00" y1="94.00" x2="94.00" y2="846.00" stroke="#718096" stroke-width="0.5"/><line x1="94.00" y1="846.00" x2="846.00" y2="846.00" stroke="#718096" stroke-width="0.5"/><polyline points="9.40,9.40 47.00,35.72 84.60,84.60" fill="none" stroke="#1a365d" stroke-width="2.5"/><circle cx="9.40" cy="9.40" r="11.28" fill="#1a365d"/><circle cx="47.00" cy="35.72" r="11.28" fill="#1a365d"/><circle cx="84.60" cy="84.60" r="11.28" fill="#1a365d"/></svg></figure>
+<hr>
+<h2 id="auto-h-5-12680f">第 5 章 · 估值分析</h2>
+<h3 id="auto-h-108-74ed0e">5.1 市盈率对标</h3>
+<div class="chart-legend-auto" data-floating="0" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:14px 0 14px 0;padding:10px 14px;background:#fffbeb;border:2px solid #d69e2e;border-radius:8px;font-size:13px;color:#1a202c;max-width:100%;"><strong style="color:#744210;">图例：</strong><span class="lg-item"><span class="lg-dot" style="background:#dc2626"></span>晶能光电</span> <span class="lg-item"><span class="lg-dot" style="background:#2563eb"></span>三安光电</span> <span class="lg-item"><span class="lg-dot" style="background:#059669"></span>兆驰股份</span></div><figure class="chart-figure chart-bar_vertical "><div class="ch-title">行业市盈率对比</div><div class="vbar-container"><div class="vbar-item"><div class="vbar-num">18.5</div><div class="vbar-bar" style="height:52.9%;background:#1a365d"></div><div class="vbar-label">宏远创信</div></div><div class="vbar-item"><div class="vbar-num">22.3</div><div class="vbar-bar" style="height:63.7%;background:#d69e2e"></div><div class="vbar-label">行业平均</div></div><div class="vbar-item"><div class="vbar-num">35.0</div><div class="vbar-bar" style="height:100.0%;background:#2c5282"></div><div class="vbar-label">头部企业</div></div></div></figure>
+<hr>
+<h2 id="auto-h-6-445278">结论与建议</h2>
+<p>根据综合分析，建议关注宏远创信的长期发展潜力，预计估值区间 18-22 亿元。</p>
+<hr>
+<p>报告完成</p>
+
+<script>
+/* ===== enhance_report: 浮动侧边栏切换（V3.43.3: 增强外部点击关闭） ===== */
+(function(){
+  /* 给已有 toggle 按钮附加「点击外部关闭」功能 */
+  function enhanceExistingToggle(btnSel, targetSel){
+    var btn = document.querySelector(btnSel);
+    var target = document.querySelector(targetSel);
+    if (!btn || !target) return;
+    if (btn.dataset.enhanced === '1') return;
+    btn.dataset.enhanced = '1';
+    // 包装原 onclick：点击切换 + 自动关闭其它侧栏
+    var origOnClick = btn.onclick;
+    btn.onclick = function(e){
+      // V14.0 FIX: 防御 e 为 undefined（直接调用 onclick() 测试场景）
+      if (e && e.stopPropagation) e.stopPropagation();
+      if (origOnClick) origOnClick.call(this, e);
+      // 关闭对侧
+      var isToc = btnSel.indexOf('toc') >= 0;
+      var otherSel = isToc ? '.key-conclusion' : '.toc-sidebar';
+      var otherBtnSel = isToc ? '.key-conclusion-toggle' : '.toc-sidebar-toggle';
+      var other = document.querySelector(otherSel);
+      var otherBtn = document.querySelector(otherBtnSel);
+      if (other && other.classList.contains('open')){
+        other.classList.remove('open');
+        if (otherBtn) otherBtn.innerHTML = otherBtn.dataset.origLabel || otherBtn.innerHTML.replace('✕ 关闭','').trim() || '📑 目录';
+      }
+    };
+    // 记录原始 label
+    if (!btn.dataset.origLabel) btn.dataset.origLabel = btn.innerHTML.replace('✕ 关闭','').trim();
+    // 点击侧栏外部关闭 + body padding 避让
+    document.addEventListener('click', function(e){
+      if (!target.classList.contains('open')) return;
+      if (target.contains(e.target) || btn.contains(e.target)) return;
+      target.classList.remove('open');
+      btn.innerHTML = btn.dataset.origLabel || btn.innerHTML;
+    });
+    // 监听 open 状态变化 → 调整 body padding 避免遮挡
+    var isToc = btnSel.indexOf('toc') >= 0;
+    var observer = new MutationObserver(function(){
+      var open = target.classList.contains('open');
+      var otherOpen = document.querySelector((isToc ? '.key-conclusion' : '.toc-sidebar')).classList.contains('open');
+      if (open && !otherOpen){
+        if (isToc) document.body.style.paddingLeft = '260px';
+        else document.body.style.paddingRight = '280px';
+      } else if (!open && !otherOpen){
+        document.body.style.paddingLeft = '';
+        document.body.style.paddingRight = '';
+      } else if (open && otherOpen){
+        // 两个都打开：双向避让
+        document.body.style.paddingLeft = '260px';
+        document.body.style.paddingRight = '280px';
+      }
+    });
+    observer.observe(target, {attributes: true, attributeFilter: ['class']});
+    // ESC 键关闭
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && target.classList.contains('open')){
+        target.classList.remove('open');
+        btn.innerHTML = btn.dataset.origLabel || btn.innerHTML;
+      }
+    });
+  }
+  function makeToggle(targetSel, btnId, label){
+    if (document.querySelector('.' + btnId)) {
+      enhanceExistingToggle('.' + btnId, targetSel);
+      return;
+    }
+    var target = document.querySelector(targetSel);
+    if (!target) return;
+    var btn = document.createElement('button');
+    btn.className = btnId;
+    btn.innerHTML = label;
+    btn.setAttribute('aria-label', '切换' + label);
+    btn.dataset.origLabel = label;
+    btn.onclick = function(){
+      target.classList.toggle('open');
+      btn.innerHTML = target.classList.contains('open') ? '✕ 关闭' : label;
+    };
+    document.body.appendChild(btn);
+    enhanceExistingToggle('.' + btnId, targetSel);
+  }
+  if (document.querySelector('.toc-sidebar')) makeToggle('.toc-sidebar', 'toc-sidebar-toggle', '📑 目录');
+  if (document.querySelector('.key-conclusion')) makeToggle('.key-conclusion', 'key-conclusion-toggle', '⭐ 关键结论');
+  /* ⚠️ V15.2.11 主公 2026-07-15 09:27:52 指令：删除手机界面，全部采用 PC 版
+     V15.2.10 视口监听已废弃，toggle 按钮统一行为由 CSS 控制 */
+})();
+</script><script>
+/* ===== enhance_report: 深色模式切换（V12.0 新增） ===== */
+(function(){
+  // 1) 注入按钮（若 HTML 中尚无）
+  if (!document.getElementById('dark-mode-toggle')) {
+    var btn = document.createElement('button');
+    btn.id = 'dark-mode-toggle';
+    btn.className = 'theme-toggle-btn';
+    btn.title = '切换深色模式';
+    btn.setAttribute('aria-label', '切换深色模式');
+    btn.textContent = '🌙';
+    document.body.appendChild(btn);
+  }
+  // 2) 启动时恢复 localStorage 状态
+  try {
+    if (localStorage.getItem('dark-mode') === '1') {
+      document.body.classList.add('dark-mode');
+      var b0 = document.getElementById('dark-mode-toggle');
+      if (b0) b0.textContent = '☀️';
+    }
+  } catch(e) {}
+  // 3) 点击切换
+  var darkBtn = document.getElementById('dark-mode-toggle');
+  if (darkBtn) {
+    darkBtn.addEventListener('click', function(){
+      document.body.classList.toggle('dark-mode');
+      var isDark = document.body.classList.contains('dark-mode');
+      darkBtn.textContent = isDark ? '☀️' : '🌙';
+      try { localStorage.setItem('dark-mode', isDark ? '1' : '0'); } catch(e) {}
+    });
+  }
+})();
+</script></body>
+</html>
+
+</article>
+window.P16Charts 预定义 -->
+<script>
+window.P16Charts = window.P16Charts || {
+    // 空对象，等待渲染器注入
+    renderAll: function() { console.log('P16Charts.renderAll called'); }
+};
+</script>
+</body>
+</html>
