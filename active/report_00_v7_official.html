@@ -92,6 +92,15 @@ body { margin-top: 48px; }
 .ascii-figure th { background: #f7fafc; }
 .chart-container { margin: 24px 0; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
 </style>
+
+<style>
+.sidebar, aside.sidebar { font-size: 14px !important; }
+.sidebar-title { font-size: 16px !important; font-weight: bold; }
+h2 { font-size: 22px !important; font-weight: bold; color: #1a365d; border-bottom: 2px solid #d69e2e; padding-bottom: 8px; margin: 24px 0 16px 0; }
+.chart-container { max-height: 400px !important; height: 400px !important; overflow: hidden !important; margin: 20px auto !important; }
+.chart-container canvas { max-height: 380px !important; height: 380px !important; width: 100% !important; }
+.ascii-matrix { background: #f5f5f5 !important; padding: 12px !important; border-radius: 4px !important; font-family: 'Courier New', monospace !important; font-size: 13px !important; white-space: pre !important; overflow-x: auto !important; border: 1px solid #ddd !important; margin: 16px 0 !important; }
+</style>
 </head>
 <body class="scheme-blue">
 <aside class="sidebar" style="position:fixed;left:0;top:0;width:220px;height:100vh;background:#f8f9fa;border-right:1px solid #e9ecef;z-index:999;overflow-y:auto;padding:16px 0;">
@@ -169,7 +178,7 @@ body { margin-top: 48px; }
 </div><h1>📋 报告大纲</h1>
 <h2 id="主体122章核心论证结论"
 <div class="chart-container" data-chart-type="chartjs-bar" data-chart-data='{"labels": ["核心论证1-22章", "附录A-J", "附录K-T", "扩展论证"], "values": [22, 10, 16, 10]}'>
-  <div class="chart-title">📊 报告结构总览</div>
+  <div class="chart-title">📊 报告结构总览<canvas></canvas></div>
 </div>>主体(1-22 章,核心论证 + 结论)</h2><div class="callout callout-conclusion">
 <details class="table-collapse" open><summary>📊 展开/折叠表格（2）</summary>
 <table>
@@ -347,7 +356,7 @@ body { margin-top: 48px; }
 <h1>Phase 1 - 纵向分析(公司 + 资源 + 并表)</h1>
 <h2 id="第1章汇天网络基本盘双源验证三源实测"
 <div class="chart-container" data-chart-type="chartjs-pie" data-chart-data='{"labels": ["京东", "华为", "中信银行", "运营商", "其他"], "values": [42.59, 25.9, 10.94, 8, 12.57]}'>
-  <div class="chart-title">📊 客户结构</div>
+  <div class="chart-title">📊 客户结构<canvas></canvas></div>
 </div>>第 1 章 汇天网络基本盘(双源验证,三源实测)</h2>
 <h3>1.1 公司本体(5⭐数据)</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（4）</summary>
@@ -878,7 +887,7 @@ body { margin-top: 48px; }
 </blockquote>
 <hr />
 <h2 id="第3章REITs估值锚定"<div class="chart-container" data-chart-type="chartjs-radar" data-chart-data='{"labels": ["EV/EBITDA", "分派率", "资产规模", "客户集中度", "上架率"], "values": [16, 4.5, 42, 79, 63]}'>
-  <div class="chart-title">📊 估值雷达</div>
+  <div class="chart-title">📊 估值雷达<canvas></canvas></div>
 </div>>第 3 章 REITs 估值锚定</h2>
 <blockquote>
 <p><strong>估值方法</strong>:本章对汇天项目采用<strong>多方法并列估值 + 综合加权裁决</strong>的估值框架(综合考量 EV/EBITDA 锚定法、分派率倒推法、可比交易对标法三种视角),基于不同方法的假设差异给出稳健估值区间与最终推荐值,供决策层参考。</p>
@@ -2544,7 +2553,7 @@ body { margin-top: 48px; }
 </ul>
 <hr />
 <h2 id="第8章司法风险市场化对标"<div class="chart-container" data-chart-type="ascii-matrix" data-chart-data='{"matrix": [["风险类型", "汇天", "润泽", "万国"], ["诉讼案件", "959件", "120件", "45件"], ["行政处罚", "4条", "2条", "1条"], ["限消令", "待核", "0条", "0条"]]}'>
-  <div class="chart-title">📊 司法风险对标</div>
+  <div class="chart-title">📊 司法风险对标<canvas></canvas></div>
 </div>>第 8 章 司法风险市场化对标</h2>
 <h3>8.1 同业司法案件数对比</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（42）</summary>
@@ -2817,7 +2826,7 @@ body { margin-top: 48px; }
 <hr />
 <h2 id="第12章三锚估值自主裁决"
 <div class="chart-container" data-chart-type="chartjs-bar" data-chart-data='{"labels": ["EV/EBITDA锚", "分派率锚", "可比对标", "最终推荐"], "values": [45, 46, 44, 42]}'>
-  <div class="chart-title">📊 三锚估值(亿元)</div>
+  <div class="chart-title">📊 三锚估值(亿元)<canvas></canvas></div>
 </div>>第 12 章 三锚估值(自主裁决)</h2>
 <h3>12.1 三锚估值</h3>
 <details class="table-collapse" open><summary>📊 展开/折叠表格（48）</summary>
@@ -3288,7 +3297,7 @@ body { margin-top: 48px; }
 </table></details>
 <h2 id="第20章5模块决策摘要"
 <div class="chart-container" data-chart-type="chartjs-radar" data-chart-data='{"labels": ["资源稀缺度", "估值合理性", "并表可行性", "司法风险", "客户质量", "退出路径"], "values": [78, 85, 80, 70, 90, 75]}'>
-  <div class="chart-title">📊 综合评分 75/100</div>
+  <div class="chart-title">📊 综合评分 75/100<canvas></canvas></div>
 </div>>第 20 章 5 模块决策摘要</h2>
 <h3>模块 1:核心结论</h3>
 <p>✅ <strong>推荐推进 5 子平台联动合作</strong>,但<strong>询价锁定 42 亿(不上限 52 亿)</strong>,<strong>并表路径选 A+C+D</strong></p>
@@ -6262,5 +6271,34 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 })();
 
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+window.renderAllCharts = function() {
+  document.querySelectorAll('.chart-container').forEach(container => {
+    const canvas = container.querySelector('canvas');
+    if (!canvas) return;
+    const type = container.getAttribute('data-chart-type');
+    const dataAttr = container.getAttribute('data-chart-data');
+    if (!type || !dataAttr) return;
+    try {
+      const data = JSON.parse(dataAttr);
+      const ctx = canvas.getContext('2d');
+      if (ctx && typeof Chart !== 'undefined') {
+        new Chart(ctx, {
+          type: type.replace('chartjs-', ''),
+          data: {
+            labels: data.labels || [],
+            datasets: [{ label: '数据', data: data.values || [], backgroundColor: 'rgba(54, 162, 235, 0.5)', borderColor: 'rgba(54, 162, 235, 1)', borderWidth: 1 }]
+          },
+          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+        });
+      }
+    } catch(e) { console.error('Chart error:', e); }
+  });
+};
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', window.renderAllCharts);
+else window.renderAllCharts();
+</script>
 </body>
 </html>
