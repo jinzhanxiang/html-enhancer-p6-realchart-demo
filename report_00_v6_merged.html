@@ -6127,5 +6127,65 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
 <!-- P16 IIFE removed -->
 
+
+
+<!-- 强制渲染所有图表 -->
+<script>
+console.log('Force render start');
+(function() {
+    if (typeof Chart === 'undefined') {
+        console.log('Chart not ready, waiting...');
+        setTimeout(arguments.callee, 500);
+        return;
+    }
+    
+    document.querySelectorAll('[data-chart-type]').forEach(function(container) {
+        var type = container.getAttribute('data-chart-type');
+        var dataStr = container.getAttribute('data-chart-data');
+        if (!type || !dataStr) return;
+        
+        var data;
+        try { data = JSON.parse(dataStr); } catch(e) { return; }
+        
+        var canvas = container.querySelector('canvas');
+        if (!canvas) return;
+        
+        // ascii-matrix 渲染
+        if (type === 'ascii-matrix' && data.matrix) {
+            var existing = container.querySelector('.ascii-matrix');
+            if (existing) return;
+            
+            var m = data.matrix, ml = [];
+            m.forEach(function(r){r.forEach(function(v,i){ml[i]=Math.max(ml[i]||0,String(v).length);});});
+            var lines = [];
+            lines.push('┌'+ml.map(function(l){return'─'.repeat(l+2);}).join('┬')+'┐');
+            lines.push('│'+m[0].map(function(v,i){return' '+String(v).padEnd(ml[i])+' ';}).join('│')+'│');
+            lines.push('├'+ml.map(function(l){return'─'.repeat(l+2);}).join('┼')+'┤');
+            for(var j=1;j<m.length;j++) lines.push('│'+m[j].map(function(v,i){return' '+String(v).padEnd(ml[i])+' ';}).join('│')+'│');
+            lines.push('└'+ml.map(function(l){return'─'.repeat(l+2);}).join('┴')+'┘');
+            container.innerHTML += '<pre class="ascii-matrix">' + lines.join('\n') + '</pre>';
+            return;
+        }
+        
+        // Chart.js 渲染
+        if (type.startsWith('chartjs-') && !canvas.chart) {
+            var chartType = type.replace('chartjs-', '');
+            try {
+                canvas.chart = new Chart(canvas, {
+                    type: chartType,
+                    data: {
+                        labels: data.labels || [],
+                        datasets: [{ label: data.note || '', data: data.values || [], backgroundColor: 'rgba(30,64,175,0.7)' }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false }
+                });
+            } catch(e) { console.error('Chart error:', e); }
+        }
+    });
+    
+    console.log('Force render complete');
+})();
+</script>
+
 </body>
 </html>
