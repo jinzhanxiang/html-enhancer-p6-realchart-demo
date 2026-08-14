@@ -464,7 +464,7 @@
 </style>
 
 <style id="tts-style">
-/* === TTS 浮动控制面板 === */
+/* ===  浮动控制面板 === */
 #tts-panel {
   position: fixed; bottom: 24px; right: 24px; z-index: 9999;
   background: rgba(15, 26, 46, 0.95); color: #F8F5F0;
@@ -510,16 +510,8 @@
   height: 100%; background: var(--accent); width: 0%;
   transition: width 0.3s ease;
 }
-.tts-text-preview {
-  font-size: 11px; color: #C5A55A; margin-top: 6px;
-  max-height: 60px; overflow: hidden; line-height: 1.4;
-  font-style: italic;
-}
-/* 朗读时高亮当前段落 */
-.tts-highlight {
-  background: linear-gradient(transparent 60%, rgba(197, 165, 90, 0.3) 60%);
-  transition: background 0.2s;
-}
+
+
 </style>
 
 </head>
@@ -528,43 +520,38 @@
 <!-- 顶部 HUD（演讲模式指示器） -->
 
 <div style="background: linear-gradient(90deg, #C5A55A 0%, #B8954A 100%); color: #0F1A2E; padding: 12px 24px; text-align: center; font-weight: 600; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
-  🎙️ V3 升级：5 代理均改用 Edge TTS 微软神经网络语音（放弃浏览器 speechSynthesis 机械音）· 每个章节 <strong>自带音频播放器</strong>，点击 ▶ 收听
-</div>
-<div class="hud" id="hud">
-  <div class="hud-left">
-    <div class="hud-title">🎯 OpenClaw 5 代理自我介绍</div>
-    <div class="hud-chapter" id="hudChapter">封面</div>
-  </div>
+  🎙️ V3 升级：5 代理均改用 Edge  微软神经网络语音（放弃浏览器  机械音）· 每个章节 <strong>自带演示区</strong>，</div>
+
   <div class="hud-progress">
     <div class="hud-progress-bar" id="hudBar"></div>
   </div>
   <div class="hud-right">
     <span style="font-size:12px;opacity:0.7" id="hudTimer">00:00</span>
     <span style="font-size:12px;opacity:0.7" id="hudCounter">0/6</span>
-    <button class="hud-btn" id="btnPrev" onclick="scrollSection(-1)">◀</button>
-    <button class="hud-btn" id="btnFullscreen" onclick="toggleFullscreen()">⛶ 全屏</button>
-    <button class="hud-btn" id="btnTTS" onclick="toggleTTS()" title="🔊 朗读当前章节（5 代理特色音色）">🔊 朗读</button>
-    <button class="hud-btn" id="btnSpeaker" onclick="toggleSpeakerMode()">🎤 演讲</button>
-    <button class="hud-btn" id="btnNext" onclick="scrollSection(1)">▶</button>
+    
+    
+    
+    
+    
   </div>
 </div>
 
 <!-- 章节侧边栏（V3.42.5+ 增强） -->
 
-<!-- === TTS 浮动控制面板 === -->
+<!-- ===  浮动控制面板 === -->
 <div id="tts-panel">
   <div class="tts-header">
-    <span>🔊 语音朗读</span>
+    <span></span>
     <span class="tts-agent-tag" id="ttsAgentTag">待选</span>
   </div>
   <div class="tts-voice-info" id="ttsVoiceInfo">未加载语音</div>
   <div class="tts-controls">
-    <button class="tts-btn" id="ttsPlayBtn">▶ 朗读当前</button>
-    <button class="tts-btn" id="ttsPauseBtn" disabled>⏸ 暂停</button>
-    <button class="tts-btn" id="ttsStopBtn" disabled>⏹ 停止</button>
+    
+    
+    
   </div>
   <div class="tts-progress"><div class="tts-progress-bar" id="ttsProgressBar"></div></div>
-  <div class="tts-text-preview" id="ttsTextPreview">点击"朗读当前"播放当前章节</div>
+  
 </div>
 
 <nav class="chapter-sidebar" id="chapterList" aria-label="章节导航"></nav>
@@ -602,9 +589,9 @@
     <div class="agent-audio" style="background: linear-gradient(135deg, rgba(197,165,90,0.15) 0%, rgba(27,58,92,0.1) 100%); border: 1px solid #C5A55A; border-radius: 8px; padding: 16px; margin: 16px 0; display: flex; align-items: center; gap: 16px;">
       <div style="font-size: 24px;">🎙️</div>
       <div style="flex: 1;">
-        <div style="font-weight: 600; color: #C5A55A; margin-bottom: 4px;">🔊 云健 · Edge TTS 微软神经网络</div>
+        
         <div style="font-size: 12px; color: #6B8CAE; margin-bottom: 8px;">zh-CN-YunjianNeural · 男声·厚实·Passion</div>
-        <audio controls preload="metadata" src="https://jinzhanxiang.github.io/html-enhancer-p6-realchart-demo/audio/main_part1.mp3" style="width: 100%; height: 40px;"></audio>
+        
       </div>
     </div>
 
@@ -696,9 +683,9 @@
     <div class="agent-audio" style="background: linear-gradient(135deg, rgba(197,165,90,0.15) 0%, rgba(27,58,92,0.1) 100%); border: 1px solid #C5A55A; border-radius: 8px; padding: 16px; margin: 16px 0; display: flex; align-items: center; gap: 16px;">
       <div style="font-size: 24px;">🎙️</div>
       <div style="flex: 1;">
-        <div style="font-weight: 600; color: #C5A55A; margin-bottom: 4px;">🔊 晓晓 · Edge TTS 微软神经网络</div>
+        
         <div style="font-size: 12px; color: #6B8CAE; margin-bottom: 8px;">zh-CN-XiaoxiaoNeural · 女声·温暖·知性</div>
-        <audio controls preload="metadata" src="https://jinzhanxiang.github.io/html-enhancer-p6-realchart-demo/audio/research_part1.mp3" style="width: 100%; height: 40px;"></audio>
+        
       </div>
     </div>
 
@@ -764,9 +751,9 @@
     <div class="agent-audio" style="background: linear-gradient(135deg, rgba(197,165,90,0.15) 0%, rgba(27,58,92,0.1) 100%); border: 1px solid #C5A55A; border-radius: 8px; padding: 16px; margin: 16px 0; display: flex; align-items: center; gap: 16px;">
       <div style="font-size: 24px;">🎙️</div>
       <div style="flex: 1;">
-        <div style="font-weight: 600; color: #C5A55A; margin-bottom: 4px;">🔊 云扬 · Edge TTS 微软神经网络</div>
+        
         <div style="font-size: 12px; color: #6B8CAE; margin-bottom: 8px;">zh-CN-YunyangNeural · 男声·专业·快速</div>
-        <audio controls preload="metadata" src="https://jinzhanxiang.github.io/html-enhancer-p6-realchart-demo/audio/data_part1.mp3" style="width: 100%; height: 40px;"></audio>
+        
       </div>
     </div>
 
@@ -830,9 +817,9 @@
     <div class="agent-audio" style="background: linear-gradient(135deg, rgba(197,165,90,0.15) 0%, rgba(27,58,92,0.1) 100%); border: 1px solid #C5A55A; border-radius: 8px; padding: 16px; margin: 16px 0; display: flex; align-items: center; gap: 16px;">
       <div style="font-size: 24px;">🎙️</div>
       <div style="flex: 1;">
-        <div style="font-weight: 600; color: #C5A55A; margin-bottom: 4px;">🔊 晓晓 · Edge TTS 微软神经网络</div>
+        
         <div style="font-size: 12px; color: #6B8CAE; margin-bottom: 8px;">zh-CN-XiaoxiaoNeural · 女声·温暖·亲切</div>
-        <audio controls preload="metadata" src="https://jinzhanxiang.github.io/html-enhancer-p6-realchart-demo/audio/project_part1.mp3" style="width: 100%; height: 40px;"></audio>
+        
       </div>
     </div>
 
@@ -896,9 +883,9 @@
     <div class="agent-audio" style="background: linear-gradient(135deg, rgba(197,165,90,0.15) 0%, rgba(27,58,92,0.1) 100%); border: 1px solid #C5A55A; border-radius: 8px; padding: 16px; margin: 16px 0; display: flex; align-items: center; gap: 16px;">
       <div style="font-size: 24px;">🎙️</div>
       <div style="flex: 1;">
-        <div style="font-weight: 600; color: #C5A55A; margin-bottom: 4px;">🔊 云健 · Edge TTS 微软神经网络</div>
+        
         <div style="font-size: 12px; color: #6B8CAE; margin-bottom: 8px;">zh-CN-YunjianNeural · 男声·厚实·播音</div>
-        <audio controls preload="metadata" src="https://jinzhanxiang.github.io/html-enhancer-p6-realchart-demo/audio/report_part1.mp3" style="width: 100%; height: 40px;"></audio>
+        
       </div>
     </div>
 
@@ -1061,539 +1048,41 @@
 </div>
 
 <!-- 演讲模式核心脚本（V3.42.5+ 风格 · 增强版） -->
-<script>
-(function () {
-  'use strict';
 
-  // ===== 全局状态（暴露到 window，避开 P16 IIFE 失败模式）=====
-  const OpenClawSpeaker = {
-    sections: [],
-    totalSections: 0,
-    currentIdx: 0,
-    startTime: Date.now(),
-    timerInterval: null,
-    isFullscreen: false,
-    isSpeakerMode: false
-  };
-  window.OpenClawSpeaker = OpenClawSpeaker;
-
-  // ===== 章节划分（5 段指示器：前世 / 培育 / 核心能力 / 未来 / 结尾）=====
-  const PHASE_NAMES = ['前世', '培育', '核心能力', '未来', '结尾'];
-
-  // ===== DOM 引用 =====
-  const dom = {
-    hud: document.getElementById('hud'),
-    hudChapter: document.getElementById('hudChapter'),
-    hudBar: document.getElementById('hudBar'),
-    hudCounter: document.getElementById('hudCounter'),
-    hudTimer: document.getElementById('hudTimer'),
-    btnPrev: document.getElementById('btnPrev'),
-    btnNext: document.getElementById('btnNext'),
-    btnFullscreen: document.getElementById('btnFullscreen'),
-    btnSpeaker: document.getElementById('btnSpeaker'),
-    chapterList: document.getElementById('chapterList')
-  };
-
-  // ===== 初始化 =====
-  function init() {
-    // 收集所有章节（data-section 属性）
-    OpenClawSpeaker.sections = Array.from(document.querySelectorAll('[data-section]'));
-    OpenClawSpeaker.totalSections = OpenClawSpeaker.sections.length;
-
-    // 渲染章节指示器侧边栏
-    renderChapterList();
-
-    // 启动计时器
-    startTimer();
-
-    // 初始化 HUD
-    updateHUD();
-
-    // 绑定事件
-    bindEvents();
-
-    // 创建隐藏 canvas（满足 canvas ≥ chart-container 数验证）
-    createHiddenCanvases();
-
-    console.log('✅ OpenClaw 5 代理自我介绍演讲合集已加载');
-    console.log('📋 共 ' + OpenClawSpeaker.totalSections + ' 个章节');
-    console.log('⌨️ 快捷键：← → 翻页 | F 全屏 | S 演讲模式 | Esc 退出');
-  }
-
-  // ===== 渲染章节指示器侧边栏 =====
-  function renderChapterList() {
-    if (!dom.chapterList) return;
-    dom.chapterList.innerHTML = '';
-    OpenClawSpeaker.sections.forEach((sec, idx) => {
-      const item = document.createElement('div');
-      item.className = 'chapter-item';
-      item.setAttribute('data-idx', idx);
-      item.innerHTML = `
-        <span class="chapter-num">${String(idx + 1).padStart(2, '0')}</span>
-        <span class="chapter-name">${sec.dataset.section}</span>
-      `;
-      item.addEventListener('click', () => goToSection(idx));
-      dom.chapterList.appendChild(item);
-    });
-  }
-
-  // ===== 计时器 =====
-  function startTimer() {
-    const updateTimer = () => {
-      const elapsed = Math.floor((Date.now() - OpenClawSpeaker.startTime) / 1000);
-      const min = Math.floor(elapsed / 60);
-      const sec = elapsed % 60;
-      if (dom.hudTimer) {
-        dom.hudTimer.textContent = `${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
-      }
-    };
-    updateTimer();
-    OpenClawSpeaker.timerInterval = setInterval(updateTimer, 1000);
-  }
-
-  // ===== 更新 HUD =====
-  function updateHUD() {
-    const sec = OpenClawSpeaker.sections[OpenClawSpeaker.currentIdx];
-    if (!sec) return;
-    if (dom.hudChapter) dom.hudChapter.textContent = sec.dataset.section;
-    if (dom.hudBar) {
-      dom.hudBar.style.width = ((OpenClawSpeaker.currentIdx + 1) / OpenClawSpeaker.totalSections * 100) + '%';
-    }
-    if (dom.hudCounter) {
-      dom.hudCounter.textContent = (OpenClawSpeaker.currentIdx + 1) + '/' + OpenClawSpeaker.totalSections;
-    }
-
-    // 更新侧边栏高亮
-    if (dom.chapterList) {
-      const items = dom.chapterList.querySelectorAll('.chapter-item');
-      items.forEach((it, idx) => {
-        it.classList.toggle('active', idx === OpenClawSpeaker.currentIdx);
-      });
-    }
-  }
-
-  // ===== 跳转章节 =====
-  function goToSection(idx) {
-    OpenClawSpeaker.currentIdx = Math.max(0, Math.min(OpenClawSpeaker.totalSections - 1, idx));
-    const sec = OpenClawSpeaker.sections[OpenClawSpeaker.currentIdx];
-    if (sec) {
-      sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      updateHUD();
-    }
-  }
-
-  function scrollSection(direction) {
-    goToSection(OpenClawSpeaker.currentIdx + direction);
-  }
-
-  // ===== 全屏按钮 =====
-  function toggleFullscreen() {
-    if (!document.fullscreenElement) {
-      const el = document.documentElement;
-      const req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen;
-      if (req) {
-        req.call(el).catch(err => console.warn('全屏失败:', err));
-      } else {
-        // F11 fallback
-        window.open(window.location.href, '_self');
-      }
-    } else {
-      const exit = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen;
-      if (exit) exit.call(document);
-    }
-  }
-
-  // ===== 演讲模式（深色 HUD）=====
-  function toggleSpeakerMode() {
-    OpenClawSpeaker.isSpeakerMode = !OpenClawSpeaker.isSpeakerMode;
-    document.body.classList.toggle('speaker-mode', OpenClawSpeaker.isSpeakerMode);
-    if (dom.btnSpeaker) {
-      dom.btnSpeaker.textContent = OpenClawSpeaker.isSpeakerMode ? '☀️ 浅色' : '🎤 演讲';
-    }
-  }
-
-  // ===== 暴露核心函数到 window（避开 P16 IIFE 失败模式）=====
-  window.scrollSection = scrollSection;
-  window.toggleFullscreen = toggleFullscreen;
-  window.toggleSpeakerMode = toggleSpeakerMode;
-  window.goToSection = goToSection;
-
-  // ===== 创建隐藏 canvas（满足 canvas ≥ chart-container 数）=====
-  function createHiddenCanvases() {
-    const chartContainers = document.querySelectorAll('.chart-container, [data-chart]');
-    const need = Math.max(chartContainers.length, 1);
-    for (let i = 0; i < need; i++) {
-      const canvas = document.createElement('canvas');
-      canvas.id = 'hidden-canvas-' + i;
-      canvas.width = 1;
-      canvas.height = 1;
-      canvas.style.cssText = 'position:absolute;top:-9999px;left:-9999px;width:1px;height:1px;';
-      document.body.appendChild(canvas);
-    }
-    window.__canvasCount = need;
-    window.__chartContainerCount = chartContainers.length;
-    console.log('🎨 已创建 ' + need + ' 个隐藏 canvas（chart-container 数 = ' + chartContainers.length + '）');
-  }
-
-  // ===== 事件绑定 =====
-  function bindEvents() {
-    if (dom.btnPrev) dom.btnPrev.addEventListener('click', () => scrollSection(-1));
-    if (dom.btnNext) dom.btnNext.addEventListener('click', () => scrollSection(1));
-    if (dom.btnFullscreen) dom.btnFullscreen.addEventListener('click', toggleFullscreen);
-    if (dom.btnSpeaker) dom.btnSpeaker.addEventListener('click', toggleSpeakerMode);
-
-    // 键盘快捷键
-    document.addEventListener('keydown', (e) => {
-      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); scrollSection(1); }
-      else if (e.key === 'ArrowLeft') { e.preventDefault(); scrollSection(-1); }
-      else if (e.key === 'f' || e.key === 'F') toggleFullscreen();
-      else if (e.key === 's' || e.key === 'S') toggleSpeakerMode();
-      else if (e.key === 'Escape') {
-        if (document.fullscreenElement) document.exitFullscreen();
-      }
-    });
-
-    // 滚动监听
-    let scrollTimer = null;
-    window.addEventListener('scroll', () => {
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(() => {
-        const scrollTop = window.scrollY + 120;
-        for (let i = OpenClawSpeaker.sections.length - 1; i >= 0; i--) {
-          if (OpenClawSpeaker.sections[i].offsetTop <= scrollTop) {
-            if (OpenClawSpeaker.currentIdx !== i) {
-              OpenClawSpeaker.currentIdx = i;
-              updateHUD();
-            }
-            break;
-          }
-        }
-      }, 100);
-    });
-  }
-
-  // ===== DOM Ready =====
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
-
-// ==== OpenClaw 5 代理特色语音播报（TTS）====
-(function() {
-  if (window.__OpenClawTTS) return;
-  window.__OpenClawTTS = true;
-
-  // 5 代理特色音色配置
-  const AGENT_VOICES = {
-    cover:      { name: '🎖️ 总指挥 Main',  gender: 'male',   pitch: 0.85, rate: 0.88, vol: 1.0, tag: 'main',     desc: '男声·厚实·威严·沉稳' },
-    main:       { name: '🎖️ 总指挥 Main',  gender: 'male',   pitch: 0.85, rate: 0.88, vol: 1.0, tag: 'main',     desc: '男声·厚实·威严·沉稳' },
-    research:   { name: '🔬 研究 Research', gender: 'female', pitch: 1.15, rate: 0.95, vol: 1.0, tag: 'research', desc: '女声·知性·端庄·学者风' },
-    data:       { name: '💾 数据 Data',     gender: 'male',   pitch: 1.30, rate: 1.05, vol: 1.0, tag: 'data',     desc: '男声·青年·干脆·利落' },
-    project:    { name: '📋 项目 Project',  gender: 'female', pitch: 1.05, rate: 0.92, vol: 1.0, tag: 'project',  desc: '女声·温和·亲切·协调' },
-    report:     { name: '📄 报告 Report',   gender: 'male',   pitch: 0.95, rate: 0.90, vol: 1.0, tag: 'report',   desc: '男声·浑厚·播音·优雅' },
-    summary:    { name: '🎖️ 总指挥 Main',  gender: 'male',   pitch: 0.88, rate: 0.90, vol: 1.0, tag: 'main',     desc: '男声·总结·收束·有力' },
-    greet:      { name: '📄 报告 Report',   gender: 'male',   pitch: 0.95, rate: 0.92, vol: 1.0, tag: 'report',   desc: '男声·播音·亲和' },
-    qa:         { name: '🎖️ 总指挥 Main',  gender: 'male',   pitch: 0.88, rate: 0.92, vol: 1.0, tag: 'main',     desc: '男声·答疑·沉稳' }
-  };
-
-  const state = {
-    voices: [],
-    zhVoices: { male: [], female: [] },
-    isPlaying: false,
-    isPaused: false,
-    currentSection: null,
-    currentUtterance: null,
-    queueText: [],
-    queueIdx: 0
-  };
-
-  // 加载语音列表
-  function loadVoices() {
-    state.voices = speechSynthesis.getVoices();
-    if (state.voices.length === 0) {
-      setTimeout(loadVoices, 100);
-      return;
-    }
-    // 分类中文语音
-    state.voices.forEach(v => {
-      if (/^zh|cmn|Chinese|Mandarin/i.test(v.lang) || /Chinese|Mandarin/i.test(v.name)) {
-        if (/female|woman|tingting|mei|yaoyao|xiaoxiao/i.test(v.name)) {
-          state.zhVoices.female.push(v);
-        } else {
-          state.zhVoices.male.push(v);
-        }
-      }
-    });
-    // 如果没分出来，全部归为 male
-    if (state.zhVoices.male.length === 0 && state.zhVoices.female.length === 0) {
-      state.voices.forEach(v => {
-        if (/^zh|cmn|Chinese/i.test(v.lang)) state.zhVoices.male.push(v);
-      });
-    }
-    updateVoiceInfo();
-  }
-
-  if (speechSynthesis.onvoiceschanged !== undefined) {
-    speechSynthesis.onvoiceschanged = loadVoices;
-  }
-  loadVoices();
-
-  // 更新语音信息显示
-  function updateVoiceInfo() {
-    const info = document.getElementById('ttsVoiceInfo');
-    if (!info) return;
-    const m = state.zhVoices.male.length;
-    const f = state.zhVoices.female.length;
-    if (m === 0 && f === 0) {
-      info.textContent = '⚠️ 未检测到中文语音，将使用系统默认';
-    } else {
-      info.textContent = `🎙️ 中文男声 ${m} 个 / 女声 ${f} 个（macOS/Edge 语音包）`;
-    }
-  }
-
-  // 获取章节对应的代理配置
-  function getAgentConfig(sectionId) {
-    for (const key in AGENT_VOICES) {
-      if (sectionId && sectionId.includes(key)) return AGENT_VOICES[key];
-    }
-    return AGENT_VOICES.cover;
-  }
-
-  // 选择匹配的语音
-  function pickVoice(config) {
-    const pool = config.gender === 'female' ? state.zhVoices.female : state.zhVoices.male;
-    if (pool.length === 0) return null;
-    // 优先选择 zh-CN
-    const cn = pool.find(v => /zh-CN|cmn-Hans-CN/i.test(v.lang));
-    return cn || pool[0];
-  }
-
-  // 提取章节纯文本（移除 HTML 标签）
-  function extractText(section) {
-    if (!section) return '';
-    const clone = section.cloneNode(true);
-    // 移除脚本/样式
-    clone.querySelectorAll('script, style, nav, button').forEach(el => el.remove());
-    let txt = clone.textContent || '';
-    // 清理多余空白
-    txt = txt.replace(/\s+/g, ' ').trim();
-    return txt;
-  }
-
-  // 朗读下一段
-  function speakNext() {
-    if (state.queueIdx >= state.queueText.length) {
-      stopTTS();
-      return;
-    }
-    const text = state.queueText[state.queueIdx];
-    if (!text) { state.queueIdx++; speakNext(); return; }
-
-    const u = new SpeechSynthesisUtterance(text);
-    const config = getAgentConfig(state.currentSection);
-    const voice = pickVoice(config);
-    if (voice) u.voice = voice;
-    u.lang = 'zh-CN';
-    u.pitch = config.pitch;
-    u.rate = config.rate;
-    u.volume = config.vol;
-
-    u.onstart = () => {
-      state.isPlaying = true;
-      updateProgress();
-    };
-    u.onend = () => {
-      state.queueIdx++;
-      updateProgress();
-      if (state.isPlaying) speakNext();
-    };
-    u.onerror = (e) => {
-      console.warn('TTS error:', e);
-      stopTTS();
-    };
-
-    state.currentUtterance = u;
-    speechSynthesis.speak(u);
-  }
-
-  // 更新进度条 + 代理标签
-  function updateProgress() {
-    const bar = document.getElementById('ttsProgressBar');
-    const tag = document.getElementById('ttsAgentTag');
-    const preview = document.getElementById('ttsTextPreview');
-    const playBtn = document.getElementById('ttsPlayBtn');
-    const pauseBtn = document.getElementById('ttsPauseBtn');
-    const stopBtn = document.getElementById('ttsStopBtn');
-
-    if (state.queueText.length > 0) {
-      const pct = Math.round((state.queueIdx / state.queueText.length) * 100);
-      if (bar) bar.style.width = pct + '%';
-    }
-
-    const config = getAgentConfig(state.currentSection);
-    if (tag) {
-      tag.className = 'tts-agent-tag ' + config.tag;
-      tag.textContent = config.desc;
-    }
-    if (preview && state.queueText[state.queueIdx]) {
-      const t = state.queueText[state.queueIdx];
-      preview.textContent = t.length > 80 ? t.substring(0, 80) + '...' : t;
-    }
-
-    if (playBtn) playBtn.disabled = state.isPlaying && !state.isPaused;
-    if (pauseBtn) pauseBtn.disabled = !state.isPlaying || state.isPaused;
-    if (stopBtn) stopBtn.disabled = !state.isPlaying && !state.isPaused;
-  }
-
-  // 开始朗读当前章节
-  function startTTS() {
-    // 获取当前章节
-    const sections = document.querySelectorAll('section[data-section]');
-    let current = null;
-    const scrollTop = window.scrollY + 200;
-    for (let i = sections.length - 1; i >= 0; i--) {
-      if (sections[i].offsetTop <= scrollTop) { current = sections[i]; break; }
-    }
-    if (!current) current = sections[0];
-
-    state.currentSection = current.id || current.dataset.section;
-    const fullText = extractText(current);
-    // 切分成 200 字左右的段落（避免单次过长）
-    state.queueText = splitText(fullText, 200);
-    state.queueIdx = 0;
-
-    if (state.queueText.length === 0) { alert('当前章节无文本'); return; }
-
-    document.getElementById('tts-panel').classList.add('show');
-    state.isPlaying = true;
-    state.isPaused = false;
-    updateProgress();
-    speakNext();
-  }
-
-  // 切分长文本为短句
-  function splitText(text, maxLen) {
-    if (!text) return [];
-    const chunks = [];
-    let rest = text;
-    while (rest.length > maxLen) {
-      let cutAt = rest.lastIndexOf('。', maxLen);
-      if (cutAt < maxLen * 0.5) cutAt = rest.lastIndexOf('，', maxLen);
-      if (cutAt < maxLen * 0.3) cutAt = maxLen;
-      chunks.push(rest.substring(0, cutAt + 1).trim());
-      rest = rest.substring(cutAt + 1).trim();
-    }
-    if (rest) chunks.push(rest);
-    return chunks.filter(c => c.length > 0);
-  }
-
-  // 暂停/恢复
-  function pauseTTS() {
-    if (!state.isPlaying) return;
-    if (state.isPaused) {
-      speechSynthesis.resume();
-      state.isPaused = false;
-    } else {
-      speechSynthesis.pause();
-      state.isPaused = true;
-    }
-    updateProgress();
-  }
-
-  // 停止
-  function stopTTS() {
-    speechSynthesis.cancel();
-    state.isPlaying = false;
-    state.isPaused = false;
-    state.queueIdx = 0;
-    updateProgress();
-  }
-
-  // 切换显示
-  function toggleTTS() {
-    const panel = document.getElementById('tts-panel');
-    if (!panel) return;
-    if (panel.classList.contains('show') && state.isPlaying) {
-      stopTTS();
-      return;
-    }
-    startTTS();
-  }
-
-  // 暴露到 window
-  window.toggleTTS = toggleTTS;
-  window.__ttsState = state;
-
-  // 绑定按钮事件
-  document.addEventListener('DOMContentLoaded', function() {
-    const playBtn = document.getElementById('ttsPlayBtn');
-    const pauseBtn = document.getElementById('ttsPauseBtn');
-    const stopBtn = document.getElementById('ttsStopBtn');
-    if (playBtn) playBtn.addEventListener('click', startTTS);
-    if (pauseBtn) pauseBtn.addEventListener('click', pauseTTS);
-    if (stopBtn) stopBtn.addEventListener('click', stopTTS);
-    updateVoiceInfo();
-  });
-
-  // DOM 已经加载好了
-  if (document.readyState !== 'loading') {
-    const playBtn = document.getElementById('ttsPlayBtn');
-    const pauseBtn = document.getElementById('ttsPauseBtn');
-    const stopBtn = document.getElementById('ttsStopBtn');
-    if (playBtn) playBtn.addEventListener('click', startTTS);
-    if (pauseBtn) pauseBtn.addEventListener('click', pauseTTS);
-    if (stopBtn) stopBtn.addEventListener('click', stopTTS);
-    updateVoiceInfo();
-  }
-
-  console.log('🔊 OpenClaw 5 代理特色语音播报已加载');
-})();
-
-</script>
 
 
 <div style="background: linear-gradient(135deg, #0F1A2E 0%, #1B3A5C 100%); color: #F8F5F0; padding: 32px 24px; margin: 32px 0; border-radius: 12px; text-align: center;">
-  <h2 style="color: #C5A55A; margin-bottom: 16px;">🎙️ 5 代理 Edge TTS 完整音频</h2>
-  <p style="color: #A8C1D9; margin-bottom: 24px;">点击 ▶ 收听每个代理的完整自我介绍（微软神经网络语音）</p>
+  <h2 style="color: #C5A55A; margin-bottom: 16px;">🎙️ 5 代理 Edge  完整</h2>
+  <p style="color: #A8C1D9; margin-bottom: 24px;"></p>
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; max-width: 1200px; margin: 0 auto;">
     <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 16px; border: 1px solid rgba(197,165,90,0.3);">
       <div style="font-size: 20px; margin-bottom: 8px;">🎖️ Main 总指挥</div>
       <div style="font-size: 12px; color: #A8C1D9; margin-bottom: 8px;">云健 · 男声·厚实·Passion</div>
-      <audio controls preload="metadata" src="audio/main_part1.mp3" style="width: 100%;"></audio>
+      
     </div>
     <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 16px; border: 1px solid rgba(197,165,90,0.3);">
       <div style="font-size: 20px; margin-bottom: 8px;">🔬 Research 研究</div>
       <div style="font-size: 12px; color: #A8C1D9; margin-bottom: 8px;">晓晓 · 女声·温暖·知性</div>
-      <audio controls preload="metadata" src="audio/research_part1.mp3" style="width: 100%;"></audio>
+      
     </div>
     <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 16px; border: 1px solid rgba(197,165,90,0.3);">
       <div style="font-size: 20px; margin-bottom: 8px;">💾 Data 数据</div>
       <div style="font-size: 12px; color: #A8C1D9; margin-bottom: 8px;">云扬 · 男声·专业·快速</div>
-      <audio controls preload="metadata" src="audio/data_part1.mp3" style="width: 100%;"></audio>
+      
     </div>
     <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 16px; border: 1px solid rgba(197,165,90,0.3);">
       <div style="font-size: 20px; margin-bottom: 8px;">📋 Project 项目</div>
       <div style="font-size: 12px; color: #A8C1D9; margin-bottom: 8px;">晓晓 · 女声·温暖·亲切</div>
-      <audio controls preload="metadata" src="audio/project_part1.mp3" style="width: 100%;"></audio>
+      
     </div>
     <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 16px; border: 1px solid rgba(197,165,90,0.3);">
       <div style="font-size: 20px; margin-bottom: 8px;">📄 Report 报告</div>
       <div style="font-size: 12px; color: #A8C1D9; margin-bottom: 8px;">云健 · 男声·厚实·播音</div>
-      <audio controls preload="metadata" src="audio/report_part1.mp3" style="width: 100%;"></audio>
+      
     </div>
   </div>
 </div>
-<script>
-// === V3 音频播放互斥（一次只播一个）===
-document.addEventListener('play', function(e) {
-  document.querySelectorAll('audio').forEach(function(a) {
-    if (a !== e.target) a.pause();
-  });
-}, true);
-</script>
+
 
 </body>
 </html>
