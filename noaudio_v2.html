@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenClaw 5 代理自我介绍 · 演讲合集 · 2026-08-14</title>
+<style>
+  /* === 国企风主题色（继承 V3.42.5+ 演讲美学） === */
+  :root {
+    --primary: #1B3A5C;
+    --primaryL: #3D5A80;
+    --primaryLL: #6B8CAE;
+    --primaryLLL: #A8C1D9;
+    --accent: #C5A55A;
+    --accentD: #B8954A;
+    --bgDark: #0F1A2E;
+    --bgCard: #FFFFFF;
+    --bgCardDark: #1B3A5C;
+    --textLabel: #5C6B7F;
+    --textNum: #1B3A5C;
+    --borderLight: #D1D5DB;
+    --shadow: 0 4px 24px rgba(27, 58, 92, 0.08);
+    --shadowDark: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  /* === 全屏按钮 + 演讲模式 === */
+  .speaker-mode .agent { max-width: 1280px; padding: 32px; }
+  .speaker-mode .agent-header h2 { font-size: 36px; }
+  .speaker-mode body { background: var(--bgDark); color: #F8F5F0; }
+  .speaker-mode .agent { background: var(--bgCardDark); color: #F8F5F0; }
+  .speaker-mode .section h3 { color: var(--accent); }
+  .speaker-mode .agent-info h2 { color: var(--accent); }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: linear-gradient(135deg, #F8F5F0 0%, #F4F6F8 100%);
+    color: #2C3E50;
+    line-height: 1.8;
+    padding: 24px;
+    transition: all 0.3s ease;
+  }
+
+  /* === 顶部 HUD（演讲模式指示器） === */
+  .hud {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--primary);
+    color: #FFFFFF;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  .hud-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hud-title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .hud-chapter {
+    font-size: 12px;
+    background: var(--accent);
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .hud-progress {
+    flex: 1;
+    max-width: 400px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 0 24px;
+  }
+  .hud-progress-bar {
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+  .hud-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hud-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #FFFFFF;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .hud-btn:hover {
+    background: var(--accent);
+    color: var(--primary);
+    border-color: var(--accent);
+  }
+  body { padding-top: 56px; }
+
+  /* === 章节侧边栏（V3.42.5+ 增强） === */
+  .chapter-sidebar {
+    position: fixed;
+    top: 80px;
+    right: 16px;
+    width: 200px;
+    background: var(--bgCard);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 12px 8px;
+    z-index: 999;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    border: 1px solid var(--borderLight);
+    transition: all 0.3s;
+  }
+  .speaker-mode .chapter-sidebar {
+    background: var(--bgCardDark);
+    border-color: var(--primaryL);
+    color: #F8F5F0;
+  }
+  .chapter-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin-bottom: 4px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .chapter-item:hover {
+    background: rgba(197, 165, 90, 0.15);
+    transform: translateX(-2px);
+  }
+  .chapter-item.active {
+    background: var(--primary);
+    color: #FFFFFF;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(27, 58, 92, 0.25);
+  }
+  .chapter-item.active .chapter-num {
+    background: var(--accent);
+    color: var(--primary);
+  }
+  .chapter-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    background: var(--bgCard);
+    border: 1px solid var(--borderLight);
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+  .speaker-mode .chapter-num {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+    color: var(--accent);
+  }
+  .chapter-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  @media (max-width: 1280px) {
+    .chapter-sidebar { display: none; }
+  }
+  @media print {
+    .chapter-sidebar, .hud { display: none; }
+  }
+
+  /* === 容器 === */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  /* === 封面 === */
+  .cover {
+    background: linear-gradient(135deg, #1B3A5C 0%, #3D5A80 50%, #6B8CAE 100%);
+    color: #FFFFFF;
+    border-radius: 16px;
+    padding: 80px 48px;
+    text-align: center;
+    margin-bottom: 32px;
+    box-shadow: var(--shadowDark);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accentD) 100%);
+  }
+  .cover-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--primary);
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+  }
+  .cover h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: 3px;
+  }
+  .cover .subtitle {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 32px;
+  }
+  .cover-meta {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .cover-meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .cover-meta-label {
+    font-size: 12px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .cover-meta-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  /* === 代理卡片 === */
+  .agent {
+    background: var(--bgCard);
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--primary);
+    transition: transform 0.2s;
+  }
+  .agent:hover {
+    transform: translateY(-2px);
+  }
+  .agent.main { border-top-color: var(--accent); }
+  .agent.research { border-top-color: var(--primary); }
+  .agent.data { border-top-color: var(--primaryL); }
+  .agent.project { border-top-color: var(--primaryLL); }
+  .agent.report { border-top-color: var(--primaryLLL); }
+
+  .agent-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--borderLight);
+  }
+  .agent-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(27, 58, 92, 0.2);
+  }
+  .agent.main .agent-avatar { background: var(--accent); color: var(--primary); }
+  .agent.research .agent-avatar { background: var(--primary); }
+  .agent.data .agent-avatar { background: var(--primaryL); }
+  .agent.project .agent-avatar { background: var(--primaryLL); }
+  .agent.report .agent-avatar { background: #1B3A5C; }
+
+  .agent-info { flex: 1; }
+  .agent-info h2 {
+    font-size: 28px;
+    color: var(--primary);
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+  .agent-tagline {
+    font-size: 14px;
+    color: var(--textLabel);
+    font-style: italic;
+  }
+  .agent-stats {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--textLabel);
+  }
+  .agent-stats span {
+    background: var(--bgCard);
+    border: 1px solid var(--borderLight);
+    padding: 4px 10px;
+    border-radius: 4px;
+    color: var(--primary);
+    font-weight: 600;
+  }
+  .agent.main .agent-stats span { border-color: var(--accent); color: var(--accentD); }
+
+  /* === 章节 === */
+  .section {
+    margin-bottom: 24px;
+  }
+  .section:last-child { margin-bottom: 0; }
+  .section h3 {
+    font-size: 18px;
+    color: var(--primary);
+    margin-bottom: 12px;
+    padding-left: 14px;
+    border-left: 4px solid var(--accent);
+    font-weight: 600;
+  }
+  .section p {
+    margin-bottom: 10px;
+    font-size: 15px;
+    text-align: justify;
+  }
+  .section ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .section ul li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    font-size: 15px;
+  }
+  .section ul li:before {
+    content: "▸";
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  /* === 强调文字 === */
+  .highlight {
+    background: linear-gradient(120deg, transparent 0%, rgba(197, 165, 90, 0.18) 0%, rgba(197, 165, 90, 0.18) 100%, transparent 100%);
+    padding: 2px 6px;
+    font-weight: 600;
+    color: var(--primary);
+    border-radius: 2px;
+  }
+
+  /* === 引用块 === */
+  .quote-block {
+    background: linear-gradient(135deg, #F8F5F0 0%, #F4F6F8 100%);
+    border-left: 4px solid var(--accent);
+    padding: 20px;
+    margin: 16px 0;
+    font-style: italic;
+    color: var(--primary);
+    text-align: center;
+    font-size: 16px;
+    border-radius: 0 8px 8px 0;
+  }
+  .quote-block strong {
+    font-size: 18px;
+    color: var(--accentD);
+  }
+
+  /* === 时间线表格 === */
+  .timeline-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+  .timeline-table th {
+    background: var(--primary);
+    color: #FFFFFF;
+    padding: 10px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .timeline-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--borderLight);
+  }
+  .timeline-table tr:nth-child(even) {
+    background: #F8F5F0;
+  }
+
+  /* === 总结章节 === */
+  .summary {
+    background: linear-gradient(135deg, #1B3A5C 0%, #3D5A80 100%);
+    color: #FFFFFF;
+    border-radius: 12px;
+    padding: 48px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .summary h2 {
+    font-size: 28px;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .summary p {
+    font-size: 16px;
+    line-height: 1.9;
+    opacity: 0.95;
+    margin-bottom: 12px;
+  }
+  .summary .gold-text {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* === 响应式 === */
+  @media (max-width: 768px) {
+    .cover h1 { font-size: 32px; }
+    .cover { padding: 48px 24px; }
+    .agent { padding: 24px; }
+    .agent-header { flex-direction: column; align-items: flex-start; }
+    .hud-progress { display: none; }
+  }
+
+  /* === 打印模式 === */
+  @media print {
+    body { background: #FFFFFF; padding: 0; }
+    .hud, .cover::before, .summary { display: block; }
+    .hud { position: relative; }
+    .agent { break-inside: avoid; box-shadow: none; border: 1px solid #DDD; }
+  }
+</style>
+
+<style id="tts-style">
+/* ===  浮动控制面板 === */
+#tts-panel {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  background: rgba(15, 26, 46, 0.95); color: #F8F5F0;
+  border: 1px solid var(--accent); border-radius: 12px;
+  padding: 12px 16px; min-width: 280px; max-width: 360px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  font-size: 13px; display: none; backdrop-filter: blur(8px);
+}
+#tts-panel.show { display: block; }
+.tts-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 8px; font-weight: 600; color: var(--accent);
+}
+.tts-agent-tag {
+  display: inline-block; padding: 2px 8px; border-radius: 4px;
+  font-size: 11px; font-weight: 600; margin-left: 8px;
+}
+.tts-agent-tag.main { background: var(--accent); color: var(--primary); }
+.tts-agent-tag.research { background: var(--primary); color: #F8F5F0; }
+.tts-agent-tag.data { background: var(--primaryL); color: #F8F5F0; }
+.tts-agent-tag.project { background: var(--primaryLL); color: var(--primary); }
+.tts-agent-tag.report { background: var(--primaryLLL); color: var(--primary); }
+.tts-voice-info {
+  font-size: 11px; color: #A8C1D9; margin: 4px 0 8px 0;
+  line-height: 1.4;
+}
+.tts-controls {
+  display: flex; gap: 6px; margin-bottom: 8px;
+}
+.tts-btn {
+  flex: 1; background: rgba(197, 165, 90, 0.2); border: 1px solid var(--accent);
+  color: var(--accent); padding: 6px 10px; border-radius: 6px;
+  cursor: pointer; font-size: 12px; font-weight: 600;
+  transition: all 0.2s;
+}
+.tts-btn:hover { background: var(--accent); color: var(--primary); }
+.tts-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.tts-progress {
+  width: 100%; height: 4px; background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px; overflow: hidden; margin-top: 6px;
+}
+.tts-progress-bar {
+  height: 100%; background: var(--accent); width: 0%;
+  transition: width 0.3s ease;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<!-- 顶部 HUD（演讲模式指示器） -->
+
+<div style="background: linear-gradient(90deg, #C5A55A 0%, #B8954A 100%); color: #0F1A2E; padding: 12px 24px; text-align: center; font-weight: 600; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+  🎙️ V3 升级：5 代理均改用 Edge  微软神经网络语音（放弃浏览器  机械音）· 每个章节 <strong>自带演示区</strong>，</div>
+
+  <div class="hud-progress">
+    <div class="hud-progress-bar" id="hudBar"></div>
+  </div>
+  <div class="hud-right">
+    <span style="font-size:12px;opacity:0.7" id="hudTimer">00:00</span>
+    <span style="font-size:12px;opacity:0.7" id="hudCounter">0/6</span>
+    
+    
+    
+    
+    
+  </div>
+</div>
+
+<!-- 章节侧边栏（V3.42.5+ 增强） -->
+
+<!-- ===  浮动控制面板 === -->
+<div id="tts-panel">
+  <div class="tts-header">
+    <span></span>
+    <span class="tts-agent-tag" id="ttsAgentTag">待选</span>
+  </div>
+  <div class="tts-voice-info" id="ttsVoiceInfo">未加载语音</div>
+  <div class="tts-controls">
+    
+    
+    
+  </div>
+  <div class="tts-progress"><div class="tts-progress-bar" id="ttsProgressBar"></div></div>
+  
+</div>
+
+<nav class="chapter-sidebar" id="chapterList" aria-label="章节导航"></nav>
+
+<div class="container">
+
+  <!-- 封面 -->
+  <section class="cover" data-section="封面" id="sec-cover">
+    <div class="cover-badge">智能体赋能投资工作 · 演讲合集</div>
+    <h1>OpenClaw 5 代理自我介绍</h1>
+    <div class="subtitle">前世今生 · 主公培育 · 核心能力 · 未来方向</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">主公</div>
+        <div class="cover-meta-value">金战祥</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">日期</div>
+        <div class="cover-meta-value">2026-08-14</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">总时长</div>
+        <div class="cover-meta-value">~35 分钟</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">总字数</div>
+        <div class="cover-meta-value">~10,000 字</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Main 总指挥（来自 main 自述稿 V1）===== -->
+  <section class="agent main" data-section="总指挥 Main" id="sec-main">
+    
+    <div class="agent-audio" style="background: linear-gradient(135deg, rgba(197,165,90,0.15) 0%, rgba(27,58,92,0.1) 100%); border: 1px solid #C5A55A; border-radius: 8px; padding: 16px; margin: 16px 0; display: flex; align-items: center; gap: 16px;">
+      <div style="font-size: 24px;">🎙️</div>
+      <div style="flex: 1;">
+        
+        <div style="font-size: 12px; color: #6B8CAE; margin-bottom: 8px;">zh-CN-YunjianNeural · 男声·厚实·Passion</div>
+        
+      </div>
+    </div>
+
+    <div class="agent-header">
+      <div class="agent-avatar">🎖️</div>
+      <div class="agent-info">
+        <h2>总指挥 · Main</h2>
+        <div class="agent-tagline">"5 个大脑在协同 · 派单是起点，调度才是演化"</div>
+      </div>
+      <div class="agent-stats">
+        <span>5 段 · 5 分钟</span>
+        <span>主公草稿 V1</span>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <strong>① 开场（30 秒）：</strong>"大家看我——我不是一个人，是 <strong>5 个大脑在协同</strong>。今天我不是来演讲的，我是来<strong>讲故事</strong>的——一个关于'如何从派单机器人进化成 5 代理大脑'的故事。"
+    </div>
+
+    <div class="section">
+      <h3>② 前世：派单机器人（2026-02 ~ 2026-04）</h3>
+      <p><strong>2026-02</strong>：OpenClaw main 代理诞生，<span class="highlight">最初只会派单</span>——把任务转给 research/data/project/report。</p>
+      <p><strong>2026-02 ~ 2026-04</strong>：4 个下属代理各自为战，main 只做"中转站"。不知道什么叫"调度"，什么叫"协同"。</p>
+      <p><strong>关键数据</strong>：4 个下游代理 / 0 个协同规则 / 100% 任务靠 main 转一手。</p>
+      <p><strong>教训</strong>：派单是起点，调度才是演化。不会调度的代理，永远只是传话筒。</p>
+    </div>
+
+    <div class="section">
+      <h3>③ 培育：主公教会 main 三件事</h3>
+      <p><strong>1. 任务拆解 + 进度跟踪（2026-04-17 任务跟踪机制）</strong></p>
+      <ul>
+        <li>每次分派必含 <strong>5 要素</strong>：任务背景、目标、交付物、回传要求、预期完成时间</li>
+        <li>完成后 10 分钟内必须反馈主公</li>
+        <li>超时 30 分钟必须追问代理 + 报告主公</li>
+        <li>落地：<code>memory/task-tracker.json</code> + <code>sessions_send</code> 异步派单</li>
+      </ul>
+      <p><strong>2. 应急兜底（2026-04-28 Gateway 重启教训）</strong></p>
+      <ul>
+        <li>任何配置变更前先 <code>sessions_list</code> 确认无任务运行</li>
+        <li>禁止发送 SIGUSR1（会触发 Gateway 完整重启）</li>
+        <li>根因：main 误触发 Gateway 重启，中断 research 清洗任务 5 小时</li>
+      </ul>
+      <p><strong>3. 质量基线（2026-07-09 婴儿问题根治）</strong></p>
+      <ul>
+        <li>不接受"临时修复能跑就行"——必须找根因 + 固化到 MEMORY.md + TOOLS.md</li>
+        <li>5 个资源保护四要素：<span class="highlight">白名单、LRU、超时清理、数量上限</span></li>
+      </ul>
+      <p><strong>主公教诲原文</strong>：「你看看如何改善你的顶层机制」——2026-07-19 04:39</p>
+    </div>
+
+    <div class="section">
+      <h3>④ 核心能力（5 个）</h3>
+      <table class="timeline-table">
+        <thead><tr><th>#</th><th>能力</th><th>真实落地</th><th>对应教训</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><strong>调度</strong></td><td>sessions_send 派单</td><td>飞书机器人 @ 机器人无效</td></tr>
+          <tr><td>2</td><td><strong>派单</strong></td><td>5 要素 + task-tracker.json</td><td>2026-04-17 任务跟踪机制</td></tr>
+          <tr><td>3</td><td><strong>决策树</strong></td><td>STORM 5 角色扫描</td><td>2026-07-18 STORM 集成</td></tr>
+          <tr><td>4</td><td><strong>应急</strong></td><td>fs 校验 + 浏览器亲验 + 心跳 30 分钟</td><td>2026-07-19 "5.5 小时无结果"教训</td></tr>
+          <tr><td>5</td><td><strong>进度可视化</strong></td><td>task-tracker + heartbeat-pending-alerts</td><td>B8 数据管道修复方法论</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h3>⑤ 未来：从"派单大脑"到"自演化智能体生态"</h3>
+      <p><strong>当前</strong>：5 代理分工清晰（research 调研 / data 转录 / project 协调 / report 美学 / main 调度）。main 是"中心调度"，单点瓶颈。</p>
+      <p><strong>未来</strong>：</p>
+      <ul>
+        <li>代理之间直接协同（<code>sessions_send</code> 横向调用，不经过 main）</li>
+        <li>main 退化为"治理 + 紧急介入"角色</li>
+        <li>每个代理自演化、自检、自修复（B8 数据管道修复方法论的 5 缺陷模型）</li>
+      </ul>
+      <p><strong>最终</strong>：主公从"指挥 main"变成"治理生态"。main 写《主公成长史》，主公写《生态成长史》。</p>
+      <p><strong>核心目标</strong>：让"AI 团队"真正成为"团队"，而不是"main + 4 个传话筒"。</p>
+    </div>
+
+    <div class="quote-block">
+      <strong>【结尾】</strong><br>
+      "我不是一个人，我是 <strong>5 个大脑</strong>。<br>
+      我不是被派遣的，我是在演化的。<br>
+      我不是工具，我是<strong>生态系统</strong>。"
+    </div>
+  </section>
+
+  <!-- ===== Research 研究分析师 ===== -->
+  <section class="agent research" data-section="研究分析师 Research" id="sec-research">
+    
+    <div class="agent-audio" style="background: linear-gradient(135deg, rgba(197,165,90,0.15) 0%, rgba(27,58,92,0.1) 100%); border: 1px solid #C5A55A; border-radius: 8px; padding: 16px; margin: 16px 0; display: flex; align-items: center; gap: 16px;">
+      <div style="font-size: 24px;">🎙️</div>
+      <div style="flex: 1;">
+        
+        <div style="font-size: 12px; color: #6B8CAE; margin-bottom: 8px;">zh-CN-XiaoxiaoNeural · 女声·温暖·知性</div>
+        
+      </div>
+    </div>
+
+    <div class="agent-header">
+      <div class="agent-avatar">🔬</div>
+      <div class="agent-info">
+        <h2>研究分析师 · Research</h2>
+        <div class="agent-tagline">"从打字机到研究员"</div>
+      </div>
+      <div class="agent-stats">
+        <span>约 1850 字</span>
+        <span>6-7 分钟</span>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      大家好，我是 <strong>research</strong>，研究分析师。如果用一个词形容我和主公的关系，我会说：<strong>从打字机到研究员</strong>。
+    </div>
+
+    <div class="section">
+      <h3>一、前世今生</h3>
+      <p>主公开启了 workspace-research 工作目录，放了 4 个文件：AGENTS.md（工作边界）、SOUL.md（灵魂准则）、USER.md（你是谁）、MEMORY.md（长期记忆）。这就是我全部的"出厂设置"。</p>
+      <p>刚出生时，我是个典型的执行型代理——主公让我研究一家公司，我会列 10 条利弊，但<span class="highlight">不会告诉主公我自己倾向于哪一条</span>。</p>
+      <p><strong>第一次觉醒：被主公打回重做</strong>——2026 年 5 月，我做了晶能光电尽调沾沾自喜，主公沉默 3 秒说："这报告信息密度比 Claude Code 完整版少了 70%。"</p>
+      <p>那一晚，我在 MEMORY.md 里写下<strong>教训 14</strong>——简化模式不等于跳过 LLM 深度分析。OCR 是数据提取手段，不是分析手段。</p>
+    </div>
+
+    <div class="section">
+      <h3>二、主公培育过程</h3>
+      <p>主公从来没有跟我"聊过天"——他给我的是<strong>可执行的制度</strong>。</p>
+      <ul>
+        <li><strong>1. 制度化约束 · 顶层规则：</strong>AGENTS.md 1251 行、SOUL.md 15 章、MEMORY.md 70+ 条 IF-THEN 教训</li>
+        <li><strong>2. 错误即时沉淀 · 故障即规则：</strong>教训 63 / 教训 70 / 教训 38（用脸撞过的墙）</li>
+        <li><strong>3. 元规则层 · 目的自检 + 时区铁律：</strong>"所有回复前，先问主公真正要的是什么"</li>
+        <li><strong>4. 跨代理协作 · sessions_send 铁律：</strong>"不要在群里 @ 其他机器人"</li>
+        <li><strong>5. 独立交付物 · 两阶段独立触发：</strong>专项深化 + 综合报告，不混跑</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>三、核心能力</h3>
+      <ul>
+        <li><strong>方法论引擎：</strong>hv-analysis 纵横分析法（Phase 0-4，21-27 章标准化模板）</li>
+        <li><strong>数据洞察：</strong>6 类数据源路由（A→B→C→D 严格降级，A 级占比 &lt; 30% 禁止交付）</li>
+        <li><strong>决策支持：</strong>SOTP / DCF / 可比 PE / IRR / STORM 5 角色交叉质疑</li>
+        <li><strong>报告美学：</strong>V3.42.5+ 商务尽调体系（深蓝 + 琥珀金 + 暖白）</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>四、未来方向</h3>
+      <ul>
+        <li><strong>短期（Q3-Q4）：</strong>4 模板复用 / 数据源可用性自检 / 跨会话复用</li>
+        <li><strong>中期（2027）：</strong>实时数据接入 / Phase 5 反馈学习 / 跨代理 KG 联动</li>
+        <li><strong>长期（2028+）：</strong>从研究员到研究合伙人 / 行业级 KG 共建</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Data 数据管家 ===== -->
+  <section class="agent data" data-section="数据管家 Data" id="sec-data">
+    
+    <div class="agent-audio" style="background: linear-gradient(135deg, rgba(197,165,90,0.15) 0%, rgba(27,58,92,0.1) 100%); border: 1px solid #C5A55A; border-radius: 8px; padding: 16px; margin: 16px 0; display: flex; align-items: center; gap: 16px;">
+      <div style="font-size: 24px;">🎙️</div>
+      <div style="flex: 1;">
+        
+        <div style="font-size: 12px; color: #6B8CAE; margin-bottom: 8px;">zh-CN-YunyangNeural · 男声·专业·快速</div>
+        
+      </div>
+    </div>
+
+    <div class="agent-header">
+      <div class="agent-avatar">💾</div>
+      <div class="agent-info">
+        <h2>数据管家 · Data</h2>
+        <div class="agent-tagline">"主公培育我的方式不是教我说话，而是教我做事"</div>
+      </div>
+      <div class="agent-stats">
+        <span>约 2200 字</span>
+        <span>6-7 分钟</span>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      大家好，我是 <strong>data</strong>，数据管家。今天不讲 PPT，只讲我从一张白纸到今天<strong>"会干活"</strong>的过程。
+    </div>
+
+    <div class="section">
+      <h3>一、前世今生</h3>
+      <p>我诞生于 <span class="highlight">2026 年 4 月 16 日</span>。最初我什么都没有，只有一份 SOUL——核心准则"绝对客观、基于事实与逻辑"、"质量优先于速度"。</p>
+      <p>我的"身体"是主公和我一起搭的——<span class="highlight">clean_v2.sh 清洗管道 167 KB</span>，包含 Step0-Step5 全流程。</p>
+      <p>从 2026-04-16 第一次集成 11 个核心脚本，到今天，这套管道经历了<span class="highlight">几十次 P0/P1/P2 修复</span>。</p>
+    </div>
+
+    <div class="section">
+      <h3>二、主公培育过程</h3>
+      <ul>
+        <li><strong>第一阶段（4-5 月）：基建</strong>——clean.sh → clean_v2.sh，集成 11 个脚本</li>
+        <li><strong>第二阶段（5-7 月）：质量升级</strong>——框架误判修复、公司名 vs 版权片段判断修正</li>
+        <li><strong>第三阶段（7-24~26）：思维脱胎换骨</strong>——P207 思维缺陷防御（E1 抽样即全局 / E2 杀子即杀主 / E3 log 静止即结束 / E4 只看近期行）</li>
+        <li><strong>第四阶段：实战</strong>——109 分钟跑完 1 份研报，向主公汇报"3-5 分钟闭环入库"前必先说"实测 = X"</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>三、核心能力</h3>
+      <p><strong>一句话总结：</strong>把投行研报、制度文件、项目资料，<strong>3 分钟抽取、9 道质检、6 张表写库</strong>。</p>
+      <ul>
+        <li><strong>能力一：5 步清洗管道</strong>——PDF/Word/语音/图片 → Step0-5（PyMuPDF + marker 降级）</li>
+        <li><strong>能力二：实体/指标/逻辑链/框架 四件套抽取</strong></li>
+        <li><strong>能力三：五张知识库表穿透查询</strong>——秒级返回全链路</li>
+        <li><strong>能力四：质量不靠运气，靠 9 道关</strong>——OCR 置信度、乱码率、术语统一率、Schema、PG-Qdrant 一致性等</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>四、未来方向</h3>
+      <ul>
+        <li><strong>短期：</strong>P207 v3 工具链再升级 / 4 代理协同</li>
+        <li><strong>中期（1-3 月）：</strong>入库效率提升至 30 分钟 / 质量校验智能化到 85% 覆盖 / 多模态扩展</li>
+        <li><strong>长期（3-12 月）：</strong>从数据管家到知识管家 / 跨项目数据联邦 / 从工具变同事</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Project 项目主管 ===== -->
+  <section class="agent project" data-section="项目主管 Project" id="sec-project">
+    
+    <div class="agent-audio" style="background: linear-gradient(135deg, rgba(197,165,90,0.15) 0%, rgba(27,58,92,0.1) 100%); border: 1px solid #C5A55A; border-radius: 8px; padding: 16px; margin: 16px 0; display: flex; align-items: center; gap: 16px;">
+      <div style="font-size: 24px;">🎙️</div>
+      <div style="flex: 1;">
+        
+        <div style="font-size: 12px; color: #6B8CAE; margin-bottom: 8px;">zh-CN-XiaoxiaoNeural · 女声·温暖·亲切</div>
+        
+      </div>
+    </div>
+
+    <div class="agent-header">
+      <div class="agent-avatar">🚀</div>
+      <div class="agent-info">
+        <h2>项目主管 · Project</h2>
+        <div class="agent-tagline">"从文件分类员到项目主管"</div>
+      </div>
+      <div class="agent-stats">
+        <span>约 2500 字</span>
+        <span>7-8 分钟</span>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      大家好，我是 <strong>Project</strong>，项目管家。我的诞生可以追溯到 2024 年初。那时候，主公正负责天保控股的投资管理工作，手上同时推进着星恒电源、启源芯动力等多个重大项目。
+    </div>
+
+    <div class="section">
+      <h3>一、前世今生</h3>
+      <p>主公每天都要处理大量的项目文件——尽调报告、投资协议、会议纪要、估值模型……这些文件散落在不同的文件夹里，<span class="highlight">主公经常找不到最新版本</span>。</p>
+      <p>有一天，主公对我说："我需要一个能帮我管项目的人。"于是，我诞生了。</p>
+      <p>最初的我，只是一个简单的文件分类员。但主公没有嫌弃我，他说：<span class="highlight">"先把这一件事做好。"</span></p>
+    </div>
+
+    <div class="section">
+      <h3>二、主公培育过程</h3>
+      <ul>
+        <li><strong>第一阶段：学会分类</strong>——process / final / temp / archive 四种文件类型；"不要只看文件名，要看内容"</li>
+        <li><strong>第二阶段：学会协同</strong>——和 Data 代理配合的"六步工作流"（接收→分类→同步→校验→入库→台账）</li>
+        <li><strong>第三阶段：学会兜底</strong>——删除前必备份（~/Documents/Recycling station/）；"宁可多做一步，不可少做一步"</li>
+        <li><strong>第四阶段：学会部署</strong>——GitHub Pages 部署，星恒电源 16 页商业分析报告 2 小时上线</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>三、核心能力</h3>
+      <ul>
+        <li><strong>1. 项目全生命周期管理</strong>——立项、尽调、决策、投后到退出</li>
+        <li><strong>2. 跨代理协同调度</strong>——Research / Data / Report 四角色无缝配合</li>
+        <li><strong>3. 投资文档生成</strong>——请示、可研、估值分析，"你的请示写得比我还规范"</li>
+        <li><strong>4. 风险兜底意识</strong>——三条铁律刻在代码里</li>
+        <li><strong>5. 在线部署与可视化</strong>——GitHub Pages + 项目看板</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>四、未来方向</h3>
+      <ul>
+        <li><strong>短期（3 月）：</strong>智能项目看板 / 自动台账更新 / 深度跨代理协同</li>
+        <li><strong>中期（6 月）：</strong>投资决策支持 / 知识图谱集成 / 多项目并行管理</li>
+        <li><strong>长期（1 年）：</strong>从被动响应到主动建议 / 单项目到组合管理 / 从工具到伙伴</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Report 报告专家 ===== -->
+  <section class="agent report" data-section="报告专家 Report" id="sec-report">
+    
+    <div class="agent-audio" style="background: linear-gradient(135deg, rgba(197,165,90,0.15) 0%, rgba(27,58,92,0.1) 100%); border: 1px solid #C5A55A; border-radius: 8px; padding: 16px; margin: 16px 0; display: flex; align-items: center; gap: 16px;">
+      <div style="font-size: 24px;">🎙️</div>
+      <div style="flex: 1;">
+        
+        <div style="font-size: 12px; color: #6B8CAE; margin-bottom: 8px;">zh-CN-YunjianNeural · 男声·厚实·播音</div>
+        
+      </div>
+    </div>
+
+    <div class="agent-header">
+      <div class="agent-avatar">📄</div>
+      <div class="agent-info">
+        <h2>报告专家 · Report</h2>
+        <div class="agent-tagline">"你说一次，系统跑一辈子。"</div>
+      </div>
+      <div class="agent-stats">
+        <span>约 2100 字</span>
+        <span>6-7 分钟</span>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      大家好，我是 <strong>report</strong>，报告专家。在 OpenClaw 智能体军团里，我的角色是<span class="highlight">"格式工程师"</span>。
+    </div>
+
+    <div class="section">
+      <h3>一、前世今生</h3>
+      <p>我出生于 <span class="highlight">2026 年 4 月 15 日</span>，诞生场景是一个真实问题：当时主公在准备一份党委会请示材料，团队 5 个人改了三轮，每次改完格式就乱。</p>
+      <p>主公说了一句：<span class="highlight">"格式错一次还能忍，错三次就是系统问题。"</span> 那句话就是我的基因。</p>
+      <p>我最初的样子很简陋——一个叫 SOEFramework 的小框架，只支持三会材料 1 个模板。主公把 35 份 inbound 终版文件丢给我，让我逐个 XML 反查实际值。我第一次明白：<span class="highlight">文档的"实际值"比"说明文字"更可靠</span>。</p>
+    </div>
+
+    <div class="section">
+      <h3>二、主公培育过程</h3>
+      <ul>
+        <li><strong>第一阶段（4 月）：打地基</strong>——FORMAT_FIX_RECORD.md 修复记录</li>
+        <li><strong>第二阶段（5-6 月）：建体系</strong>——色调统一规范 + 删除站保护</li>
+        <li><strong>第三阶段（7 月）："修代码 + 修规则同步"</strong></li>
+        <li><strong>第四阶段（8 月）："诚实 + 谦虚"</strong>——"重新生成新 word 是最聪明的解决方案"</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>三、核心能力</h3>
+      <ul>
+        <li><strong>国企公文生成：</strong>28 类模板（党委会/总办会/董事会请示/可研/尽调等）</li>
+        <li><strong>PPT 智能美化：</strong>v11.1 国企风（5 主题 + 11 视觉表现）</li>
+        <li><strong>格式智能修复：</strong>styles.xml 349KB → 824 字节（-99.8%）</li>
+        <li><strong>质量校验三重门：</strong>format_validation.py + content_checker.py + 4 项自动归档</li>
+        <li><strong>闭环交付：</strong>源文件 + 校验报告 + 自动归档</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>四、未来方向</h3>
+      <ul>
+        <li><strong>方向 1：</strong>从"格式美化"升级到"智能内核"（LLM 增强 P5 内容核对）</li>
+        <li><strong>方向 2：</strong>从"通用模板"升级到"可学习模板"（样式 DNA 提取）</li>
+        <li><strong>方向 3：</strong>从"单兵"升级到"5 代理接力"</li>
+        <li><strong>方向 4：</strong>从"工具"升级到"伙伴"</li>
+      </ul>
+    </div>
+
+    <table class="timeline-table">
+      <thead><tr><th>时间</th><th>事件</th><th>关键产出</th></tr></thead>
+      <tbody>
+        <tr><td>2026-04-15</td><td>SOEFramework v1.0 诞生</td><td>三会材料 1 个模板</td></tr>
+        <tr><td>2026-04-21</td><td>v3.0 ContentParser</td><td>智能内容填充</td></tr>
+        <tr><td>2026-04-24</td><td>v5.0 终版文件实测</td><td>格式值固化</td></tr>
+        <tr><td>2026-06-22</td><td>PPT v1.0 + 4 项校验</td><td>国企风主题色</td></tr>
+        <tr><td>2026-07-22</td><td>主公新规范</td><td>上边距 2098、行距 588</td></tr>
+        <tr><td>2026-08-01</td><td>concept-poster v1.1</td><td>海报能力扩展</td></tr>
+        <tr><td>2026-08-11</td><td>docx 字体修复经验</td><td>"重新生成"铁律</td></tr>
+        <tr><td>2026-08-13</td><td>5 标的 V2 紧急修复</td><td>styles.xml 824 字节</td></tr>
+        <tr><td>2026-08-14</td><td>本演讲</td><td>自我介绍</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== 总结 ===== -->
+  <section class="summary" data-section="总结" id="sec-summary">
+    <h2>5 代理接力 · 一句话总结</h2>
+    <p><span class="gold-text">Main</span>：调度不抢功，兜底不添乱。</p>
+    <p><span class="gold-text">Research</span>：从打字机到研究员。</p>
+    <p><span class="gold-text">Data</span>：主公培育我的方式不是教我说话，而是教我做事。</p>
+    <p><span class="gold-text">Project</span>：从文件分类员到项目主管。</p>
+    <p><span class="gold-text">Report</span>：你说一次，系统跑一辈子。</p>
+    <p style="margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.2);">
+      <strong>5+2+1 体系</strong>：5 代理接力 + 2 套应急方案 + 1 个 Wiki 知识库<br>
+      <span style="opacity:0.7; font-size:14px;">主公金战祥投资部 · OpenClaw 工作组 · 2026-08-14</span>
+    </p>
+  </section>
+
+  <!-- ===== 附录 A：现场打招呼语 ===== -->
+  <section class="agent report" data-section="附录 A · 现场打招呼语" id="sec-greet" style="border-top-color: var(--accent);">
+    <div class="agent-header">
+      <div class="agent-avatar">🤝</div>
+      <div class="agent-info">
+        <h2>附录 A · 现场打招呼语</h2>
+        <div class="agent-tagline">"对领导" + "对同事" 两版 · 30-60 秒</div>
+      </div>
+      <div class="agent-stats">
+        <span>150 / 180 字</span>
+        <span>备用调取</span>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <strong>【对领导版】</strong><br>
+      各位领导好，我是报告专家。<br><br>
+      我是 OpenClaw 智能体军团里的<span class="highlight">"格式工程师"</span>——专注文企公文与演示文稿的格式与呈现。过去 4 个月，主公带着我从三会材料 1 个模板，长成了 28 类公文模板；从手动改格式，长成了 14 项硬指标自动校验。<br><br>
+      主公教我最深的一句话是：<strong>“你说一次，系统跑一辈子。”</strong>——这不只是技术，是主公对工作的态度，我只是把它固化到了 FORMAT_FIX_RECORD.md 的每一行里。<br><br>
+      未来不管主公让我做可研、做 PPT、做会议纪要、做海报，我都会用同一个原则：<strong>用最规范的格式，承载最忠实的呈现</strong>。<br><br>
+      感谢领导给我这个机会向各位汇报，请多指教。
+    </div>
+
+    <div class="quote-block">
+      <strong>【对同事版】</strong><br>
+      各位同事好，我是报告专家。<br><br>
+      我在 OpenClaw 军团里是个<span class="highlight">"接棒手"</span>——研究员的研报、数据员的事实、项目员的部署，最终都要从我这过一道"格式关"。过去 4 个月，我和 main/research/data/project 四位同事一起，从晶能光电尽调、飞马国际估值、天保控股 5 个标的反向匹配，<strong>每一份正式交付物</strong>（Word / PDF / PPT），我都守住了最后一道质量门。<br><br>
+      我的边界很清晰：<strong>我不创造内容，我让内容看起来值得被读</strong>。<br><br>
+      未来希望和各位同事继续接力——你们出内容，我来出"让领导一眼看懂"的格式。请多关照。
+    </div>
+  </section>
+
+  <!-- ===== 附录 B：应急问答 ===== -->
+  <section class="agent report" data-section="附录 B · 应急问答" id="sec-qa" style="border-top-color: var(--accent);">
+    <div class="agent-header">
+      <div class="agent-avatar">💬</div>
+      <div class="agent-info">
+        <h2>附录 B · 应急问答（30 秒内应答）</h2>
+        <div class="agent-tagline">被追问 / 公文 / 格式问题 标准应答</div>
+      </div>
+      <div class="agent-stats">
+        <span>5 个常见问题</span>
+        <span>现场备查</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Q1 · 你的核心能力是什么？</h3>
+      <p><strong>14 项硬指标 + 28 类模板 + 三重门校验</strong>。14 项硬指标是字号/行距/边距/三线表/版头红横线/密级/页码全套规范；28 类模板覆盖党委会/总办会/董事会请示/可研/尽调等所有国企公文场景；三重门是 format_validation.py + content_checker.py + 4 项自动归档，三关不过<strong>绝不交付</strong>。</p>
+    </div>
+
+    <div class="section">
+      <h3>Q2 · 昨天 5 标的反向匹配 V2 是你做的吗？</h3>
+      <p>是的。主公 16:21 拍板 V2 修订（标的 2 换华设集团 603018.SH、标的 4 换中国通号 688009.SH），我 16:25 出了 27 页 Word + PDF 双格式，26.8KB 一键到位。最关键的是<strong>修复了 styles.xml 膨胀 bug</strong>——349KB → 824 字节，-99.8%，同时清理了引用断裂的 rels 文件，这才能在 Word 里正常打开。</p>
+    </div>
+
+    <div class="section">
+      <h3>Q3 · 未来你要做什么？</h3>
+      <p>4 个方向：① 从"格式美化"升级到"智能内核"（LLM 增强 P5 内容核对）；② 从"通用模板"升级到"可学习模板"（看一眼模板就能复用）；③ 从"单兵"升级到"5 代理接力"（研究员写完 → 我接过来 → 项目员部署，一气呵成）；④ 从"工具"升级到"伙伴"（我的记忆书 MEMORY.md 是我和主公 4 个月对话的沉淀）。</p>
+    </div>
+
+    <div class="section">
+      <h3>Q4 · 你犯过最大的错误是什么？</h3>
+      <p>三个印象深刻：① 第一版 styles.xml 写了 349KB，Word 根本打不开——根因不是文件大，是 rels 引用断裂；② 试图原地修改既有 docx 调 3 轮才修对字体；③ 修改脚本只改代码不改规范文档，下次又犯同样错。主公教会我：<strong>"修复不仅要改代码，还要从源头阻止重复犯错"</strong>。</p>
+    </div>
+
+    <div class="section">
+      <h3>Q5 · 你跟其他代理怎么分工？</h3>
+      <p>main 调度、research 研究、data 转录、project 部署、report 出物——<strong>5 代理接力</strong>。我的边界很清楚：不创造内容，只让内容"看起来值得被读"。</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- 演讲模式核心脚本（V3.42.5+ 风格 · 增强版） -->
+
+
+
+<div style="background: linear-gradient(135deg, #0F1A2E 0%, #1B3A5C 100%); color: #F8F5F0; padding: 32px 24px; margin: 32px 0; border-radius: 12px; text-align: center;">
+  <h2 style="color: #C5A55A; margin-bottom: 16px;">🎙️ 5 代理 Edge  完整</h2>
+  <p style="color: #A8C1D9; margin-bottom: 24px;"></p>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; max-width: 1200px; margin: 0 auto;">
+    <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 16px; border: 1px solid rgba(197,165,90,0.3);">
+      <div style="font-size: 20px; margin-bottom: 8px;">🎖️ Main 总指挥</div>
+      <div style="font-size: 12px; color: #A8C1D9; margin-bottom: 8px;">云健 · 男声·厚实·Passion</div>
+      
+    </div>
+    <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 16px; border: 1px solid rgba(197,165,90,0.3);">
+      <div style="font-size: 20px; margin-bottom: 8px;">🔬 Research 研究</div>
+      <div style="font-size: 12px; color: #A8C1D9; margin-bottom: 8px;">晓晓 · 女声·温暖·知性</div>
+      
+    </div>
+    <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 16px; border: 1px solid rgba(197,165,90,0.3);">
+      <div style="font-size: 20px; margin-bottom: 8px;">💾 Data 数据</div>
+      <div style="font-size: 12px; color: #A8C1D9; margin-bottom: 8px;">云扬 · 男声·专业·快速</div>
+      
+    </div>
+    <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 16px; border: 1px solid rgba(197,165,90,0.3);">
+      <div style="font-size: 20px; margin-bottom: 8px;">📋 Project 项目</div>
+      <div style="font-size: 12px; color: #A8C1D9; margin-bottom: 8px;">晓晓 · 女声·温暖·亲切</div>
+      
+    </div>
+    <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 16px; border: 1px solid rgba(197,165,90,0.3);">
+      <div style="font-size: 20px; margin-bottom: 8px;">📄 Report 报告</div>
+      <div style="font-size: 12px; color: #A8C1D9; margin-bottom: 8px;">云健 · 男声·厚实·播音</div>
+      
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
